@@ -734,6 +734,9 @@ body{
 	.page2 h2{
 		font-size: 85px;
 	}
+	.page2 .slickwrap{
+		margin-top: 25%;
+	}
 }
 @media (max-width:520px){
 	.page1 h1{
