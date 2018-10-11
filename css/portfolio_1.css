@@ -706,6 +706,9 @@ body{
 	}
 	.page2 h2{
 		font-size: 60px;
+		width: 100%;
+		left: 0;
+		text-align: center;
 	}
 	.page2 .slickwrap{
 		margin-top: 20%;
@@ -761,7 +764,7 @@ body{
 		height: 300px;
 	}
 	.page1 h1{
-		font-size: 35px;
+		font-size: 50px;
 	}
 	.page1 .info span{
 		font-size: 15px;
