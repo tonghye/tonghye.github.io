@@ -897,6 +897,9 @@ body{
 	.skillwrap img{
 		width:15vw;
 	}
+	.chatwrap .chat{
+		min-height: 293px;
+	}
 }
 @media (max-width:360px){
 	.page2 h2,.page3 h2{
@@ -914,6 +917,9 @@ body{
 	}
 	.skillwrap .tools img, .skillwrap .language img{
 		padding:5px 0;
+	}
+	.chatwrap .chat{
+		margin-top: 3vh;
 	}
 	.chatwrap .status{
 		margin-top:0;
