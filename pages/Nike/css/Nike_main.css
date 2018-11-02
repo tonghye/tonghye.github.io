@@ -276,8 +276,8 @@ body{
     font-size: 1em;
     font-weight: 500 !important;
     vertical-align: middle;
-    text-align: center;
-    color: #000 !important;
+    text-align: center;.
+    color: #000;
     background: #fff;
     border: 1px solid #000;
     box-sizing: border-box;
@@ -310,6 +310,11 @@ body{
     /* margin-right: 97px; */
     margin-top: 10px;
     display: inline-block;
+}
+.btn:hover{
+    color: #fff;
+    background: #000;
+    transition: all 0.5s;
 }
 .detail2{
     width: 93.5%;
