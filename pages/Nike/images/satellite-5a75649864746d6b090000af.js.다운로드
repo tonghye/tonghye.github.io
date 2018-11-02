@@ -1,0 +1,7 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  _satellite.notify("===== Login Status Changed =====",4);
+
+if(sessionStorage.getItem("record_login") != "true" && _dl.login_status == "logged in"){
+  _satellite.track("login");
+}
+});

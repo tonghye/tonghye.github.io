@@ -1,0 +1,318 @@
+jQuery(function($) {
+	//main_tab
+	$('.inner_box01').find('.inner_tit').addClass('on').next('.inner_cont').addClass('active');
+	$('.main_control .prev span').html('문화, 축제');
+	$('.main_control .next span').html('민원, 소통');
+	$('.inner_tit').on('click',function(event){
+		var $target=$(event.target);
+
+		$('.inner_tit').removeClass('on').next('.inner_cont').removeClass('active');
+		$(this).addClass('on').next('.inner_cont').addClass('active');
+		if($target.is('.inner_box01 .inner_tit')){
+			$('.main_control .prev span').html('문화, 축제');
+			$('.main_control .next span').html('민원, 소통');
+			$('.visual .slide_box').slick('setPosition');
+		}else if($target.is('.inner_box02 .inner_tit')){
+			$('.main_control .prev span').html('뉴스, 소식');
+			$('.main_control .next span').html('문화, 축제');
+			$('.sns_box .slide_box').slick('setPosition');
+		}else{
+			$('.main_control .prev span').html('민원, 소통');
+			$('.main_control .next span').html('뉴스, 소식');
+			$('.boast .slide_box').slick('setPosition');
+		};
+	});
+	$('.main_control button').on('click',function(){
+		var current_text=$(this).text();
+
+		$('.inner_tit').removeClass('on').next('.inner_cont').removeClass('active');
+		if(current_text=='뉴스, 소식'){
+			$('.inner_box01 .inner_tit').addClass('on').next('.inner_cont').addClass('active');
+			$('.main_control .prev span').html('문화, 축제');
+			$('.main_control .next span').html('민원, 소통');
+			$('.visual .slide_box').slick('setPosition');
+		}else if(current_text=='민원, 소통'){
+			$('.inner_box02 .inner_tit').addClass('on').next('.inner_cont').addClass('active');
+			$('.main_control .prev span').html('뉴스, 소식');
+			$('.main_control .next span').html('문화, 축제');
+			$('.sns_box .slide_box').slick('setPosition');
+		}else{
+			$('.inner_box03 .inner_tit').addClass('on').next('.inner_cont').addClass('active');
+			$('.main_control .prev span').html('민원, 소통');
+			$('.main_control .next span').html('뉴스, 소식');
+			$('.boast .slide_box').slick('setPosition');
+		};
+		if(d_width>800){
+			$('html,body').animate({scrollTop:tab_move+20},800);
+		}
+	});
+
+	//visual
+	var $visual_box = $('.visual'),
+	$visual = $visual_box.find('.slide_box'),
+	slideCount = null,
+	visualLength = $visual.find('.cont_box').length;
+
+	if(visualLength>1){
+		$visual_box.find('.auto').addClass('pause').text('정지');
+	} else{
+		$visual_box.find('.auto').addClass('play').text('재생');
+	};
+	$visual.on('init', function(event, slick){
+		slideCount = slick.slideCount;
+		setSlideCount();
+		setCurrentSlideNumber(slick.currentSlide);
+	});
+
+	$visual.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		setCurrentSlideNumber(nextSlide);
+	});
+
+	function setSlideCount() {
+		var $el = $('.count_box').find('.total');
+		$el.text(slideCount);
+	};
+
+	function setCurrentSlideNumber(currentSlide) {
+		var $el = $('.count_box').find('.current');
+		$el.text(currentSlide + 1);
+	};
+	$visual.slick({
+		swipe : true,
+		draggable : false,
+		slidesToShow : 1,
+		slidesToScroll: 1,
+		speed: 1000,
+		infinite: true,
+		autoplay : true,
+		variableWidth: true,
+		dots : false,
+		arrows: true,
+		prevArrow : $visual_box.find('.prev'),
+		nextArrow : $visual_box.find('.next'),
+		responsive: [
+			{
+				breakpoint: 800,
+				settings: {
+					draggable : true
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
+					variableWidth: false,
+						draggable : true
+				}
+			}
+		]
+	});
+
+	$visual_box.find('.auto').click(function(){
+		var NowPlaying = $(this).is('.pause');
+		if(visualLength>1){
+			if(NowPlaying==true){
+				$visual.slick('slickPause');
+				$(this).removeClass('pause').addClass('play').text('재생');
+			} else if(NowPlaying==false){
+				$visual.slick('slickPlay');
+				$(this).removeClass('play').addClass('pause').text('정지');
+			};
+		};
+	});
+
+	$visual_box.find('.slick-arrow').on('click', function(){
+		$visual.slick('slickPause');
+		$visual_box.find('.auto').addClass('pause').text('재생');
+	});
+
+	//popup
+	var $popup_box = $('.popup'),
+	$popup = $popup_box.find('.slide_box'),
+	popupLength = $popup_box.find('.cont_box').length;
+
+	if(popupLength>1){
+		$popup_box.find('.auto').addClass('pause').text('정지');
+	} else{
+		$popup_box.find('.auto').addClass('play').text('재생');
+	};
+	$('.popup .slide_box').slick({
+		swipe : true,
+		draggable : false,
+		slidesToShow : 1,
+		slidesToScroll: 1,
+		speed: 1000,
+		infinite: true,
+		autoplay : true,
+		variableWidth: true,
+		centerMode: true,
+		dots : false,
+		prevArrow : $popup_box.find('.prev'),
+		nextArrow : $popup_box.find('.next'),
+		responsive: [
+			{
+				breakpoint: 800,
+				settings: {
+					draggable : true
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
+					centerMode: false,
+					draggable : true,
+					variableWidth: false
+				}
+			}
+		]
+	});
+		$popup_box.find('.auto').click(function(){
+		var NowPlaying = $(this).is('.pause');
+		if(popupLength>1){
+			if(NowPlaying==true){
+				$popup.slick('slickPause');
+				$(this).removeClass('pause').addClass('play').text('재생');
+			} else if(NowPlaying==false){
+				$popup.slick('slickPlay');
+				$(this).removeClass('play').addClass('pause').text('정지');
+			};
+		};
+	});
+	$popup_box.find('.slick-arrow').on('click', function(){
+		$popup.slick('slickPause');
+		$popup_box.find('.auto').addClass('pause').text('재생');
+	});
+
+		//sns
+	var $sns_box = $('.sns_box'),
+		$sns = $sns_box.find('.slide_box'),
+		snsLength = $sns_box.find('.cont_box').length;
+
+	if(snsLength>1){
+		$sns_box.find('.auto').addClass('pause').text('정지');
+	} else{
+		$sns_box.find('.auto').addClass('play').text('재생');
+	};
+
+	$sns.slick({
+		dots: false,
+		infinite: false,
+		draggable : false,
+		speed: 300,
+		autoplay : true,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		prevArrow : $sns_box.find('.prev'),
+		nextArrow : $sns_box.find('.next'),
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 1
+				}
+			},
+			{
+				breakpoint: 1000,
+				settings: {
+					infinite: true,
+					slidesToShow: 2
+
+				}
+			},
+			{
+				breakpoint: 800,
+				settings: {
+					draggable : true
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
+					draggable : true,
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+	
+	$sns_box.find('.auto').click(function(){
+		var NowPlaying = $(this).is('.pause');
+		if(popupLength>1){
+			if(NowPlaying==true){
+				$sns.slick('slickPause');
+				$(this).removeClass('pause').addClass('play').text('재생');
+			} else if(NowPlaying==false){
+				$sns.slick('slickPlay');
+				$(this).removeClass('play').addClass('pause').text('정지');
+			};
+		};
+	});
+	$sns_box.find('.slick-arrow').on('click', function(){
+		$sns.slick('slickPause');
+		$sns_box.find('.auto').addClass('pause').text('재생');
+	});
+	
+	//boast
+	$('.boast .slide_box').slick({
+		dots: true,
+		infinite: true,
+		draggable : false,
+		speed: 800,
+		fade: true,
+		cssEase: 'linear',
+		responsive: [	
+			{
+				breakpoint: 800,
+				settings: {
+					draggable : true
+				}
+			}
+		]
+	});
+
+	/* culture_info */
+	$('.culture_info .slide_box').slick({
+		dots: false,
+		infinite: true,
+		variableWidth: true,
+		draggable : false,
+		speed: 200,
+		autoplay : true,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 1000,
+				settings: {
+					infinite: false,
+					draggable : true,
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 800,
+				settings: {
+					infinite: false,
+					draggable : true,
+					slidesToShow: 1
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
+					infinite: false,
+					draggable : true,
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 420,
+				settings: {
+					infinite: false,
+					draggable : true,
+					slidesToShow: 2
+				}
+			}
+		]
+	});
+
+});

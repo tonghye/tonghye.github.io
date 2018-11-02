@@ -1,0 +1,287 @@
+$(document).ready(function(){
+	
+	$("body select").selectBox();
+	$("select.position_up").selectBox('settings', {'menuTransition': 'positionUp'});
+
+	$(".btn-top").click(function (){	$("html, body").animate( {scrollTop:0}, 1000);	 }); //QicukMenu Click Top
+
+	function pxtopt(pxsize) {
+	    var ptsize = pxsize*72/96;
+	    return ptsize;
+	}
+	
+	$(function(){    //font size
+		$(".zoomin").click(function(){
+			var size = parseInt($("#font-size dl dt").css("font-size"));
+			var size_h2 = parseInt($("#font-size h2.h2-view1").css("font-size")) ;
+			var size_dd = parseInt($("#font-size dl dd").css("font-size")) ;
+			var size_view = parseInt($("#font-size .view-cont p").css("font-size")) ;
+            
+			if( size < "30" || size_h2 < "30"){
+				$("#font-size dl dt").css({'font-size':pxtopt(size)+2+"pt"}) ;
+				$("#font-size dl dd").css({'font-size':pxtopt(size_dd)+2+"pt"}) ;
+				$("#font-size h2.h2-view1").css({'font-size':pxtopt(size_h2)+2+"pt"}) ;
+				$("#font-size p.view-cont").css({'font-size':pxtopt(size_view)+2+"pt"}) ;
+			}else if(size_view < "24"){
+				$("#font-size .view-cont p").css({'font-size':pxtopt(size_view)+2+"pt"});
+			}
+		});
+
+		$(".zoomout").click(function(){
+			var size = parseInt($("#font-size dl dt").css("font-size"));
+			var size_h2 = parseInt($("#font-size h2.h2-view1").css("font-size"));
+			var size_dd = parseInt($("#font-size dl dd").css("font-size"));
+			var size_span = parseInt($("#font-size dl dt span").css("font-size"));
+			var size_view = parseInt($("#font-size .view-cont p").css("font-size"));
+
+			if( size_dd > "12" || size_view > "12"){
+				$("#font-size dl dt").css({'font-size':pxtopt(size)-2+"pt"});
+				$("#font-size h2.h2-view1").css({'font-size':pxtopt(size_h2)-2+"pt"});
+				$("#font-size dl dd").css({'font-size':pxtopt(size_dd)-2+"pt"});
+				$("#font-size dl dt span").css({'font-size':pxtopt(size_span)-2+"pt"});
+				$("#font-size .view-cont p").css({'font-size':pxtopt(size_view)-2+"pt"});
+			}	
+		});
+	});
+	
+
+	//thumbnail-a3
+	$(".thumbnail-a3 li").hover(function(){
+		var list_num = $(".thumbnail-a3 li").index(this);
+		$(".thumbnail-a3 li .txt").eq(list_num).stop().animate({"bottom":"0px"},500,"easeOutQuint");	
+	}, function(){
+		$(".thumbnail-a3 li .txt").stop().animate({"bottom":"-85px"},500,"easeOutQuint");	
+	});
+
+	$(".thumbnail-a3 li").click(function(){
+		var list_num = $(".thumbnail-a3 li").index(this);
+		$(".thumbnail-a3 li .txt").removeClass("on").eq(list_num).addClass("on");
+		$(".thumbnail-a3 li .txt").find("div").eq(list_num).stop().animate({"bottom":"0px"},500,"easeOutQuint");	
+	});
+
+	$(".thumbnail-a3 li a").focusin(function(){
+		var list_num = $(".thumbnail-a3 li a").index(this);
+		$(".thumbnail-a3 li a").find("div.txt").eq(list_num).stop().animate({"bottom":"0px"},500,"easeOutQuint");	
+	});
+
+	$(".thumbnail-a3 li a").focusout(function(){
+		$(".thumbnail-a3 li a").find("div.txt").stop().animate({"bottom":"-85px"},500,"easeOutQuint");	
+	});
+
+	//thumbnail-a3 End
+	$(".broad-txt").click(function(){
+		if ( !$(".broad-txt").hasClass("on") ){
+			$(this).addClass("on");
+			$(".scroll-wrap").show();
+		}else{
+			$(this).removeClass("on");
+			$(".scroll-wrap").hide();
+		}
+	});
+
+	$(".watermark").click(function(){ 
+		if ($(this).val() == "검색어를 입력하세요"){
+			$(this).val("");
+		}
+	});
+	$(".watermark").focusout(function(){ 
+		var valueTit = $(this).attr("title");
+		if ( ! $(this).val() ){
+			$(this).val(valueTit);
+		}
+	});
+
+	$("div.select-affiliates p.txt a").click(function(){ 
+		$(".select-affiliates").slideUp();	
+		$(".organization2").next().focus();//2014-05-30 포커스 강제 위치 		
+	});
+
+	$("a.organization2").click(function(){ 
+		if ( $(".select-affiliates").css("display") == "none"){
+			$(".select-affiliates").slideDown();
+		}else{
+			$(".select-affiliates").slideUp();
+		}
+	});
+	$("ul.affiliates li a").click(function(){ $(".select-affiliates").slideUp(); }); // 기능 삭제 될 수있음, 그룹사 선택 li > a 클릭시 닫기
+
+	$(".tab-area").each(function(){     // 사회공헌체계 tab
+		var $this = $(this);
+		$this.find("h2 a").eq(0).addClass("on");
+		$(this).find("h2 a").on("click",function(){
+			var move_num = $this.find("h2 a").index(this);
+			$this.find("h2 a").removeClass("on").eq(move_num).addClass("on");
+			$this.children("div").hide().eq(move_num).show();
+		});
+	});
+
+	$(".description dl > dd .btn-open").on("click",function(){
+		var viewList = $(".description dl > dd .btn-open").index(this);
+		if(!$(this).hasClass("on")){
+			$(this).addClass("on");
+			$(".view-box .btn-open").eq(viewList).addClass("on");
+			$(".view-box").eq(viewList).show();
+			$("body,html").stop().animate({scrollTop : $(".description").eq(viewList).offset().top},500);
+		}else{ 
+			$(".view-box").eq(viewList).hide();
+			$(this).removeClass("on");
+			$(".view-box .btn-open").eq(viewList).removeClass("on");
+			$(".description dl > dd .btn-open").eq(viewList).removeClass("on");
+			$("body,html").stop().animate({scrollTop : $(".description").eq(viewList).offset().top},500);
+		}
+	});
+
+	$(".view-box .btn-open").on("click",function(){
+		var viewList = $(".view-box .btn-open").index(this);
+		var view_h = $(".view-box").eq(viewList).height(); 
+		$(this).parent().slideUp();
+		$(this).removeClass("on");
+		$(".description dl > dd .btn-open").eq(viewList).removeClass("on");
+		$("body,html").stop().animate({scrollTop : $(".description").eq(viewList).offset().top},(view_h/2)); //닫혔을시 해당 컨테츠 
+		$(".description dl > dd .btn-open").eq(viewList).focus();//2014-05-30 focus 강제 넘김
+	});
+
+	
+	$(".thumbnail-a5 li a").hover(function(){
+		$(this).find("div").stop().animate({"bottom":"0px"},500,"easeOutQuint");	
+	}, function(){
+		$(".thumbnail-a5 li a").find("div").stop().animate({"bottom":"-56px"},500,"easeOutQuint");	
+	});
+	$(".thumbnail-a5 li a").focusin(function(){		$(this).find("div").stop().animate({"bottom":"0px"},500,"easeOutQuint");	});
+	$(".thumbnail-a5 li a").focusout(function(){	$(".thumbnail-a5 li a").find("div").stop().animate({"bottom":"-56px"},500,"easeOutQuint");	});
+	
+	$(".notice dd").hover(function(){
+		var notice_idx = $(".notice dd").index(this);
+		$(".notice dt").eq(notice_idx).addClass("on");
+		$(".notice dd").eq(notice_idx).addClass("on");
+	}, function(){
+		$(".notice dt").removeClass("on");
+		$(".notice dd").removeClass("on");
+	});
+	
+	$(".notice dd").focusin(function(){
+		var notice_idx = $(".notice dd").index(this);
+		$(".notice dt").eq(notice_idx).addClass("on");
+		$(".notice dd").eq(notice_idx).addClass("on");
+	});
+	
+	$(".notice dd").focusout(function(){
+		var notice_idx = $(".notice dd").index(this);
+		$(".notice dt").removeClass("on");
+		$(".notice dd").removeClass("on");
+	});
+	
+	$(".notice dt").hover(function(){
+		var notice_idx = $(".notice dt").index(this);
+		$(".notice dt").eq(notice_idx).addClass("on");
+		$(".notice dd").eq(notice_idx).addClass("on");
+	}, function(){
+		$(".notice dt").removeClass("on");
+		$(".notice dd").removeClass("on");
+	});
+	
+	$(".board-list-a1 tbody tr").hover(function(){
+		var table_idx = $(".board-list-a1 tbody tr").index(this);
+		$(this).addClass("on");
+	}, function(){	$(".board-list-a1 tbody tr").removeClass("on");	});
+
+	$(".board-list-a1 tbody tr").focusin(function(){
+		var table_idx = $(".board-list-a1 tbody tr").index(this);
+		$(this).addClass("on");
+	});
+
+	$(".board-list-a1 tbody tr").focusout(function(){
+		var table_idx = $(".board-list-a1 tbody tr").index(this);
+		$(".board-list-a1 tbody tr").removeClass("on");
+	});
+
+	$(".list-a2 li").hover(function(){        //list-a2 Type
+		var list_a2_idx = $(".list-a2 li").index(this);
+		$(".list-a2 li").eq(list_a2_idx).addClass("on");
+	}, function(){ $(".list-a2 li").removeClass("on"); });
+
+	$(".list-a2 li").focusin(function(){
+		var list_a2_idx = $(".list-a2 li").index(this);
+		$(".list-a2 li").eq(list_a2_idx).addClass("on");
+	});
+	$(".list-a2 li").focusout(function(){ $(".list-a2 li").removeClass("on");});
+	
+	$(".thumbnail-b1 li").hover(function(){  //thumbnail-b1 Type
+		var list_b1_idx = $(".thumbnail-b1 li").index(this);
+		$(".thumbnail-b1 li").eq(list_b1_idx).addClass("on");
+	}, function(){
+		$(".thumbnail-b1 li").removeClass("on");
+	});
+	
+	$(".thumbnail-b1 li").focusin(function(){
+		var list_b1_idx = $(".thumbnail-b1 li").index(this);
+		$(".thumbnail-b1 li").eq(list_b1_idx).addClass("on");
+	});
+
+	$(".thumbnail-b1 li").focusout(function(){ $(".thumbnail-b1 li").removeClass("on"); });
+
+	$(".pre-nxt li").hover(function(){
+		var pre_nxt_idx = $(".pre-nxt li").index(this);
+		$(".pre-nxt li").eq(pre_nxt_idx).addClass("on");
+	}, function(){
+		$(".pre-nxt li").removeClass("on");
+	}); 
+
+	$(".pre-nxt li").focusin(function(){
+		var pre_nxt_idx = $(".pre-nxt li").index(this);
+		$(".pre-nxt li").eq(pre_nxt_idx).addClass("on");
+	});
+
+	$(".pre-nxt li").focusout(function(){ $(".pre-nxt li").removeClass("on"); });
+
+	$(".h1-access").click(function(){
+		$(".h1-access").removeClass("on");
+		$(".access-warp").hide();
+		$(this).addClass("on");
+		$(this).next().show();
+	});
+
+    $(".search-close").click(function(){  
+        $(".search-wrap").fadeOut();
+        $("input[name=headerSearchKey]:last").val('검색어를 입력하세요');   //Search Popup Show
+        $(".util-search .search").focus();
+    }); 
+
+
+    
+    $(".search").on("click", function(){  
+        $(".search-wrap").fadeIn("fast",function(){
+            //$(this).find(".inner-search .search").focus();
+        }); 
+
+    }); //Search Popup hide
+
+	$(".select-g dt a").on("click",function(){
+		if (!$(this).hasClass("on")){
+			$(this).addClass("on");
+			$(this).parent().next("dd").fadeIn();
+		}else{
+			$(this).removeClass("on");
+			$(this).parent().next("dd").fadeOut();
+		}
+	});
+
+	$(".select-g .close").on("click",function(){
+		$(".select-g dt a").removeClass("on");
+		$(".select-g dd").fadeOut();
+	});
+	
+	// 말줄임 처리 
+   $(".ellipsis").dotdotdot(); 
+
+   // 150708 새우편번호 : 추가
+   $(".layer-tip-wrap .btn-tip-control").on("click",function(){
+       if ($(".layer-tip-wrap").hasClass("on")){
+           $(".layer-tip-wrap").removeClass("on");
+       }else{
+           $(".layer-tip-wrap").addClass("on");
+       }
+   });
+
+});
+

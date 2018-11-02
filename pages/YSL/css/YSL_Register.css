@@ -1,0 +1,207 @@
+/* header */
+.header{
+    width: 100%;
+    height: 22.5vh;
+}
+.header img{
+    width: 100%;
+    height: 22.17vh;
+}
+/* container */
+.container{
+    display: block;
+    width: 100%;
+    height: 150vh;
+    background-color: #f2f2f2;
+}
+/* join */
+.join{
+    position: relative;
+    top: 5vh;
+    width: 67.1875vw;
+    height: 132vh;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.joinwrap{
+    width: 45.833333333333336vw;
+    margin: 0 auto;
+}
+.joinwrap h1{
+    text-align: center;
+    font-size: 1.7vw;
+    font-weight: 600;
+    padding-top: 4vh;
+}
+.joinwrap .loginfb{
+    width: 13.02vw;
+    height: 5.06vh;
+    margin: 5vh auto;
+}
+.joinwrap .loginfb a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+}
+.joinwrap .loginfb img{
+    width: 13.02vw;
+    height: 5.06vh;
+}
+.joinwrap .or{
+    display: block;
+    position: absolute;
+    background: #fff;
+    left: 50%;
+    margin-top: -0.8vh;
+    margin-left: -0.26vw;
+    padding: 0px 5px;
+}
+hr{
+    display: block;
+}
+.joinwrap .register{
+    margin-top: 7vh;
+}
+.joinwrap .info li{
+    display: block;
+    margin-bottom: 1.5vh;
+}
+.joinwrap .info input,
+.joinwrap .info div{
+    display: block;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+    margin-top: 1.5vh;
+}
+.joinwrap .info input{
+    width: 22vw;
+    text-indent: 0.5vw;
+    border: 0;
+    border-bottom: 1px solid #000;
+
+}
+.joinwrap .info .gender{
+    display: block;
+    padding-top: 0.75vh;
+    padding-bottom: 0.75vh;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+
+}
+.joinwrap .info .gender input{
+    display: inline-block;
+    width: auto;
+    margin-top: -2px;
+}
+.joinwrap .info .gender span{
+    padding-right: 1.8vw;
+    padding-left: 0.4vw;
+}
+.joinwrap .info .mobile{
+    display: block;
+}
+.joinwrap .info .mobile input{
+    display: inline-block;
+    width: 7.2vw;
+    text-indent: 2vw;
+}
+.joinwrap .info select{
+    width: 7.2vw;
+    height: 4vh;
+    border: 0;
+    border-bottom: 1px solid #000;
+}
+.joinwrap .gray{
+    color: rgb(167, 167, 167);
+}
+/* club */
+.club{
+    position: absolute;
+    top: 25%;
+    right: 10.8vw;
+    width: 20.83vw;
+    height: 67vh;
+    background: #000;
+    text-align: center;
+}
+.club h2{
+    font-size: 1.8vw;
+    font-weight: 600;
+    padding-top: 3vh;
+}
+.club h2,
+.club p{
+    color: #fff;
+}
+.club .first{
+    font-size: 0.78vw;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+.club .second{
+    font-size: 0.77vw;
+    padding: 3vh 2vh;
+    
+}
+.club .third{
+    font-size: 0.7vw;
+    display: inline-block;
+}
+.club a{
+    display: block;
+    padding-top: 1vh;
+    font-size: 0.68vw;
+    color: rgb(151, 151, 151);
+    text-decoration: underline;
+}
+.club img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+}
+/* terms */
+.terms{
+    padding-top: 3vh;
+    text-align: center;
+}
+.terms p{
+    display: inline-block;
+    font-size: 0.78vw;
+}
+.terms .sixth{
+    font-size: 0.7vw;
+    padding-top: 2vh;
+}
+.terms button{
+    display: block;
+    width: 10.3vw;
+    height: 5.2vh;
+    margin: 5vh 0 3vh 50%;
+    margin-left: 18vw;
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+    font-weight: 600;
+    
+}
+
+.terms .seventh,
+.terms .seventh a{
+    color: rgb(156, 156, 156);
+    font-size: 0.78vw;
+}
+.terms .seventh a{
+    text-decoration: underline;
+}
+/* footer */
+.footer{
+    display: block;
+    width: 100%;
+    height: 120.58vh;
+}
+.footer img{
+    width: 100%;
+    height: 120.58vh;
+}

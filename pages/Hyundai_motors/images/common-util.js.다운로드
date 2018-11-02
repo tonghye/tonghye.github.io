@@ -1,0 +1,1179 @@
+/**
+ * Supported Browser : MSIE, Chrome, FireFox, Safari
+ *
+ * - 기본 이벤트 설정
+ * - 첨부파일
+ * - 공통코드
+ * - 윈도우 팝업
+ *
+ *
+ * Object       : common-util.js
+ * Description  : 공통 Util용 스크립트
+ * Author       : LaheeDad
+ * Since        : 2013.9.23.
+ * Version      : 1.0
+ *
+ * Modification Information
+ *     since          author              description
+ *  ===========    =============    ===========================
+ *  2013.9.23.     LaheeDad         최초 생성
+ */
+
+/**
+ * 페이지 로딩시 bind 되어야 할 이벤트 등록
+ */
+
+//접속 메뉴 아이디
+var $$MENU_ID;
+
+/**
+ * Left Menu처리
+ */
+/*
+$('#lnb').ready(function(){
+    if ($$MENU_ID != undefined && $$MENU_ID != ''){
+        var depth = $$MENU_ID.split('-');
+
+        //3depth .on하기
+        if(depth.length == 3){
+            $('#lnb #menu_'+depth[2]).addClass('on');
+        }else if(depth.length == 4){
+            //alert(depth + ' : ' + depth.length + ' : ' + depth[3]);
+            $('#lnb #menu_'+depth[2]).addClass('on');
+            $('#lnb #menu_'+depth[3]).addClass('on');
+        }
+
+    }
+});
+*/
+
+/**
+ * 이미지 없을때 처리하기
+ * IE에서는 처리가 100%보장하지 못함.
+ */
+function fnDefaultImage() {
+    $("img[class^=di-]").error(function() {
+        var aClass = $(this).attr("class").split(" ");
+        var strImgName = "";
+        for (var i = 0, iCnt = aClass.length ; i < iCnt ; i++) {
+            if(aClass[i].indexOf("di-") > -1){
+                strImgName = aClass[i].replace("di-", "");
+                break;
+            }
+        }
+        $(this).attr("src", "/images/@temp/" + strImgName + ".jpg"); 
+    });
+}
+
+$(function() {
+    //A태그 중 쿼리스트링 있는 것만 post로 click 되도록 한다.
+    //예외를주고싶다면 exp_yn=y를 붙힌다
+    $('a').each(function(){
+        var href = $(this).attr("href");
+        var target = $(this).attr("target");
+ 
+        if(href != undefined && href.indexOf('?') > -1 && href.indexOf("exp_yn=y") < 0 && (target == undefined && target == null && $.trim(target) == '')) {
+            var excepAttr   =   $(this).attr("class");                  //  selectBox-dropdown 오작동 방지
+            if(excepAttr   != null) {
+                if( $(this).attr("class").indexOf('selectBox-dropdown') > -1 ) return false;
+            }
+            
+            var aHref = href.split('?');
+            var aParam = aHref[1].split('&');
+            $(this).click(function(event) {
+               event.preventDefault();
+                   
+               var ts = Math.floor(new Date().getTime()/1000);
+               var form = $("<form name='" + ts + "_form' id='" + ts + "_form' action='" + aHref[0] + "' method='post' />");
+               for (var i = 0, iCnt = aParam.length ; i < iCnt ; i++) {
+                   var tmpP = aParam[i].split('=');
+                   form.append("<input type='hidden' name='" + tmpP[0] + "' value='" + tmpP[1] + "'>");
+               }
+               $("body").append(form);
+               
+               $('#' + ts + "_form").submit();
+            });
+            
+            $(this).attr("href", aHref[0]);
+        } 
+     });  
+    
+    //기본이미지 처리
+    fnDefaultImage();
+    
+    $("form").submit(function(){
+        var aSpecialChar = ["\"", "'", "+", "/", ":", ";", "\\", "&", "<" , ">"];
+        var eKey = false;
+        $(this).find("input[name=searchKey").each(function(){ 
+           var sKey = $(this).val();
+           for (var i = 0, iCnt = sKey.length ; i < iCnt ; i++) {
+               for (var j = 0, jCnt = aSpecialChar.length ; j < jCnt ; j++) {
+                   if (aSpecialChar[j] == sKey.charAt(i)) {
+                       eKey = true;
+                   }
+               }
+           }
+        });
+        
+        if (eKey) {
+            alert("검색어에 사용하실 수 없는 문자가 포함되어있습니다.");
+            return false;
+        }
+     }); 
+    
+    /**
+     * A태그중 .submit은 Form객체 전송시 사용
+     */
+    $('a.submit').on({
+        click : function(event){
+            event.preventDefault();
+
+            if (confirm("등록하시겠습니까?")) {
+                submitUtil.disabled();
+                $(this).parents('form').eq(0).submit();
+            }
+        }
+    });
+
+    $('a.resetSubmit').on({
+        click : function(event) {
+            event.preventDefault();
+
+            if (confirm("취소하시겠습니까?")) {
+                top.location.replace($(this).attr('href'));
+            }
+        }
+    }); 
+
+    /**
+     * A태그중 .searchSubmit .reportSubmit은 엑셀다운로드 Form객체 전송시 사용
+     */
+    $('a.searchSubmit, a.reportSubmit').on({
+        click : function(event){
+            event.preventDefault();
+
+            if(!$(this).hasClass('reportSubmit')){
+                submitUtil.disabled();
+            }
+
+            var form = $(this).parents('form').eq(0);
+            $(form).attr('action', $(this).attr('href'));
+            $(form).submit();
+        }
+    });
+
+
+    /**
+     * A태그중 .delSubmit은 단순한 삭제 Form객체 전송시 사용
+     */
+    $('a.modSubmit').on({
+        click : function(event){
+            event.preventDefault();
+
+            if(confirm('수정하시겠습니까?')){
+                submitUtil.disabled();
+
+                var form = $(this).parents('form').eq(0);
+                $(form).attr('action', $(this).attr('href'));
+                $(form).submit();
+            }
+        }
+    });
+
+    /**
+     * A태그중 .delSubmit은 단순한 삭제 Form객체 전송시 사용
+     */
+    $('a.delSubmit').on({
+        click : function(event){
+            event.preventDefault();
+
+            if(confirm('삭제하시겠습니까?')){
+                submitUtil.disabled();
+
+                var form = $(this).parents('form').eq(0);
+                $(form).attr('action', $(this).attr('href'));
+                $(form).unbind("submit");
+                $(form).submit();
+            }
+        }
+    });
+
+
+    /**
+     * 입력글자 대문자로 변환
+     * enter submit금지
+     * space 금지
+     *
+     * 1 .enter key / space key 무시
+     * 2. 영문 소문자는 대문자로 치환 (a = 65, z = 90)
+     *    - enter = 13
+     *    - space = 32
+     */
+    $('.txtUpperNoSubmit').on({
+        keypress :function(event){
+            if(event.which == '13' || event.which == '32'){
+                event.preventDefault();
+            }
+        },
+        keyup : function(event){
+            if(event.which >= 65 && event.which <= 90){
+                $(this).val($(this).val().toUpperCase());
+            }
+        }
+    });
+
+    /**
+     * space 금지
+     */
+    $(".noSpace").on({
+        keypress : function(event){
+            if(event.which == '32'){
+                event.preventDefault();
+            }
+        }
+    });
+
+    /**
+     *  숫자만 입력
+     *  0~9 : 48~57
+     *  대문자문자 : 65~90
+     *  e
+     */
+    $('.numOnly').css('imeMode', 'disabled').on({
+        keypress : function(event){
+            if (!(event.which && (event.which  > 47 && event.which  < 58 || event.which == 8))) {
+                alert('숫자만 입력해 주세요.');
+                event.preventDefault();
+            }
+        },
+        keyup : function(event){
+            var str = $(this).val();
+            var len = str.length;
+            var replaceStr = new String;
+
+            for(var i=0; i < len; i++){
+                if(str.charCodeAt(i) >= 48 && str.charCodeAt(i) <= 57){
+                    replaceStr += str.charAt(i);
+                }
+            }
+
+            $(this).val(replaceStr);
+        }
+    });
+
+    /**
+     * 첨부된 파일을 삭제한다.
+     *
+     * AJAX로 처리. confirm창 필요없다고함.
+     */
+    $('.ico-del-attach').on({
+        click : function(event){
+            event.preventDefault();
+            fileUtil.submitDeleteAttachFileInfo($(this));
+        }
+    });
+
+    /**
+     * 모달 화면 열기
+     */
+    $('.btn_modal_open').on({
+        click : function(event){
+            event.preventDefault();
+            modalUtil.open($(this));
+        }
+    });
+
+    /**
+     * 모달 화면 닫기
+     */
+    $('.modal_close, .modal_cancle').on({
+        click : function(event){
+            event.preventDefault();
+            modalUtil.close($(this));
+        }
+    });
+
+    eventObj.inputFileChangeEvent();
+
+    eventObj.disabledEvent();
+
+    eventObj.delFileEvent();
+
+    //파일 다운로드
+    $('.btn_file_download').on({
+        click : function(event){
+            event.preventDefault();
+            if($(this).attr('fileSn') != undefined){
+                location.href("/cm/cm600Man.kids?attcFilSn=" + $(this).attr('fileSn'));
+            }
+        }
+    });
+
+    //파일 다운로드
+    $('.file_down').on({
+        click : function(event){
+            event.preventDefault();
+            if($(this).attr('fileSn') != undefined){
+                location.href("/cm/cm600Man.kids?attcFilSn=" + $(this).attr('fileSn'));
+            }
+        }
+    });
+});
+
+
+var eventObj = {
+    /**
+     * 파일첨부를 변경시 해당 파일정보는 input.text에 보여준다.
+     *
+     * eventObj.inputFileChangeEvent();
+     */
+    inputFileChangeEvent : function(){
+        $('input[type=file]').on({
+            change : function(){
+                var txtName = $(this).attr('name');
+
+                try{
+                    try{
+                        $(this).parents('div:first').find('input.file_text').val($(this).val());
+                    }catch(ee){
+                        $('#txt_'+ txtName).val($(this).val());
+                    }
+
+                    $('.desc_'+ txtName).prop('disabled', false).css({'background-color' : '#FFF'});
+                }catch(e){
+                    //ignore
+                }
+            }
+        });
+    },
+    /**
+     * .disabled 일때 배경색 설정하기
+     */
+    disabledEvent : function(){
+        $('.disabled').prop('disabled', true).css({'background-color' : '#F5F5F5'});
+    },
+    /**
+     * 첨부선택한 파일 삭제
+     */
+    delFileEvent : function(){
+        $('.ico-del-file').on({
+            click : function(event){
+                event.preventDefault();
+
+                var eName = $(this).parents('div.file_wrap').find('input[type=file]').attr('name');
+                $(this).parents('div.file_wrap').find('input').val('');
+                $(this).parents('div.file_wrap').html($(this).parents('div.file_wrap').html());
+                $('.desc_'+eName).prop('disabled', true).css({'background-color' : '#F5F5F5'}).val('');
+
+                //이벤트 설정
+                eventObj.inputFileChangeEvent();
+                eventObj.delFileEvent();
+            }
+        });
+    },
+    /**
+     * 첨부파일 추가
+     */
+    addFileEvent : function(pCntFile){
+        //pCntFile = '' 일때 세팅이 안됨;
+        var cntFile = 2;
+
+        try{
+            if(typeof pCntFile != 'undefined' && pCntFile != ''){
+                cntFile = parseInt(pCntFile) + 1;
+            }
+        }catch(e){
+            cntFile = 2;
+        }
+
+        $('.file_upload_add').on({
+            click : function(event){
+                event.preventDefault();
+                //첨부파일 최대 추가는 5개
+                if(cntFile <= 5){
+                     var addHtml = "<tr>"
+                                 + '<th>이미지' + cntFile + '</th>'
+                                 + '<td class="padding_td">'
+                                 + '    <div class="file_wrap">'
+                                 + '        <input type="text" id="txt_attcImage' + cntFile + '" class="file_text disabled" title="첨부된 파일경로" disabled="disabled" />'
+                                 + '        <img src="/image/btn_file_delete.gif" class="ico-del-file" alt="첨부이미지 삭제" />'
+                                 + '        <span class="file_box">'
+                                 + '           <input type="file" name="attcImage' + cntFile + '" class="file_add" />'
+                                 + '        </span>'
+                                 + '    </div>'
+                                 + '    <p class="check">'
+                                 + '    - 최적화 사이즈 : <span><strong>가로 780px 이하로 등록하세요.</strong></span><br />'
+                                 + '    - 파일 업로드 : 영문 및 숫자로 된 파일명 / <strong>bmp, jpg, gif, png / 최대 10MB</strong><br />'
+                                 + '    - 규정된 사이즈를 벗어날 경우 임의 조정됩니다.'
+                                 + '    </p>'
+                                 + '</td>'
+                                 + '</tr>'
+                                 + '<tr>'
+                                 + '<th>이미지' + cntFile + '<br />간단설명</th>'
+                                 + '<td>'
+                                 + '    <input type="text" name="attcImageAlt' + cntFile + '" class="desc_attcImage' + cntFile + ' disabled" style="width:413px;" disabled="disabled" /> &nbsp;<span class="check"><strong>최대 50자 입력</strong></span></td>'
+                                 + '</tr>'
+                                 + '<tr>'
+                                 + '<th>이미지' + cntFile + '<br />상세설명</th>'
+                                 + '<td class="padding_td">'
+                                 + '    <textarea name="attcImageDesc' + cntFile + '" class="desc_attcImage' + cntFile + ' disabled" disabled="disabled" style="width:95%; height:150px; resize:none;"></textarea>'
+                                 + '    <p class="check">- 이미지에 대한 설명 문구를 등록해 주십시오.</p>'
+                                 + '</td>'
+                                 + '</tr>';
+
+                    if($('#tr-file-next')){
+                        $('#tr-file-next').before($.parseHTML(addHtml));
+                    }else{
+                        $(this).parents('table').append($.parseHTML(addHtml));
+                    }
+
+                    $('input[name=attcImage'+cntFile+']').focus();
+
+                    cntFile ++;
+
+                    eventObj.inputFileChangeEvent();
+                    //eventObj.disabledEvent();
+                    eventObj.delFileEvent();
+                }else{
+                    alert('첨부파일을 최대 5개까지 입니다.');
+                }
+
+            }
+        });
+    },
+    delCategory : function(object){
+        cntCategory--;
+        $(object).parents('p').remove();                         
+    },
+    
+    /**
+     * 
+     * 문자열 복사하기
+     * @param hObject : 복사할 element의 jquery object 또는 jquery 셀렉터
+     * @param tObject : 복사될 element의 jquery object 또는 jquery 셀렉터
+     */
+    copyText : function(hObject, tObject) {
+        hObject = (typeof(hObject) == 'string') ? $(hObject) : hObject;
+        tObject = (typeof(tObject) == 'string') ? $(tObject) : tObject;
+        
+        tObject.val(hObject.val());
+    },
+    
+    /**
+     * 
+     * byte 수 구하여 특정 영역에 표시
+     * @param oTarget : byte 수를 체크할 element의 jquery object 또는 jquery 셀렉터
+     * @param oDisplay : byte 수가 보여질 element의 jquery object 또는 jquery 셀렉터
+     * @param iMaxByte : 제한할 byte 수
+     */
+    controlByte : function(oTarget, oDisplay, iMaxByte) {
+        oTarget = (typeof(oTarget) == 'string') ? $(oTarget) : oTarget;
+        oDisplay = (typeof(oDisplay) == 'string') ? $(oDisplay) : oDisplay;
+        
+        var strText = oTarget.val();
+        var iByte = submitUtil.getByte(oTarget);
+        var sByte = iByte + "byte";
+        
+        if (oDisplay.length > 0) {
+            if (iByte > iMaxByte) {
+                strText = strText.substring(0, iMaxByte);
+                oTarget.val(strText);
+                sByte = submitUtil.getByte(oTarget) + "byte";
+            }
+            oDisplay.text(sByte);
+        }
+    }    
+};
+
+
+/**
+ * 공통 코드 조회
+ */
+var comCodeUtil = {
+    /**
+     * 출력할 영역의 elementID(#id)
+     */
+    docuemntElementID : '',
+
+    /**
+     *  출력한 select element의 name값
+     */
+    selectElementName : '',
+
+    /**
+     * 공통 코드 조회
+     *
+     * @param code 조회 부모 코드
+     * @param callBack 리턴되는 Call Back 함수명, TEXT로 넘기면 안됨.
+     */
+    getCode : function(code, callBack){
+        var data = { prenComCd : code};
+        ajaxUtil.post('/cm/cm100List.kids', data, callBack);
+    },
+    /**
+     * 공통 코드 조회후 화면 출력
+     * @param code 조회 부모 코드
+     * @param docuemntElementID 출력할 영역의 #id
+     * @param selectElementName 출력한 select element의 name값
+     */
+    getCodeNPrint : function(code, docuemntElementID, selectElementName){
+        comCodeUtil.docuemntElementID = docuemntElementID;
+        comCodeUtil.selectElementName = selectElementName;
+
+        var data = { prenComCd : code};
+        ajaxUtil.postDisableAsync('/cm/cm100List.kids', data, comCodeUtil.getCodeNPrintResult);
+    },
+    /**
+     * 공통 코드 화면 출력
+     * - 기존 Default는 유지하고 option을 추가 하도록 수정
+     * @param json json
+     */
+    getCodeNPrintResult : function(json){
+        if(json.bindingStatus == undefined && json.result.status){
+            var codeList = json.result.list;
+            var codeSize = codeList.length;
+            var printTxt = '<select name="'+ comCodeUtil.selectElementName +'" id="'+ comCodeUtil.selectElementName+'"><option value="">선택</option>';
+
+            for(var i = 0; i < codeSize ; i++){
+                printTxt += '<option value="'+codeList[i].comCd+'">'+codeList[i].comCdexpl+'</option>';
+            }
+
+            printTxt += '</select>';
+
+            $('#'+comCodeUtil.docuemntElementID).html(printTxt);
+//            var oSelect = $('select[id='+comCodeUtil.docuemntElementID+']');
+//
+//            //Option삭제
+//            oSelect.children().not(':eq(0)').remove();
+//
+//            for(var i = 0; i < codeSize ; i++){
+//                $(oSelect).append('<option value="'+codeList[i].comCd+'">'+codeList[i].comCdexpl+'</option>');
+//            }
+
+        }else{
+            ajaxUtil.error(json);
+        }
+    },
+
+    /**
+     * 지역정보 (시/도) 목록 출력
+     */
+    getSidoList : function(docuemntElementID, value){
+        comCodeUtil.docuemntElementID = docuemntElementID;
+        comCodeUtil.selectElementName = value;
+        ajaxUtil.postDisableAsync('/cm/cm300List.kids', '', comCodeUtil.getArrayPrintResult);
+    },
+
+    /**
+     * 지역정보 (구/군) 목록 출력
+     */
+    getGogunList : function(docuemntElementID, code, value){
+        comCodeUtil.docuemntElementID = docuemntElementID;
+        comCodeUtil.selectElementName = value;
+        var data = { searchType : code};
+        ajaxUtil.postDisableAsync('/cm/cm301List.kids', data, comCodeUtil.getArrayPrintResult);
+    },
+
+    /**
+     * 지역정보 (읍/명/동) 목록 출력
+     */
+    getDongList : function(docuemntElementID, code, value){
+        comCodeUtil.docuemntElementID = docuemntElementID;
+        comCodeUtil.selectElementName = value;
+        var data = { searchType : code};
+        ajaxUtil.postDisableAsync('/cm/cm302List.kids', data, comCodeUtil.getArrayPrintResult);
+    },
+
+    /**
+     * select box option setting
+     * Statements
+     * @param json
+     */
+    getArrayPrintResult : function(json){
+
+        var arrList = json.result.list;
+        var arrSize = arrList.length;
+        $(comCodeUtil.docuemntElementID).html("");
+        $(comCodeUtil.docuemntElementID).append("<option value=''>전체</option>");
+
+        for(var i = 0; i < arrSize ; i++){
+            var val = arrList[i];
+            var selected = "";
+            if(comCodeUtil.selectElementName == val.regnScnCd1){
+                selected = "selected='selected'";
+            }
+            var printTxt = "<option value='" +val.regnScnCd1+"'" +
+                            selected+" >" +
+                            val.regnScnCd1+
+                            "</option>";
+
+            $(comCodeUtil.docuemntElementID).append(printTxt);
+        }
+        return false;
+    }
+};
+
+/**
+ * AJAX 페이징 처리
+ */
+var ajaxPagging = {
+    /**
+     * 현재 페이지 번호
+     */
+    currentPageNo : 1,
+
+    /**
+     * AJAX 페이징 처리
+     *
+     * @use ajaxPagging.create(pUrl, pTotalRow, pPage, pRowLimit, pPageLimit)
+     * @param pUrl         페이지 url
+     * @param pTotalRow    전체 갯수
+     * @param pPage        현재 페이지
+     * @param pRowLimit    페이지 노출 Row갯수
+     * @param pPageLimit   한번에 보여주는 페이지수
+     */
+    create : function(pUrl, pTotalRow, pPage, pRowLimit, pPageLimit){
+        var btFirst = '';           //첫페이지 번호
+        var btPrev = '';            //이전 페이지 번호
+        var btPage = '';            //현재 페이지 번호
+        var btNext = '';            //다음 페이지 번호
+        var btLast = '';            //마지막 페이지 번호
+
+        currentPageNo = pPage > 0 ? pPage : 1;
+
+        var totalPage = parseInt(pTotalRow / pRowLimit + (pTotalRow % pRowLimit == 0 ? 0 : 1));       //전체 페이지 수
+        var startPage =  parseInt( parseInt((currentPageNo-1)/pPageLimit) * pPageLimit  + 1);           //시작페이지 번호
+
+        //첫페이지로
+        if(currentPageNo > 1){
+            btFirst = '<a href="'+ pUrl + 1 +'" class="first" title="첫 페이지로 이동"><span class="blind">첫 페이지로 이동</span></a>';
+        }
+        //이전 페이지
+        if(currentPageNo > pPageLimit){
+            btPrev = '<a href="' + pUrl + (startPage-1) + '" class="prev" title="이전 페이지로 이동"><span class="blind">이전페이지 이동</span></a>';
+        }
+        //다음 페이지
+        if((startPage + pPageLimit) <= totalPage){
+            btNext = '<a href="' + pUrl + (startPage+10) + '" class="next" title="다음 페이지로 이동"><span class="blind">다음페이지 이동</span></a>';
+        }
+        //마지막 페이지로
+        if(currentPageNo < totalPage){
+            btLast = '<a href="' + pUrl + totalPage + '" class="last" title="마지막 페이지로 이동"><span class="blind">마지막 페이지로 이동</span></a>"';
+        }
+
+        for(var i=0; i < pPageLimit; i++){
+            var pageNo = startPage + i;
+            if(pageNo > totalPage){  break;  }
+            if(pageNo == currentPageNo){
+                btPage += '<a href="#" class="curr" onclick="return false;">'+ pageNo +'</a>';
+            }else{
+                btPage += '<a href="'+ pUrl + pageNo +'">'+ pageNo +'</a>';
+            }
+        }
+        $('.paginate').html(btFirst + btPrev + btPage + btNext + btLast);
+    }
+};
+
+/**
+ * 윈도우 팝업 처리
+ */
+var windowUtil = {
+    /**
+     * 팝업 열기
+     *
+     * - 기본 팝업 열기 : windowUtil.open(uri,  "poptitle", 430, 190, 0) ;
+     * - 팝업사이즈 변경 필요할 경우 : windowUtil.open(uri,  "poptitle1", 430, 190, 0,1);
+     *
+     * @param url           경로
+     * @param windowName    팝업명
+     * @param width         가로크기
+     * @param height        세로크기
+     * @param strScroll     스크롤 여부
+     * @param strResize     크기변경 여부
+     */
+    open: function(url,  windowName, width, height, strScroll, strResize) {
+        var popupWindow = "" ;
+        windowX = Math.ceil( (window.screen.width  - width) / 2 );
+        windowY = Math.ceil( (window.screen.height - height) / 2 );
+
+        if(strResize == undefined || strResize == '') {
+            strResize = 0 ;
+        }
+
+        popupWindow = window.open(url, windowName, "width=" + width + ", height=" + height + ", top="+ windowY +", left="+ windowX +", scrollbars="+ strScroll+", resizable="+ strResize);
+
+        if(!popupWindow){
+            // @TODO  팝업 해제 방법  메뉴얼 필요.
+            alert("팝업을 해제해 주세요.");
+        }else{
+            try { popupWindow.focus(); } catch(e){}
+        }
+    },
+    /**
+     * 팝업창을 닫는다.
+     * - 팝업창에서 사용.
+     *
+     * @use windowUtil.close();
+     * @returns {Boolean}
+     */
+    close : function() {
+        window.open('', '_self', '');
+        window.close();
+        return false;
+    }
+};
+
+
+/**
+ * 모달 팝업 처리
+ *
+ * 공통으로 모달을 열고 닫을때 사용한다.
+ * 모달의 상세한 설정은 각 페이지 에 modalUtil을 생성해서 사용한다.
+ *
+ *
+ *
+ * ref.) /kids_admin/src/main/webapp/WEB-INF/jsp/ma/ma301Man.jsp
+ *
+ * //이벤트를 등록해준다.
+ * //.btn_modal_open 공통으로 적용을 해두었음.
+ * //기본적으로 하나의 모달을 사용한다면 모달 오픈 버튼 이름을 아래로 변경해 줄것.
+ * //여러개의 모달을 사용한다면 각 모달 버튼에 대한 이벤트를 별도로 주어서 처리해야한다.(공통모듈 참고할것.)
+ * $('.btn_modal_open').on({
+ *     click : function(event){
+ *         event.preventDefault();
+ *         modalUtil.open($(this));
+ *     }
+ * });
+ *
+ * //모달 열고 닫기위한 페이지별 함수를 아래와 같이 공통으로 생성한다.
+ * //모달 열고 닫기 전에 처리해야하는 로직을 아래에 추가한다.
+ * var modalUtil = {
+ *     open : function(object){
+ *          //모달 오픈전 처리해야할 로직 추가
+ *
+ *          //모달 열기
+ *          modalComUtil.open(); or modalComUtil.open('new_cont');
+ *     },
+ *     close : function(object){
+ *          //모달 닫기전 처리해야할 로직 추가
+ *
+ *          //모달 닫기
+ *          modalComUtil.close();
+ *     }
+ * };
+ */
+var modalComUtil = {
+    /**
+     * 모달 팝업 열기
+     *
+     * @use modalComUtil.open();
+     *      -> modal_box의 컨텐츠 영역이 하나뿐일때 사용
+     *      modalComUtil.open('new_cont');
+     *      -> modal_box의 컨텐츠 영역이 여러개 일때 보여줄 영역의 Class명을 입력한다.
+     * @param 모달 팝업 열기
+     */
+    open : function(pContentClassName){
+
+        if(pContentClassName == undefined){
+            pContentClassName = '';
+        }else{
+            pContentClassName = '.'+pContentClassName;
+        }
+
+        $('.modal_wrap').css('display','block');
+        $('.bg_dim').css('display','block');
+        $('.modal_box' + pContentClassName).css('display','block');
+
+        //글 갯수에 따른 높이값 계산 후 화면 중앙 위치
+        var voteHeight = $('.modal_box' + pContentClassName).height();
+        $('.modal_box' + pContentClassName).css({'height':voteHeight, 'margin-top' : -voteHeight/2 + 'px'});
+    },
+    /**
+     * 모달 팝업 닫기
+     * @use modalUtil.close();
+     */
+    close : function(){
+        $('.modal_box').hide();
+        $('.bg_dim').hide();
+        $('.modal_wrap').hide();
+    }
+};
+
+/**
+ * 숫자 관련 처리
+ */
+var numUtil = {
+    /**
+     * 콤마 제거
+     *
+     * @use numUtil.removeComma(num);
+     * @param num
+     * @returns
+     */
+    removeComma : function(num) {
+        num = new String(num);
+        return num.replace(/,/gi,"");
+    },
+    /**
+     * 숫자에 자릿수 표시
+     *
+     * @use numUtil.createComma(num);
+     * @param num
+     * @returns
+     */
+    createComma : function(num) {
+        num = numUtil.removeComma(num);
+
+        if (isNaN(num) || num == 0){
+            return 0;
+        }
+
+        var sign = "";
+
+        if (num < 0) {
+            num = num * (-1);
+            sign = "-";
+        } else {
+            num = num * 1;
+        }
+
+        var reg = /(^[+-]?\d+)(\d{3})/;
+        num += '';
+
+        while (reg.test(num))
+            num = num.replace(reg, '$1' + ',' + '$2');
+
+        return sign + num ;
+    }
+};
+
+/**
+* @name     getUrlVars
+* @desc     get Parameter
+* @author   Jinwoo.Yuk
+* @version  2013.06.03
+* @use 
+var allVars = $.getUrlVars();
+var byName = $.getUrlVar('name');
+*/
+$.extend({
+    getUrlVars: function () {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    },
+    getUrlVar: function (name) {
+        return $.getUrlVars()[name];
+    }
+});
+
+/**
+* @name     getBusinessPartDesc
+* @desc     get Business part description
+* @author   HongEunpyo
+* @version  2014.04.14
+*/
+function getBusinessPartDesc(strCode) {
+    
+    var strRetValue = "";
+    
+    if(strCode == "") {
+        strRetValue = "";
+    } else if(strCode == "") {
+        strRetValue = "";
+    } else if(strCode == "") {
+        strRetValue = "";
+    } else if(strCode == "") {
+        strRetValue = "";
+    } else if(strCode == "") {
+        strRetValue = "";
+    } else if(strCode == "") {
+        strRetValue = "";
+    }
+    
+    return strRetValue;
+}
+
+/**
+ * @name     getDateTimeFormat 
+ * @desc    : Make formated date-time string
+ * @author  : HongEunpyo
+ * @version : 2012.06.28
+ * @param strDate
+ * @param strFormat
+ * @returns {String}
+ * @example : getDateTimeFormat("20140302") or getDateTimeFormat("2014-03-02") or getDateTimeFormat("20140302", "yyyy.MM.dd") 
+ *          >> "2014.03.02";
+ * @example : getDateTimeFormat("20140302") or getDateTimeFormat("2014.03.02") or getDateTimeFormat("20140302", "yyyy-MM-dd") 
+ *          >> "2014-03-02";
+ * @example : getDateTimeFormat("20140302132435") or getDateTimeFormat("2014-03-02 13:24:35") or getDateTimeFormat("20140302132435", "yyyy.MM.dd HH:mm:ss") 
+ *          >> "2014.03.02 13:24:35";
+ * @example : getDateTimeFormat("20140302132435") or getDateTimeFormat("2014.03.02 13:24:35") or getDateTimeFormat("20140302132435", "yyyy-MM-dd HH:mm:ss") 
+ *          >> "2014-03-02 13:24:35";
+ */
+function getDateTimeFormat(strDate, strFormat) {
+    
+    var strRetValue = "";
+    var strDateFormat = "yyyy.MM.dd";               //Default format
+    var strDateTimeFormat = "yyyy.MM.dd HH:mm:ss";  //Default format
+    
+    strDate = strDate.replace(/(-*)(\.*)(\s*)(:*)/g, "");
+        
+    if(strDate.length == 8) {
+        if(!strFormat) {
+            strFormat = strDateFormat;
+        }
+    } else if(strDate.length == 14) {
+        if(!strFormat) {
+            strFormat = strDateTimeFormat;
+        }
+    }
+    
+    var objDate = new Date();
+    
+    try {
+        var year = 2000;
+        var month = 1;
+        var date = 1;
+        var hour = 0;
+        var min = 0;
+        var sec = 0;
+        var ms = 0;
+        
+        if(strDate.length >= 8) {
+            year = strDate.substring(0, 4) * 1;
+            month = strDate.substring(4, 6) * 1;
+            date = strDate.substring(6, 8) * 1;
+        } 
+        
+        if(strDate.length >= 14) {
+            hour = strDate.substring(8, 10) * 1;
+            min = strDate.substring(10, 12) * 1;
+            sec = strDate.substring(12, 14) * 1;
+        }
+        
+        objDate.setFullYear(year, month-1, date);
+        objDate.setHours(hour, min, sec, ms);
+        
+        strRetValue = objDate.format(strFormat);
+    } catch(e) {
+        
+    }
+    
+    return strRetValue;
+}
+
+/**
+ * @name     format 
+ * @desc    : Make string date format (Date() 개체에 format 지정 함수 재정의)
+ * @author  : HongEunpyo
+ * @version : 2012.06.28
+ * @param   : Re-definition function of date object
+ * @return  : String formatted date and time.
+ * @example : var strNow = new Date().format("yyyyMMddHH");
+*/ 
+Date.prototype.format = function (f) {
+    if (!this.valueOf()) return " ";
+
+    var weekName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    var d = this;
+
+    return f.replace(/(yyyy|yy|MM|dd|E|hh|mm|ss|a\/p)/gi, function ($1) {
+        switch ($1) {
+            case "yyyy": return d.getFullYear();
+            case "yy": return (d.getFullYear() % 1000).zf(2);
+            case "MM": return (d.getMonth() + 1).zf(2);
+            case "dd": return d.getDate().zf(2);
+            case "E": return weekName[d.getDay()];
+            case "HH": return d.getHours().zf(2);
+            case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2);
+            case "mm": return d.getMinutes().zf(2);
+            case "ss": return d.getSeconds().zf(2);
+            case "a/p": return d.getHours() < 12 ? "오전" : "오후";
+            default: return $1;
+        }
+    });
+};
+
+String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+Number.prototype.zf = function (len) { return this.toString().zf(len); };
+
+/**
+ * 업로드 파일에 대한 확장자 체크
+ * @param oInputFile
+ * @param strTargetId
+ * @param onchange="fnSetFilePathImage(this, 'attcThumbImgText');"
+ * @returns {Boolean}
+ */
+function fnSetFilePath(oInputFile, strTargetId, arrFileExtWL) {
+    
+    var strFilePath = oInputFile.value;
+    var arrFilePath = strFilePath.split(".");
+    var strExtension = arrFilePath[arrFilePath.length-1];
+    strExtension = strExtension.toLowerCase();
+    //default extensions
+    if(!arrFileExtWL) {
+        arrFileExtWL = ["jpg", "gif", "png"];
+    }
+    var strFileExtWL = "", index = 0;
+    var bFlag = false;
+    
+    /*for(index in arrFileExtWL) {
+        strFileExtWL = arrFileExtWL[index].toLowerCase();
+        if(strFileExtWL == strExtension) {
+            bFlag = true;
+            break;
+        }
+    }*/
+    for(index=0; index<arrFileExtWL.length; index++){
+        strFileExtWL = arrFileExtWL[index].toLowerCase();
+        if(strFileExtWL == strExtension) {
+            bFlag = true;
+            break;
+        }
+    }
+    
+    if(!bFlag) {
+        alert("허용되지 않은 파일입니다.");
+        
+        var inputFileEL = $(oInputFile);
+        inputFileEL.replaceWith(inputFileEL.clone(true));
+        
+        return false;
+    }
+    
+    if (strTargetId != '') {
+        document.getElementById(strTargetId).value = strFilePath;
+    } else {
+        return strFilePath;
+    }
+}
+
+function fnEncodeElementValue(arrElementName, bEncode) {
+    
+    for(index in arrElementName) {
+        var strName = arrElementName[index];
+        var targetEL = $("[name='" + strName + "']");
+        
+        if(targetEL) {
+            if (bEncode) {
+                targetEL.val(fnEncodeCharacters(targetEL.val()));
+            } else {
+                targetEL.val(fnDecodeCharacters(targetEL.val()));
+            }
+        }
+    }
+}
+
+function fnEncodeCharacters(strInput) {
+    
+    var strOutput = strInput;
+    
+    //[Step-1]
+    strOutput = encodeURIComponent(strOutput);
+    
+    //[Step-2]
+    strOutput = strOutput.replace(/'/g , "%27");
+    
+    return strOutput;
+}
+
+function fnDecodeCharacters(strInput) {
+    
+    var strOutput = strInput;
+    
+    //[Step-1]
+    strOutput = decodeURIComponent(strOutput);
+    
+    //[Step-2]
+    strOutput = strOutput.replace("%27" , "'");
+    
+    return strOutput;
+}
+
+
+// replaceall
+String.prototype.replaceAll = function(t, r){
+    return this.valueOf().split(t).join(r);  
+};
+
+function encodeHtml(str) {
+    if (str != null && str != "") {
+        str = str.replaceAll("<", "&lt;");
+        str = str.replaceAll(">", "&gt;");
+        return str;
+    }
+}
+
+function decodeHtml(str) {
+    if (str != null && str != "") {
+        str = str.replaceAll("&lt;", "<");
+        str = str.replaceAll("&gt;", ">");
+        return str;
+    }
+}
+
+function getCookie(name){
+    
+    var wcname = name+'=';
+    var wcstart, wcend, end;
+    var i =0;
+    
+     while(i<= document.cookie.length){
+         wcstart = i;
+         wcend = (i + wcname.length);
+         if (document.cookie.substring(wcstart,wcend)== wcname){
+             if (end = document.cookie.indexOf(';',wcend) == -1)
+             end = document.cookie.length;
+             return document.cookie.substring(wcend,end);
+         }
+         i = document.cookie.indexOf('',i)+1;
+         if (i==0)
+             break;
+     }
+     return '';
+}
+
+function setCookie(name, value, expiredays) {
+    var today = new Date();
+    today.setDate(today.getDate() + expiredays);
+    document.cookie = name + '=' + escape(value) + ';path=/;expires=' + today.toGMTString() + ';';
+}
+
+/**
+ * /MediaCenter/Library/로 접근시 리다이렉트 type 불러옴* 
+ * 1:이미지 2: 동영상
+ */
+function fnGetPageType(rv) {
+    if(rv.pageType == "1")
+    {
+        hreUrl = url.replace(".hub",".blg");
+        hreUrl = hreUrl.replace("www.hyundai.co.kr","blog.hmgjournal.com");
+        document.location.href = hreUrl; 
+    }
+    else if(rv.pageType == "2")
+    {
+        hreUrl = url.replace(".hub",".blg");
+        hreUrl = hreUrl.replace("www.hyundai.co.kr","tv.hmgjournal.com");
+        document.location.href = hreUrl; 
+    }
+}
+
+/**
+ * 
+ * URL 단축 소스
+ * @param Original_URL : 현재 나타나는 사이트 URL 
+ * @param Replace_URL : 웹 주소 창에 보여질 URL 
+ * 테스트 완료 현재 사용 하지 않음 
+ */
+
+//var Original_URL = 'http://localhost:8080/Careers/Index.hub';
+//var Replace_URL = 'http://localhost:8080/Careers.hub';
+//var online = document.URL;
+//if(online.match(Original_URL)) document.location.href = online.replace(Original_URL, Replace_URL);

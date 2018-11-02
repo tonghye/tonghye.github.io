@@ -1,0 +1,159 @@
+(function($) {
+
+    var $WIN = $(window); // window jQuery object
+    var $DOC = $(document); // document jQuery object
+
+    var HEIGHT = $WIN.height(); // window height
+    var WIDTH = $WIN.width(); // window width
+
+    // window resize
+    $WIN.resize(function() {
+        HEIGHT = $WIN.height();
+        WIDTH = $WIN.width();
+        $WIN.trigger('scroll');
+    });
+
+    function scroll_event(){
+        var hdH=91;
+        var sct;
+        var $targets=$('#sec_recommend_card, #sec_kona_app, #sec_kona_app2, #sec_kona_app3, #kona_product, #sec_bginfo, #sec_down'); //main
+        if($targets.length==0) $targets=$('#intro_section_02, .intro_section_03_01, .intro_section_03_02, .intro_section_03_03'); //코나카드란?
+        if($targets.length==0) $targets=$('.app_guide_01, .app_guide_02, .app_guide_03, .app_guide_04, .app_guide_05, .sub02_bg1, .sub02_bg2, .sub02_bg3'); //앱이용안내        
+
+        var l=$targets.length;
+
+        var $tar;
+        var tH;
+        var tT;
+        var s;
+        var e;
+
+        $WIN.on('scroll',function(e){
+            sct=$WIN.scrollTop();
+
+            for(var i=0;i<l;i++){
+                $tar=$targets.eq(i);
+                if($tar.hasClass('sc_evt_on')) {
+                    $targets=$targets.filter(':not(.sc_evt_on)');
+                    l=$targets.length;
+                    continue;
+                }
+
+                tH=$tar.outerHeight();
+                tT=$tar.offset().top;
+
+                s=tT+tH*0.5-HEIGHT;
+                e=tT+tH*0.5-hdH;
+
+                if(s<sct&&e>sct) {
+                    $tar.addClass('sc_evt_on');
+                    if($tar.attr('id')=='kona_product') {
+                        $('.section05').addClass('sc05_1');
+                    }
+                }
+            }
+        });
+    }
+
+    function sc05_card(){
+        $('.sc05_card>li>.img>img, .sc05_card_img').on('click',function(e){
+            e.preventDefault();
+            var $bg=$('.sc05_card_bg>div');
+            var $bf=$bg.filter('.on');
+            var idx=$bf.index()+1;
+            var n=idx+1;
+
+            if(n>$bg.length) n=1;
+
+            $('.section05').attr('class',('section05 sc05_'+n));
+
+            if(idx==$bg.length) idx=0;
+
+            $bg.attr('class','');
+            $bf.attr('class','bf');
+            $bg.eq(idx).attr('class','on');
+        });
+    }
+
+    function ps_sc1_card_list(){
+        var $target=$('.ps_sc1_card_list');
+        if($target.length==0) return;
+
+        var prev=$target.find('.ps_sc1_card_list_prev');
+        var next=$target.find('.ps_sc1_card_list_next');
+        var li=$target.children('ul').children('li');
+        var len=li.length;
+
+        if(len<4) {
+            prev.remove();
+            next.remove();
+            return;
+        }
+
+        window.ps_sc1_card_list_flag=false;
+
+        var toMove=function(a){
+            if(ps_sc1_card_list_flag) return;
+            ps_sc1_card_list_flag=true;
+
+            var on1=li.filter('.on1');
+            var on2=li.filter('.on2');
+            var on3=li.filter('.on3');
+
+            li.removeClass('set_bfon').removeClass('bfon').removeClass('afon');
+
+            if(a){ // <<<
+                // init
+                var af=on3.next();
+                if(af.length==0) af=li.eq(0);
+                //
+
+                setTimeout(function(a,b,c,d){
+                    a.attr('class','bfon');
+                    b.attr('class','on1');
+                    c.attr('class','on2');
+                    d.attr('class','on3');
+                },50,on1,on2,on3,af);
+
+            }else{ // >>>
+                //init
+                var bf=on1.prev();
+                if(bf.length==0) bf=li.eq(len-1);
+                bf.addClass('set_bfon');
+                //
+
+                setTimeout(function(a,b,c,d){
+                    d.attr('class','on1');
+                    a.attr('class','on2');
+                    b.attr('class','on3');
+                    c.attr('class','afon');
+                },50,on1,on2,on3,bf);
+            }
+
+            setTimeout(function(){
+                ps_sc1_card_list_flag=false;
+            },460);
+        };
+
+        prev.on('click',function(e){
+            e.preventDefault();
+            toMove(true);
+        });
+
+        next.on('click',function(e){
+            e.preventDefault();
+            toMove();
+        });
+    }
+
+    $DOC.ready(function(){
+
+    });
+
+    $WIN.on('load',function(){
+        scroll_event();
+        sc05_card();
+        ps_sc1_card_list();
+        $WIN.resize();
+    });
+})(jQuery);

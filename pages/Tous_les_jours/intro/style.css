@@ -1,0 +1,58 @@
+@charset "euc-kr";
+
+/***** reset  *****/
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary {display:block}
+audio,canvas,video { display: inline-block; *display:inline; *zoom:1}
+audio:not([controls]) {display:none; height:0}
+[hidden] {display:none}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0; padding:0}
+html,body,th,td,input,select,textarea,button,
+address,caption,cite,code,dfn,var, b,strong,em {line-height:1.5; letter-spacing:0; font-family:inherit}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li {list-style:none}
+blockquote, q {quotes:none}
+blockquote:before, blockquote:after,q:before, q:after {content:''; content:none}
+input[type="button"],
+input[type=submit],
+button {overflow:visible; border:0 none; background-color:transparent; color:inherit; font-size:inherit; font-weight:inherit; cursor:pointer}
+body {position:relative; background:url(../images/bg_body.jpg) repeat 0 0; -webkit-text-size-adjust:none}
+button::-moz-focus-inner,
+input::-moz-focus-inner{padding:0; border:0}
+textarea{}
+table {width:100%; table-layout:fixed; border-collapse: separate; *border-collapse:collapse; border-spacing:0}
+hr{display:none}
+/***** Reset end *****/
+
+/***** common *****/
+html,body {width:100%; height:100%}
+body {color:#6b5643; font-size:14px; font-family:'Nanum Barun Gothic', 'µ¸¿ò', 'dotum', sans-serif}
+a{color:#666; text-decoration:none}
+a:active{outline:0}
+a:active, a:hover {text-decoration:none}
+img {vertical-align:top}
+h1, h2, h3, h4, h5, h6 {line-height:1.5; font-size: inherit}
+a, button {background: url(../images/blank.png)}
+input[type="radio"] {vertical-align:top}
+
+#introWrap {overflow:hidden; min-width:1200px; min-height:100%}
+
+.blind {overflow:hidden; position:absolute; top:-9999px; left:-9999px; width:1%; height:1%; text-indent:-9999px}
+.inner {position:relative; width:1200px; margin:0 auto}
+.intro-wrap .header {background-color:#ac9a77}
+.header .inner {height:52px; padding-top:29px}
+.header .gnb-list {position:absolute; top:30px; right:0; *zoom:1}
+.header .gnb-list:after {content:""; display:block; clear:both}
+.header .gnb-list li {float:left; position:relative}
+.header .gnb-list li + li {margin-left:25px}
+.header .gnb-list li + li:after {content:""; display:block; position:absolute; top:1px; left:-13px; width:2px; height:17px; background-color:#d6cdbb}
+
+.container {min-height:756px}
+.container .inner:before {content:""; display:block; position:absolute; top:0; left:-179px; width:762px; height:756px; background:url(../images/bg_product1.png) no-repeat 0 0}
+.container .inner:after {content:""; display:block; position:absolute; top:0; right:-155px; width:780px; height:756px; background:url(../images/bg_product2.png) no-repeat 0 0}
+.container .tit {position:relative; z-index:3; padding-top:30px; text-align:center}
+
+.intro-footer {position:relative; padding:40px 0 60px; background:url(../images/bg_footer.png) repeat 0 0; text-align:center}
+.intro-footer .footer-menu > li {display:inline-block; padding-right:9px; line-height:17px}
+.intro-footer .footer-menu > li + li {margin-left:-4px; padding-left:11px; background:url(../images/bg_footer_bar.png) no-repeat 0 50%}
+.intro-footer .footer-menu > li img {vertical-align:middle}
+.intro-footer .copy {margin-top:15px}

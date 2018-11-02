@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>고시공고</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!--link rel="stylesheet" href="/emwp/css/ofr/PlnOfrStyle.css" type="text/css"-->
+
+<style>
+body {
+	font-size: 0.69em;
+	color: #666;
+	margin: 0;
+	padding: 0;
+	font-family: "Dotum", "verdana", "sans-serif";
+}
+a {
+    font-size: 0.82em;
+}
+a:link, a:active, a:visited {
+	color: #666;
+	text-decoration: none;
+}
+a:hover {
+	color: #FC3C3C;
+	text-decoration: none;
+}
+hr {
+	display: none;
+}
+</style>
+
+<script type="text/javascript" src="OfrAction_data_003/calendar.js"></script>
+<script type="text/javascript" src="OfrAction_data_003/common.js"></script> 
+<script type="text/javascript" src="OfrAction_data_003/common_002.js"></script>
+
+<script language="javascript">	
+//-------------------------------------------------------------------
+// 설명   : 고시공고 목록 조회
+//-------------------------------------------------------------------
+	function search(){
+		var f = document.form1;
+ 	    var chker = f.initValue.value;
+
+		if(chker =="Y")return;
+
+		f.target = "_self";
+		f.action = "/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do";	
+		f.method.value   = 'selectListOfrNotAncmtMini'; //Action
+		f.methodnm.value = 'selectListOfrNotAncmtHomepage';
+		f.submit();	
+	}			
+//-------------------------------------------------------------------
+// 설명   : 고시공고 상세내용 조회
+//-------------------------------------------------------------------	
+	function searchDetail(not_ancmt_mgt_no) {
+		
+		//var f = document.form1;
+		//f.not_ancmt_mgt_no.value = not_ancmt_mgt_no ;
+		//f.target = "_self";
+		//f.action = "/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do";	
+		//f.method.value   = 'selectOfrNotAncmt'; //Action
+		//f.methodnm.value = 'selectOfrNotAncmtRegst';
+		//f.submit();	
+	}
+
+</script></head>
+
+
+<body onload="search();" topmargin="0" leftmargin="0">
+<form name="form1" method="post" onsubmit="return false;">
+<input name="pageIndex" value="" type="hidden">
+<input name="jndinm" value="OfrNotAncmtEJB" type="hidden">
+<input name="context" value="NTIS" type="hidden">
+<input name="method" value="" type="hidden">
+<input name="methodnm" value="" type="hidden">
+<!-- 시군구 페이지에 맞게 커스터마이징 된 JSP페이지 여부(Y/N) 설정 반드시 해줘야 함. -->
+<input name="subCheck" value="Y" type="hidden">
+<input name="not_ancmt_mgt_no" value="" type="hidden">
+<input name="homepage_pbs_yn" value="Y" type="hidden">
+<input name="ofr_pageSize" value="5" type="hidden">
+<input name="initValue" value="Y" type="hidden">
+<input name="not_ancmt_se_code" value="01,03,04" type="hidden">
+<input name="cha_dep_code_nm" value="" type="hidden">
+<input name="countYn" value="Y" type="hidden">
+
+<table width="420" cellspacing="0" cellpadding="0">
+
+
+
+	<tbody><tr>
+		<td width="80%" valign="top" height="23" align="left"><a href="http://hanam.go.kr/contents/administation/civicnews/notification.jsp?modeView=24824&amp;big_temp=5&amp;mid_temp=2" target="_top">국공립어린이집 개원 일정 변경에 따른 2차 공고(A14...</a></td>
+		<td width="20%" valign="middle" align="right">
+			<font style="font-size: 0.76em;	color: #666; margin: 0;	padding: 0;	font-family: 'Dotum', 'verdana', 'sans-serif';">
+			2018-09-12
+			</font>
+
+		</td>
+	</tr>
+
+
+	<tr>
+		<td width="80%" valign="top" height="23" align="left"><a href="http://hanam.go.kr/contents/administation/civicnews/notification.jsp?modeView=24817&amp;big_temp=5&amp;mid_temp=2" target="_top">도로명주소 부여 고시</a></td>
+		<td width="20%" valign="middle" align="right">
+			<font style="font-size: 0.76em;	color: #666; margin: 0;	padding: 0;	font-family: 'Dotum', 'verdana', 'sans-serif';">
+			2018-09-12
+			</font>
+
+		</td>
+	</tr>
+
+
+	<tr>
+		<td width="80%" valign="top" height="23" align="left"><a href="http://hanam.go.kr/contents/administation/civicnews/notification.jsp?modeView=24813&amp;big_temp=5&amp;mid_temp=2" target="_top">보상계획 열람 공고(남밖취락 도시계획도로 개설공사)</a></td>
+		<td width="20%" valign="middle" align="right">
+			<font style="font-size: 0.76em;	color: #666; margin: 0;	padding: 0;	font-family: 'Dotum', 'verdana', 'sans-serif';">
+			2018-09-12
+			</font>
+
+		</td>
+	</tr>
+
+
+	<tr>
+		<td width="80%" valign="top" height="23" align="left"><a href="http://hanam.go.kr/contents/administation/civicnews/notification.jsp?modeView=24804&amp;big_temp=5&amp;mid_temp=2" target="_top">건축허가에 따른 도로지정 공고</a></td>
+		<td width="20%" valign="middle" align="right">
+			<font style="font-size: 0.76em;	color: #666; margin: 0;	padding: 0;	font-family: 'Dotum', 'verdana', 'sans-serif';">
+			2018-09-12
+			</font>
+
+		</td>
+	</tr>
+
+
+	<tr>
+		<td width="80%" valign="top" height="23" align="left"><a href="http://hanam.go.kr/contents/administation/civicnews/notification.jsp?modeView=24811&amp;big_temp=5&amp;mid_temp=2" target="_top">자동차손해배상보장법 위반 과태료 고지서 반송분 공시송달</a></td>
+		<td width="20%" valign="middle" align="right">
+			<font style="font-size: 0.76em;	color: #666; margin: 0;	padding: 0;	font-family: 'Dotum', 'verdana', 'sans-serif';">
+			2018-09-12
+			</font>
+
+		</td>
+	</tr>
+
+</tbody></table>
+</form>
+
+  
+</body></html>

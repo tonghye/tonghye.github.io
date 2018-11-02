@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.pagingarea {position:relative; height:40px; margin-top:36px; width:100%; margin-bottom:200px;}
+.pagingarea .center {text-align:center; width:100%; padding:4px 0;}
+.pagingarea .center img {margin-bottom:3px; vertical-align:middle; }
+.pagingarea .center strong {background:#f82244; height:39px; color:#fff; padding:9px 15px 10px 15px; margin-top:2px; font: 15px  sans-serif, Dotum, Gulim, Arial,Verdana; font-weight:bold;}
+.pagingarea .center a {background:#fff; padding:10px 20px 10px 21px; margin-top:2px; font: 15px sans-serif, Dotum, Gulim, Arial,Verdana;}
+.pagingarea .center a:first-child {border-left:none; color:red;}
+.pagingarea .center a.btn {border:none; padding:10px 10px 11px 0; font: 15px sans-serif, Dotum, Gulim, Arial,Verdana; }
+.pagingarea .btn_r {position:absolute; top:0; right:0;}
+
+.pr {position:relative;}
+.loading {position:absolute; top:130%; left:30%;}

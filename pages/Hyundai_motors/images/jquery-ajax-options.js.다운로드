@@ -1,0 +1,113 @@
+/**
+ * Supported Browser : MSIE, Chrome, FireFox, Safari
+ * 
+ * Object       : jquery-ajax-options.js
+ * Description  : AJAX 기본 옵션 정의 및 관련 메소드 
+ * Author       : LaheeDad
+ * Since        : 2013.7.29.
+ * Version      : 1.0
+ * 
+ * Modification Information
+ *     since          author              description
+ *  ===========    =============    ===========================
+ *  2013.7.29.     LaheeDad         최초 생성
+ */
+
+(function($){
+		$(document).ready(function(){
+			$.ajaxSetup({
+			    dataType:"json",
+			    //async: false,
+				beforeSend : function(xhr, settings){
+					//로딩 이미지 보여주기
+				    ajaxUtil.start();				    
+				},
+				complete : function(xhr, status){
+					
+				},
+				error : function(xhr, status, error){
+					/**
+					 * ERROR 공통 설정
+					 * xhr.status : http 오류 번호 를 출력 합니다. (500, 404 등)
+					 * xhr.statusText : 오류 내용 텍스트 -> 세번째 인자 errorThrown과 동일 합니다.
+					 * xhr.responseText : url의 response full text를 출력 합니다.
+					 * xhr.readyState : ajax readyState를 출력 합니다.
+					 */
+					if(xhr.status === 403){
+						alert('Access 권한이 없는 메뉴입니다.\n\n관리자에게 확인하세요.');
+					}else if(xhr.status === 401){
+						alert('세션이 종료되었습니다. \n 다시 로그인 하시고 이용해주세요.');					
+					}else{
+						//alert('요청작업 처리중 ERROR가 발생하였습니다.\n\n관리자에게 문의 바랍니다.');
+					}
+				}
+			});
+		});
+
+		$(document).ajaxStop(function(){
+			//로딩 이미지 제거
+		    ajaxUtil.end();
+		});
+})(jQuery);
+
+
+/**
+ * AJAX 호출을 위한 공통 Object
+ * 
+ * - ajaxUtil.post
+ * - ajaxUtil.get
+ * - ajaxUtil.start
+ * - ajaxUtil.end
+ */
+var ajaxUtil = {
+    /**
+     * RequestMethod = POST
+     * 
+     * @param pUrl  호출 URL
+     * @param pData  {paramName : 'paramValue'} 형식의 Request Parameter.
+     *               ref.) var data = { code : 'S' }               
+     *               또는 $(form).serialize()으로 넘겨줘도 된다.                              
+     * @param pCallback  AJAX-SUCEES시 리턴되는 Call Back 함수 명.
+     */
+    post : function( pUrl, pData, pCallback) {
+        $.ajax({
+            type : 'POST',
+            url : pUrl,
+            //data : $.param(pData),
+            data : pData,
+            success : pCallback
+        });        
+    },
+    /**
+     * RequestMethod = GET
+     * 
+     * @param pUrl  호출 URL
+     * @param pData  {paramName : 'paramValue'} 형식의 Request Parameter.
+     *               ref.) var data = { code : 'S' }               
+     *               또는 $(form).serialize()으로 넘겨줘도 된다.                              
+     * @param pCallback  AJAX-SUCEES시 리턴되는 Call Back 함수 명.
+     */
+    get : function( pUrl, pData, pCallback) {
+        $.ajax({
+            type : 'GET',
+            url : pUrl,
+            //data : $.param(pData),
+            data : pData,
+            success : pCallback
+        });        
+    },
+	/**
+	 * 로딩 이미지 ON
+	 * @param o   Element Object 전체 화면에 해단 로딩이미지가 아니라 특정 영역에 한정된 로딩 이미지일때 Object를 넘겨준다.
+	 *             ref.) $(divName) 
+	 */
+    start : function(o){
+	    //alert('ajax start');
+	},
+	/**
+	 * 로딩 이미지 OFF
+	 */
+	end : function(){
+	    //alert('ajax end');
+	}
+};

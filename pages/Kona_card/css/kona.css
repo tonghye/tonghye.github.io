@@ -1,0 +1,259 @@
+/* header */
+.header{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 15vh;
+    z-index: 1;
+}
+.location ul{
+    margin-left: 48px;
+    margin-top: 10px;
+}
+.location li{
+    display: inline-block;
+    padding-left: 10px;
+}
+.location li a::after{
+    content:">";
+    padding: 0 0 0 10px;
+    font-size: 16px;
+}
+.location li:last-child a::after{
+    content: "";
+    display: none;
+}
+/* container */
+.container{
+    display: block;
+    padding-top: 15vh;
+}
+.pagewrap{
+    position: relative;
+    width: 72.917vw;
+    margin: 0 auto;
+}
+.title{
+    display: block;
+    width: 32.5vw;
+    height: auto;
+    margin: 0 auto;
+    padding:0 140px 103px 140px;
+    background: url(../images/sub_tit_bg_l.png) 45% 0 no-repeat;
+}
+.title h1{
+    padding-top: 7vh;
+    padding-left: 7vw;
+    font-size: 3.2vw;
+    text-align: center;
+}
+.title h1::before{
+    content: "5";
+    display: inline-block;
+    position: absolute;
+    top: 1vh;
+    margin-left: -7.3vw;
+    font-size: 9.4vw;
+}
+.title h1::after{
+    content: "";
+    display: inline-block;
+    width: 3.125vw;
+    height:0.533vh;
+    margin-left: 0.5vw;
+    margin-bottom: 2vh;
+    background-color: #000;
+}
+.title p{
+    color: #999;
+    font-size: 1.02vw;
+    margin-left: 6.3vw;
+    margin-top: 2vh;
+}
+
+/* search */
+.search{
+    position: relative;
+    width: 25vw;
+    margin: 0 auto;
+}
+.search input{
+    width: 100%;
+    margin-bottom: 8vh;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 2px solid #000;
+    font-size: 20px;
+}
+.search input::placeholder{
+    font-size: 18px;
+}
+.search a{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* menu */
+.menu ul{
+    display: table;
+    width: 100%;
+    height: 19.04vh;
+    margin: 8vh 0;
+}
+.menu ul li{
+    position: relative;
+    display: table-cell;
+    width: 12.083vw;
+    text-align: center;
+    vertical-align: middle;
+}
+.menu ul a{
+    display: block;
+    height: 100%;
+    border: 1px solid rgb(214, 214, 214);
+    border-left: 0;
+    padding-top: 100px;
+    font-size: 16px;
+}
+.menu ul > li:first-child a{
+    border-left: 1px solid rgb(214, 214, 214);
+}
+.menu a::before,
+.menu .menu_on a::before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    top: 59px;
+    left: 50%;
+}
+.menu .all a::before,
+.menu .etc a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+}
+.menu .use a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+    background-position: -40px 0;
+}
+.menu .new a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+    background-position: -80px 0;
+}
+.menu .benefit a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+    background-position: -120px 0;
+}
+.menu .charge a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+    background-position: -160px 0;
+}
+.menu .pinfo a::before{
+    background: url(../images/ico_faqlist.png) no-repeat;
+    background-position: -200px 0;
+}
+.menu .menu_on a{
+    background:#20252c;
+    color:#fff;
+}
+.menu .menu_on.all a::before,
+.menu .menu_on.etc a::before{
+    background-position: 0 -42px;
+}
+.menu .menu_on.use a::before{
+    background-position: -40px -42px;
+}
+.menu .menu_on.new a::before{
+    background-position: -80px -42px;
+}
+.menu .menu_on.benefit a::before{
+    background-position: -120px -42px;
+}
+.menu .menu_on.charge a::before{
+    background-position: -160px -42px;
+}
+.menu .menu_on.pinfo a::before{
+    background-position: -200px -42px;
+}
+/* tblist */
+.tblist{
+    border-top: 2px solid;
+}
+.tblist dt{
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+    font-weight: 400;
+}
+
+.tblist dt a{
+    display: block;
+    padding: 16px 120px 16px 40px;
+    color: #000;
+    font-size: 16px;
+    
+}
+.tblist dt a::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    right: 0;
+    margin-top: -7.5px;
+    padding-left: 50px;
+    background: url(../images/ico_qna_open.png) no-repeat;
+}
+.menu ul a:hover,
+.tblist dt a:hover,
+.pgnumber div a:hover{
+    color: red;
+}
+.menu .menu_on a:hover,
+.pgnumber .pg_on a:hover{
+    color: #fff;
+}
+.tblist dd{
+    display: none;
+    border-bottom: 1px solid #e1e1e1;
+    background: #f8f9fa;
+    padding: 32px 40px;
+}
+.tblist .tb_on dd{
+    display: block;
+}
+.tblist dd p{
+    color: #666;
+    font-size: 16px;
+    padding: 10px 0;
+}
+/* pgnumber */
+.pgnumber{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin: 8vh 0 15vh 0;
+}
+.pgnumber > div{
+    display: inline-block;
+}
+.pgnumber .pgon div{
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    margin: 0 5px;
+
+}
+.pgnumber div a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0 5px;
+    font-size: 16px;
+    line-height: 39px;
+    text-align: center;
+}
+.pgnumber .pg_on a{
+    color: #fff;
+    background: #ff4f64;
+}

@@ -1,0 +1,193 @@
+$(function(){
+
+	/*
+	 * dialog : modal 팝업 호출한다.
+	 * */
+	var ModalJs = {
+
+		/*
+		 * modal 팝업 호출한다.
+		 *
+		 * pThis	: open, close등 event 함수가 선언되어있는 obj
+		 * divObj	: 팝업 div
+		 * strTitle	: 제목
+		 * width	: 넓이
+		 * height	: 높이
+		 * */
+		dialog : function(pThis, divObj, width, height){
+			var param = divObj.data();
+			var divId = divObj.attr("id");
+
+			divObj.dialog({
+				width			: width 	? width 	: "auto",
+				height			: height 	? height 	: "auto",
+				hideCloseButton : false,
+				autoOpen		: false,
+ 				modal			: true,
+ 				resizable		: false,
+ 				draggable		: false,
+ 				closeOnEscape	: false,
+
+ 				open:function(event, ui){
+ 					if(!CommonJs.isNull(pThis)){
+ 						if($.isFunction(pThis[divId + "_" + "open"]))		pThis[divId + "_" + "open"](param);
+ 					}else{
+ 						$(".ui-dialog-titlebar-close").hide();
+ 					}
+ 				},
+ 				close:function(event, ui){
+ 					if(!CommonJs.isNull(pThis)){
+ 						divObj.find("form")[ 0 ].reset();
+
+ 						if($.isFunction(pThis[divId + "_" + "close"]))		pThis[divId + "_" + "close"](param);
+ 					}
+
+ 					$(this).dialog("destroy");
+ 				}
+ 			});	//end dialog
+
+		},
+
+		/*
+		 * modal 팝업 호출한다.
+		 *
+		 * msg	: 메세지
+		 * title : 제목
+		 * */
+		alert : function(msg, title){
+			var defer = $.Deferred();
+
+			var divAlert = Alert.$divAlert;
+
+			//타입 셋팅
+			Alert.setType("A");
+
+			//제목 및 내용 셋팅
+			Alert.setTitle(title);
+			Alert.setContents(msg);
+
+			ModalJs.dialog(null, divAlert);
+
+			divAlert.dialog("open");
+
+			divAlert.dialog({
+				close: function( event, ui ) {
+					divAlert.find("form")[ 0 ].reset();
+
+					defer.resolve();
+				}
+			});
+
+			return defer.promise();
+		},
+
+		/*
+		 * confirm
+		 *
+		 * msg	 	: 메세지
+		 * title	: 제목
+		 * */
+		confirm : function(msg, title){
+			var defer = $.Deferred();
+
+			var divAlert = Alert.$divAlert;
+
+			//타입 셋팅
+			Alert.setType("C");
+
+			//제목 및 내용 셋팅
+			Alert.setTitle(title);
+			Alert.setContents(msg);
+
+			ModalJs.dialog(null, divAlert);
+
+			divAlert.dialog("open");
+
+			divAlert.dialog({
+				close: function( event, ui ) {
+					divAlert.find("form")[ 0 ].reset();
+
+					var tBoolean = divAlert.data("okYn") ? true : false;
+
+					defer.resolve(tBoolean);
+				}
+			});
+
+			return defer.promise();
+		},
+
+		/*
+		 * loading을 제어한다.
+		 *
+		 * tBoolean	 	: true/false
+		 * */
+		loading : function(tBoolean){
+			var divLoading = $("#divLoading");
+
+			if(tBoolean){
+
+				ModalJs.dialog(null, divLoading);
+
+				divLoading.dialog({
+					minHeight : "56px",
+					minWidth  : "56px",
+					open:function(event, ui){
+	 					$("body").find( "[aria-describedby]" ).each(function(i){
+	 						if($(this).attr("aria-describedby") == divLoading.attr("id")){
+
+	 							$(this).css("background", 	"transparent");
+	 							$(this).css("border", 		"0");
+	 						}
+	 					});
+
+	 					mainLayout.setLoadingBar();
+	 				},
+					close: function( event, ui ) {
+						mainLayout.clearLoadingBar();
+					}
+				});
+
+				divLoading.dialog("open");
+			}else{
+				divLoading.dialog("close");
+			}
+		},
+
+		/*
+		 * 이미지 뷰어를 띄운다.
+		 *
+		 * imgObj	 	: img Object
+		 * */
+		imageViewer : function(imgObj){
+			var divImage = $("<div id='divImaViewer'>");
+			var img = $("<img src='"+imgObj.attr("src")+"' style='cursor: pointer;'> ");
+
+			divImage.append(img);
+
+			divImage.dialog({
+				width	  		: "auto",
+				height			: "auto",
+				hideCloseButton : false,
+				autoOpen		: false,
+ 				modal			: true,
+ 				resizable		: false,
+ 				draggable		: false,
+ 				closeOnEscape	: true,
+				open:function(event, ui){
+					$("#divImaViewer > img").click(function(){
+						divImage.dialog("close");
+					});
+ 				},
+				close: function( event, ui ) {
+					divImage.remove();
+				}
+			});
+
+			divImage.dialog("open");
+		}
+
+	}// end ModalJs
+
+	window.ModalJs = ModalJs;
+
+});

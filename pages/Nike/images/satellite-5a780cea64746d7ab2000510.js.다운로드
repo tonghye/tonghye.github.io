@@ -1,0 +1,8 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  // 1) 상품 상세 > Size Run Selection 속성 보정
+if(_dl.page_type == "goods"){
+  // $('[data-attributename="FW_SIZE"]').attr('data-attributename','SIZE');
+  // 장바구니 기능과 연결되어 있어, 적용 보류
+}
+
+});

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>●</title>
+    <style>
+        /* reset */
+        *,*::before,*::after{
+            margin:0;
+            padding:0;
+            list-style: none;
+            border:0;
+            box-sizing: border-box;
+        }
+        html, body{
+            height: 100%;
+        }
+        /* editbox */
+        caption{
+            font-size: 17px;
+            font-weight: 600;
+            padding: 10px;
+        }
+        table{
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+            padding: 5px;
+            border-collapse: collapse;
+            border-top: 1px solid #000;
+            border-nth-: 1px solid #000;
+        }
+        textarea{
+            width: 100%;
+            height: 700px;
+            border: 1px solid #000;
+        }
+        .editbox tbody th{
+            font-size: 14px;
+            border:0;
+            border-right: 1px solid #000;
+            border-left: 1px solid #000;
+            border-nth-: 1px solid #000;
+            padding: 8px;
+        }
+        .editbox tbody td{
+            padding: 10px;
+            font-size: 14px;
+            border: 0;
+            border-top: 1px solid #000;
+            border-right: 1px solid #000;
+            border-left: 1px solid #000;
+
+        }
+        input{
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #000;
+            height: 24px;
+        }
+        /* button */
+        .float_r{
+            float: right;
+        }
+        .btnwrap{
+            width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0 100px 0;
+            text-align: center;
+        }
+        .btnwrap a{
+            /* float: right ; */
+            margin: 0 0 0 10px;
+        }
+        .btn{
+            border-radius: 10px;
+            font-size: 13px;
+            padding: 5px 10px 5px 10px;
+            text-decoration: none;
+            background: rgba(24, 9, 151, 0.822);
+            color: #fff;
+            text-align: center;
+            box-shadow: 3px 3px 10px #000;
+            text-shadow: 3px 3px 10px #000;
+        }
+        .btn:hover{
+            box-shadow: inset 2px 2px 10px #000; 
+        }
+    </style>
+</head>
+<body>
+    <div class="editbox">
+            <table>
+                <caption>EDIT</caption>
+                <tbody>
+                    <colgroup>
+                        <col style="width: 100px;">
+                        <col>
+                        <col style="width: 100px;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>제목</th>
+                            <td colspan="3">
+                                <label>
+                                    <input type="text">
+                                </label>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <th>Writer</th>
+                            <td>관리자</td>
+                            <th>Date</th>
+                            <td>2018.08.23</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                            <div class="subject">
+                                <label>
+                                    <textarea name="" cols="75" rows="7"></textarea>
+                                </label>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </tbody>
+            </tbody>
+            </table>
+        </div>
+        <!-- //END:tablebox -->
+        <div class="btnwrap text_c">
+            <a href="listpractice1.html" class="btn btn-save">Save</a>
+            <a href="listpractice1.html" class="btn btn-cancel">Cancel</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,477 @@
+var ANIMATION_EASING = "easeOutQuint";
+var ANIMATION_DURATION = 300;
+var MODAL_ANI_DURATION = 150; // 모달 애니메이션 속도
+
+//GNB
+var gnbState = 0; //0 close , 1 open 
+
+//footer : sitemap
+var siteMapState = 0; //0 close , 1 open 
+
+//footer : familysite
+var familySiteState = 0; //0 close , 1 open 
+var $btnTab;
+
+
+
+
+$(document).ready(function(){
+
+    //메인 top 배너
+    $(".body_wrap").has(".t_banner").addClass("has_t_banner");
+    $("#t_banner_close").click(function(){
+        $(".t_banner").slideUp(ANIMATION_DURATION, ANIMATION_EASING, function(){$(this).css("display","none")});
+        $(".header").animate({top:0},ANIMATION_DURATION,ANIMATION_EASING);
+        $(".body_wrap").animate({paddingTop:0},ANIMATION_DURATION,ANIMATION_EASING, function(){$(".body_wrap").removeClass("has_t_banner");});
+    });
+
+
+    //탭
+    $btnTab = $(".tab_list .tab_button > a");
+
+    //탭 : 공통 : 초기높이 셋팅
+    setTabHeight();
+
+    // 딤처리
+    var dim = "<div class='dim'></div>";
+    $(".body_wrap").append(dim);
+
+    // 사이트맵
+    var nav = $(".header .nav").clone();
+
+    $(".sitemap .cont_align").append(nav);
+    nav.css("display","none");
+
+    //FAQ 아코디언 접힘상태 초기화
+    $(".faq_list dd").slideUp(0);
+
+
+
+    initCommonEvent();
+
+});
+
+
+
+//공통영역(header, footer) 이벤트리스너
+function initCommonEvent() {
+
+
+    //GNB이벤트
+    $('.header .m_1depth a').bind("mouseover focus" ,function() {
+        if ( gnbState == 0){showGnbAll();}
+    });
+
+    $(".header").bind("mouseleave blur", function(){
+        if ( gnbState == 1){hideGnbAll();}
+    });
+
+    $(".header .btn_close").bind("click", function(){
+        if ( gnbState == 1){hideGnbAll();}
+    });
+
+    $("a").not(".header a").bind("mouseover focus", function(){
+        if ( gnbState == 1){hideGnbAll();}
+    });
+
+    //사이트맵 이벤트
+    $("#sitemapOpen").bind("click", function(){
+        showSiteMap();
+    });
+
+    $(".sitemap .btn_close").bind("click", function(){
+        hideSiteMap();
+    });
+
+    $("a").not(".sitemap a").bind("mouseover focus", function(){
+        if ( siteMapState == 1){hideSiteMap();}
+    });
+
+    //패밀리사이트 이벤트
+    $(".cmb .label").bind("click", function(){
+        showHideFamilySite();
+    });
+
+    $(".cmb ul a").bind("click", function(e){
+        e.preventDefault();
+        showHideFamilySite();
+    });
+
+    //select 콤보박스 Label 변경
+    $(".select_box select").bind("change", function(){
+        changSelectLabel (this);
+    });
+
+
+    /* FAQ 탭버튼 */
+    $(".faq_sort li a").bind("click", function(e){
+        e.preventDefault();
+        faqTabSort(this);
+    });
+
+    /* SNS 탭버튼 */
+    $(".tab_btns li a").bind("click", function(e){
+        e.preventDefault();
+        tabBtns(this);
+    });
+
+
+    //FAQ 아코디언
+    $(".faq_list dt a").bind("click" , function(e) {
+        faqAccordion(this)
+    });
+
+    //탭 : 공통 : 이용동의
+    $btnTab.bind("click" , function() {
+        console.log("click");
+        setTab(this);
+        return false;
+    });
+
+    // 모달 팝업
+    $('.modal .item a').bind("click" , function() {showModal(this)});
+
+    // 모달 팝업 닫기
+    $('.popup_block .btn_close').bind('click', function() {hideModal(); return false});
+
+};
+
+//GNB 열기
+function showGnbAll(){ //열때 
+    $(".header .nav").stop().animate({height:253},ANIMATION_DURATION,ANIMATION_EASING, function() {
+        //$(".header .menu").stop().css("opacity", 1).animate({left:60},ANIMATION_DURATION,ANIMATION_EASING, function() { //MENU 텍스트 애니메이션
+        $(".header .menu").stop().animate({opacity:1},ANIMATION_DURATION*4,ANIMATION_EASING, function() { //MENU 텍스트 애니메이션
+            //$(".header .btn_close").stop().animate({opacity:1},ANIMATION_DURATION*2,ANIMATION_EASING);  //닫기버튼 애니메이션
+        });
+    });
+    showDim();
+    gnbState=1;
+}
+
+
+//GNB 닫기
+function hideGnbAll(){  //닫을때
+    $(".header .nav").stop().animate({height:60},ANIMATION_DURATION,ANIMATION_EASING);
+    $(".header .menu").stop().animate({"opacity":0},ANIMATION_DURATION,ANIMATION_EASING);
+    //$(".header .btn_close").stop().animate({opacity:0},ANIMATION_DURATION/2,ANIMATION_EASING);  //닫기버튼 애니메이션
+    hideDim();
+    gnbState=0;
+
+}
+
+
+//SHOW DIM
+function showDim(){
+    //$(".dim").css("display","block").stop().animate({opacity:0.6},ANIMATION_DURATION,ANIMATION_EASING);
+    $(".dim").css({display:"block", opacity:0.6})
+}
+
+//HIDE DIM
+function hideDim(){
+    $(".dim").stop().animate({opacity:0},ANIMATION_DURATION,ANIMATION_EASING, function() {
+        $(".dim").css("display","none")
+    });
+}
+
+
+// 푸터 : 사이트맵 열기
+function showSiteMap(){
+    $(".sitemap .nav").css("display","block");
+    $(".sitemap").stop().animate({bottom:0},ANIMATION_DURATION,ANIMATION_EASING, function() {
+        //$(".sitemap .tit").stop().css("opacity", 1).animate({left:-0},ANIMATION_DURATION,ANIMATION_EASING, function() { //텍스트 애니메이션
+        $(".sitemap .tit").stop().animate({opacity:1},ANIMATION_DURATION,ANIMATION_EASING, function() { //텍스트 애니메이션
+
+        });
+    });
+    showDim();
+    $(".dim").css("z-index","1000");
+    siteMapState = !siteMapState;
+}
+
+// 푸터 : 사이트맵 닫기
+function hideSiteMap(){
+
+    $(".sitemap").stop().animate({bottom:-540},ANIMATION_DURATION,ANIMATION_EASING, function() {
+        $(".sitemap .tit").stop().animate({opacity:0},ANIMATION_DURATION*3,ANIMATION_EASING, function() { //텍스트 애니메이션
+            $(".sitemap .nav").css("display","none");
+        });
+    });
+    hideDim();
+    $(".dim").css("z-index","998");
+    siteMapState = !siteMapState;
+
+}
+
+
+// 푸터 : 패밀리사이트
+function showHideFamilySite(){
+    if(familySiteState) {
+        $(".cmb").removeClass("on");
+        $(".etc_links .cmb ul").css("display","none");
+    } else {
+        console.log("열림");
+        $(".cmb").addClass("on");
+        $(".etc_links .cmb ul").css("display","block");
+    }
+    familySiteState = !familySiteState ;
+}
+
+
+// select 콤보박스 Label 변경
+function changSelectLabel (chageItem){
+    var $select = $(chageItem);
+    var select_name = $select.children("option:selected").text();
+    $select.siblings("label").text(select_name);
+
+}
+
+
+//  FAQ 탭버튼  : 버튼만 탭 형태로 토글되고 페이지는 바뀌지 않음.
+function faqTabSort (chageItem){
+    var $select = $(chageItem);
+    $(".faq_sort li").each(function(){
+        if($(this).hasClass("on")) {
+            $(this).removeClass("on")
+        }
+        $select.parent("li").addClass("on");
+    });
+}
+
+//  SNS 탭버튼 : 버튼만 탭 형태로 토글되고 페이지는 바뀌지 않음.
+function tabBtns (chageItem){
+    var $select = $(chageItem);
+    $(".tab_btns li").each(function(){
+        if($(this).hasClass("on")) {
+            $(this).removeClass("on")
+        }
+        $select.parent("li").addClass("on");
+    });
+}
+
+
+// FAQ 아코디언
+function faqAccordion(clickItem) {
+    var $selectedItem = $(clickItem).parent("dt");
+
+    //클릭하면 펼쳐진다. 한번더 클릭하여 닫지 않은 한 계속 열려있다.
+    $selectedItem.next("dd").slideToggle(ANIMATION_DURATION/3, ANIMATION_EASING); //
+    $selectedItem.toggleClass("on");
+
+    //클릭하면 기존에 열려있던 것이 자동으로 닫히고, 새로 클릭한 것이 열린다.
+    //$(".faq_list dt").not($selectedItem).next("dd").slideUp(ANIMATION_DURATION/3, ANIMATION_EASING);
+    //$selectedItem.next("dd").slideToggle(ANIMATION_DURATION/3, ANIMATION_EASING);
+    //$(".faq_list dt").not($selectedItem).removeClass("on");
+    //$selectedItem.toggleClass("on");
+
+}
+
+
+
+//탭 : 공통 : 탭 높이 셋팅
+function setTabHeight() {
+    var nTabHeight = $(".tab_button.on .tab_page").height() + 80 + $btnTab.height(); // 80은 .tab_page 패딩값
+    $(".tab_list").css("height" , nTabHeight+ "px");
+};
+
+//탭 : 공통 : 일반적인 탭 형태, 버튼도 토글되고 탭페이지도 변경됨.
+function setTab(clickItem) {
+    console.log(clickItem);
+    var selectedPageID = clickItem.getAttribute("href");
+    var $tabPage = $(".tab_list .tab_page");
+
+    $tabPage.not($(selectedPageID)).addClass("hidden")
+    $(selectedPageID).removeClass("hidden")
+    $btnTab.not($(clickItem)).parent().removeClass("on")
+    $(clickItem).parent().addClass("on");
+
+    setTabHeight() ;
+}
+
+//모달 띄우기
+function showModal(clickItem) {
+
+    var popID = $(clickItem).attr('href'); //Get Popup Name
+
+    $(popID).fadeIn(MODAL_ANI_DURATION);
+
+
+    //Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to accomodate for the padding + border width defined in the css
+    var popMargTop = ($(popID).height() + 60) / 2;
+    var popMargLeft = ($(popID).width() + 60) / 2;
+
+    //Apply Margin to Popup
+    $(popID).css({'margin-top' : -popMargTop, 'margin-left' : -popMargLeft });
+
+    //Fade in Background
+    $('body').append('<div class="dim2"></div>'); //Add the fade layer to bottom of the body tag.
+    $('.dim2').css({'filter' : 'alpha(opacity=70)'}).fadeIn(MODAL_ANI_DURATION); //Fade in the fade layer
+
+    return false;
+}
+
+//모달 닫기
+function hideModal() {
+    $('.dim2 , .popup_block').fadeOut(MODAL_ANI_DURATION,function() {$('.dim2').remove();  });
+    return false;
+}
+
+(function($) {
+
+    var $WIN = $(window); // window jQuery object
+    var $DOC = $(document); // document jQuery object
+
+    var HEIGHT = $WIN.height(); // window height
+    var WIDTH = $WIN.width(); // window width
+
+    // window resize
+    $WIN.resize(function() {
+        HEIGHT = $WIN.height();
+        WIDTH = $WIN.width();
+        $WIN.trigger('scroll');
+    });
+
+    function scroll_event(){
+        var hdH=91;
+        var sct;
+        var $targets=$('#sec_recommend_card, #sec_kona_app, #sec_kona_app2, #sec_kona_app3, #kona_product, #sec_bginfo, #sec_down'); //main
+        if($targets.length==0) $targets=$('#intro_section_02, .intro_section_03_01, .intro_section_03_02, .intro_section_03_03'); //코나카드란?
+        if($targets.length==0) $targets=$('.app_guide_01, .app_guide_02, .app_guide_03, .app_guide_04, .app_guide_05, .sub02_bg1, .sub02_bg2, .sub02_bg3'); //앱이용안내
+        if($targets.length==0) $targets=$('#benefit_section_01, #benefit_section_02, #benefit_section_03'); //혜택가이드
+
+        var l=$targets.length;
+
+        var $tar;
+        var tH;
+        var tT;
+        var s;
+        var e;
+
+        $WIN.on('scroll',function(e){
+            sct=$WIN.scrollTop();
+
+            for(var i=0;i<l;i++){
+                $tar=$targets.eq(i);
+                if($tar.hasClass('sc_evt_on')) {
+                    $targets=$targets.filter(':not(.sc_evt_on)');
+                    l=$targets.length;
+                    continue;
+                }
+
+                tH=$tar.outerHeight();
+                tT=$tar.offset().top;
+
+                s=tT+tH*0.5-HEIGHT;
+                e=tT+tH*0.5-hdH;
+
+                if(s<sct&&e>sct) {
+                    $tar.addClass('sc_evt_on');
+                    if($tar.attr('id')=='kona_product') {
+                        $('.section05').addClass('sc05_1');
+                    }
+                }
+            }
+        });
+    }
+
+    function sc05_card(){
+        $('.sc05_card>li>.img>img, .sc05_card_img').on('click',function(e){
+            e.preventDefault();
+            var $bg=$('.sc05_card_bg>div');
+            var $bf=$bg.filter('.on');
+            var idx=$bf.index();
+            var n=idx+1;
+
+            if(n>$bg.length) n=1;
+
+            $('.section05').attr('class',('section05 sc05_'+n));
+
+            if(idx==$bg.length) idx=0;
+
+            $bg.attr('class','');
+            $bf.attr('class','bf');
+            $bg.eq(idx).attr('class','on');
+        });
+    }
+
+    function ps_sc1_card_list(){
+        var $target=$('.ps_sc1_card_list');
+        if($target.length==0) return;
+
+        var prev=$target.find('.ps_sc1_card_list_prev');
+        var next=$target.find('.ps_sc1_card_list_next');
+        var li=$target.children('ul').children('li');
+        var len=li.length;
+
+        if(len<4) {
+            prev.remove();
+            next.remove();
+            return;
+        }
+
+        window.ps_sc1_card_list_flag=false;
+
+        var toMove=function(a){
+            if(ps_sc1_card_list_flag) return;
+            ps_sc1_card_list_flag=true;
+
+            var on1=li.filter('.on1');
+            var on2=li.filter('.on2');
+            var on3=li.filter('.on3');
+
+            li.removeClass('set_bfon').removeClass('bfon').removeClass('afon');
+
+            if(a){ // <<<
+                // init
+                var af=on3.next();
+                if(af.length==0) af=li.eq(0);
+                //
+
+                setTimeout(function(a,b,c,d){
+                    a.attr('class','bfon');
+                    b.attr('class','on1');
+                    c.attr('class','on2');
+                    d.attr('class','on3');
+                },50,on1,on2,on3,af);
+
+            }else{ // >>>
+                //init
+                var bf=on1.prev();
+                if(bf.length==0) bf=li.eq(len-1);
+                bf.addClass('set_bfon');
+                //
+
+                setTimeout(function(a,b,c,d){
+                    d.attr('class','on1');
+                    a.attr('class','on2');
+                    b.attr('class','on3');
+                    c.attr('class','afon');
+                },50,on1,on2,on3,bf);
+            }
+
+            setTimeout(function(){
+                ps_sc1_card_list_flag=false;
+            },460);
+        };
+
+        prev.on('click',function(e){
+            e.preventDefault();
+            toMove(true);
+        });
+
+        next.on('click',function(e){
+            e.preventDefault();
+            toMove();
+        });
+    }
+
+    $DOC.ready(function(){
+
+    });
+
+    $WIN.on('load',function(){
+        scroll_event();
+        sc05_card();
+        ps_sc1_card_list();
+        $WIN.resize();
+    });
+})(jQuery);

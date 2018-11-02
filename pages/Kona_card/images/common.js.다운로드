@@ -1,0 +1,2937 @@
+$(function(){
+
+	/*
+	 * log : console.log
+	 * isNull : Null체크
+	 * nullToEmpty : Null일 경우에 값을 대체하여 리턴한다.
+	 * isString : String 인지 확인
+	 * isNumber : Number 인지 확인
+	 * toString : String Object로 변환
+	 * substring : 문자열을 지정 범위만큼 잘라낸다.
+	 * replace : 문자열의 일부분을 치환한다.
+	 * left : 문자열 왼쪽부터 자리수만큼 return
+	 * leftString : 문자열 왼쪽부터 자리수만큼 가져오고 자리수보다 길 경우에 ...을 붙여서 return한다.
+	 * right : 문자열 오른쪽부터 자리수만큼 return
+	 * lpad : 문자열을 왼쪽부터 자리수만큼 채운다.
+	 * rpad : 문자열을 오른쪽부터 자리수만큼 채운다.
+	 * some : array에서 해당 값이 존재하는지 확인한다.
+	 *
+	 * getWeekOfYear : yyyyMMdd형태의 날짜를 입력하면 해당연도의 날짜에 해당하는 주를 반환한다.
+	 * _dayOfYearOffset : 달별 일자 Offset
+	 * getDayOfYear : 해당연도의 1월 1일부터 날짜까지의 일 수 반환한다..
+	 * strToDate : yyyy, yyyyMM, yyyyMMdd, yyyyMMddhh, yyyyMMddhhmm, yyyyMMddhhmmss 형태의 String을 Date객체로 만든다.
+	 * weekName : 요일 명칭.
+	 * weekShortName : 축약 요일명칭.
+	 * monthName : 월 명칭.
+	 * monthShortName : 축약 월 명칭.
+	 * ttName : 오전/오후.
+	 * _parseDateMask : mask format 변환 정보 반환한다.
+	 * getMaskFormatString : 주어진 날짜 개체의 Mask Format 처리된 문자열을 반환한다.
+	 * today : 현재 날짜를 가져온다.
+	 * todayTime : 현재 시간을 가져온다.
+	 * toDate : 날짜형으로 변환한다.
+	 * addHour : 입력된 날짜에 OffSet 으로 지정된 만큼의 시간를 증감한다.
+	 * addDate : 입력된 날짜에 OffSet 으로 지정된 만큼의 날짜를 증감한다.
+	 * addMonth : 입력된 날짜에 OffSet 으로 지정된만큼의 월을 증감한다.
+	 * getDiffDay : 두 일자간의 차이 일수 계산한다.
+	 * getDiffMonth : 두 월간의 차이 월수 계산한다.. (정확한 달수를 처리하려면 fromDate Day값을 1로 하고 toDate를 마지막일자로 처리하여야 한다.)
+	 * getLastDayOfMonth : 해당월의 마지막 날짜를 숫자로 구한다.
+	 *
+	 * isLeapYear : 윤년여부.
+	 * solarBase : 각 월별 음력 기준 정보 (처리가능 기간  1841 - 2043년).	CommonJs.log("solarToLunar ==> " +CommonJs.solarToLunar("20170815"));
+	 * solarToLunar : 양력을 음력으로 변환.                                 CommonJs.log("lunarToSolar ==> " +CommonJs.lunarToSolar("20170815"));
+	 * lunarToSolar : 음력을 양력으로 변환.
+	 *
+	 * getCheckedString : 특수문자, 특정문자(SQL) 제거
+	 * pageOut : 페이지 변경시 메세지 여부
+	 * isBrowser : 브라우저가 ie, chrome, ie인지 체크한다.
+	 * getCommonCode : 공통코드(DB)를 조회하여 코드명을 조회
+	 * getCommonApiCode : 공통코드(API)를 조회하여 코드명을 조회
+	 * inputNumber : 숫자만 입력되게
+	 * inputKrEn   : 영문, 한글만 입력
+	 * open   : Modaless 팝업
+	 * setCurrency : 숫자에 콤마를 찍어서 리턴한다.
+	 * getRandomNumber : 1~10000 사이의 랜덤한 숫자를 리턴한다.
+	 * setTelFormat : 휴대폰번호, 전화번호 형식의 문자열을 리턴한다.
+	 * setMaskEmail : 이메일 마스킹
+	 * setMaskName : 이름 마스킹
+	 * numberToKorean : 입력한 숫자를 한글로 변환해서 리턴한다. (54320 -> 오만 사천삼백이십) ※백조단위까지 표시
+	 *
+	 *--------------------selectbox------------------
+	 * selectVal : selectBox 데이터 변경
+	 *
+	 *
+	 * --------------------페이징--------------------
+	 * pageSizeSelect : 페이징 카운트
+	 * setPageSelect : 페이징 처리(Top)
+	 * setPage : 페이징 처리.
+	 * setPagePopup : 페이징 처리(팝업).
+	 *
+	 *
+	 * --------------------월 달력--------------------
+	 * getMonthCalendar : 월 달력을 그려준다.
+	 * getMonthDays : 현재 달력에 일을 가져온다.
+	 * setMonthDays : 현재 달력에 일을 선택해준다.
+	 *
+	 *
+	 * --------------------스크롤--------------------
+	 * setScroll : 스크롤 처리.
+	 *
+	 *
+	 *
+	 * --------------------datepicker--------------------
+	 * getDate : 현재 날짜를 가져온다.
+	 * setDate : 현재 날짜를 입력한다.
+	 * setFromToCalendar : From ~ To 형태의 달력 셋팅
+	 *
+	 *
+	 * --------------------sort--------------------
+	 *
+	 * getAscDesc : 버튼의 클래스에 따라 ascending descending 리턴한다.
+	 *
+	 * --------------------jQuery--------------------
+	 *
+	 * formToJson : form을 json 형태의 문자열로 변경시켜준다.
+	 * tableSort : 테이블 정렬기능을 추가한다.
+	 *
+	 * */
+	var CommonJs = {
+
+		/*
+		 * console.log
+		 *
+		 * str	 	: String
+		 * */
+		log : function(str){
+			console.log("[CommonJs]  " +str);
+		},
+
+		/*
+		 * Null체크
+		 *
+		 * value 	: String
+		 *
+		 * return boolean
+		 * */
+		isNull : function(value){
+
+			if( 	value == ""
+				|| 	value == null
+				|| 	value == "null"
+				|| 	value == undefined
+				|| 	value == "undefined"
+				|| (value != null && typeof value == "object" && !Object.keys(value).length) ){
+
+				return true;
+			}else{
+				return false;
+			}
+		},
+
+		/*
+		 * Null일 경우에 값을 대체하여 리턴한다.
+		 *
+		 * str	 	: String
+		 *
+		 * return boolean
+		 * */
+		nullToEmpty : function(str, str2){
+
+			if (this.isNull(str2)) str2 = "";
+
+			if (this.isNull(str)){
+				return str2;
+			}
+
+			return str;
+		},
+
+		/*
+		 * String 인지 확인
+		 *
+		 * value	 	: object
+		 *
+		 * return boolean
+		 * */
+		isString : function(value)
+		{
+			return typeof value === "string";
+		},
+
+		/*
+		 * Number 인지 확인
+		 *
+		 * value	 	: object
+		 *
+		 * return boolean
+		 * */
+		isNumber : function(value)
+		{
+			return typeof value === "number" && isFinite(value);
+		},
+
+		/*
+		 * Number 인지 확인
+		 *
+		 * value	 	: object
+		 *
+		 * return boolean
+		 * */
+		_toString		: (Object.prototype.toString		),
+		isDate : function(value)
+		{
+			return this._toString.call(value) === '[object Date]';
+		},
+
+		/*
+		 * String Object로 변환
+		 *
+		 * value	 	: String
+		 *
+		 * return Object
+		 * */
+		toString : function(str){
+			if(this.isNull(str))	return new String();
+
+			return new String(str);
+		},
+
+		/*
+		 * 문자열을 지정 범위만큼 잘라낸다.
+		 *
+		 * str 		: 원본 문자열
+		 * start 	: 시작 Index
+		 * size 	: 가져올 사이즈
+		 *
+		 * return String
+		 * */
+		substring : function(str, start, size){
+			if (arguments.length == 3)
+				return String(str).substr(start, size);
+			else
+				return String(str).substr(start);
+		},
+
+		/*
+		 * 문자열의 일부분을 치환한다.
+		 *
+		 * orgStr 	: 원본 문자열
+		 * oldStr 	: 변환할 문자열
+		 * newStr 	: 변환된 문자열
+		 *
+		 * return String
+		 * */
+		replace : function(orgStr, oldStr, newStr){
+			return orgStr.split(oldStr).join(newStr);
+		},
+
+		/*
+		 * 문자열 왼쪽부터 자리수만큼 return
+		 *
+		 * str	 	: 원본 문자열
+		 * size		: 가져올 사이즈
+		 *
+		 * return String
+		 * */
+		left : function(str, size){
+			var strValue = this.toString(str);
+
+			return strValue.substr(0, size);
+		},
+
+		/*
+		 * 문자열 오른쪽부터 자리수만큼 return
+		 *
+		 * str	 	: 원본 문자열
+		 * size		: 가져올 사이즈
+		 *
+		 * return String
+		 * */
+		right : function(str, size){
+			var strValue 	= this.toString(str);
+
+			var nStart		= strValue.length;
+			var nEnd   		= Number(nStart) - Number(size);
+			var rtnVal 		= strValue.substring(nStart, nEnd);
+
+			return rtnVal;
+		},
+
+		/*
+		 * 문자열 왼쪽부터 자리수만큼 가져오고 자리수보다 길 경우에 ...을 붙여서 return한다.
+		 *
+		 * str	 	: 원본 문자열
+		 * size		: 가져올 사이즈
+		 *
+		 * return String
+		 * */
+		leftString : function(str, size){
+
+			var strValue = this.toString(str);
+
+			if(strValue.length <= size){
+				return strValue.substr(0, size);
+			}
+			else{
+				return strValue.substr(0, size) + "..";
+			}
+		},
+
+		/*
+		 * 문자열을 왼쪽부터 자리수만큼 채운다.
+		 *
+		 * str	 		: 원본 문자열
+		 * padLength	: 채울 자리수
+		 * padString	: 변환될 문자
+		 *
+		 * return String
+		 * */
+		lpad : function(str, padLength, padString){
+			while(str.length < padLength)
+				str = padString + str;
+			return str;
+		},
+
+		/*
+		 * 문자열을 오른쪽부터 자리수만큼 채운다.
+		 *
+		 * str	 		: 원본 문자열
+		 * padLength	: 채울 자리수
+		 * padString	: 변환될 문자
+		 *
+		 * return String
+		 * */
+		rpad : function(str, padLength, padString){
+			while(str.length < padLength)
+				str += padString;
+			return str;
+		},
+
+		/*
+		 * array에서 해당 값이 존재하는지 확인한다.
+		 *
+		 * arr	 	: 원본 리스트
+		 * str		: 찾을 문자열
+		 *
+		 * return String
+		 * */
+		some : function(arr, str){
+			return arr.some(function(item, index, array){
+				if(CommonJs.isNull(str))	 return false;
+				return !!~item.search(str);
+			});
+		},
+
+		/*
+		 * yyyyMMdd형태의 날짜를 입력하면 해당연도의 날짜에 해당하는 주를 반환한다.
+		 *
+		 * date 	: yyyyMMdd 형태의 날짜 또는 문자.
+		 *
+		 * return Number 주차에 해당하는 숫자  ( 예 : 10 ).
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20130331"); // convert Date type from "20130331".
+		 * var week = CommonJs.getWeekOfYear(dt);
+		 * CommonJs.log(week); // output : 14
+		 * var dtstr = "20130331";
+		 * var week = CommonJs.getWeekOfYear(dt);
+		 * CommonJs.log(week); // output : 14
+		 * */
+		getWeekOfYear : function(date)
+		{
+			if (this.isString(date))
+			{
+				date = this.strToDate(date);
+			}
+			if (!this.isDate(date))
+			{
+				return -1;
+			}
+
+			var onejan = new Date();
+
+			onejan.setYear(date.getFullYear());
+			onejan.setMonth(0);
+			onejan.setDate(1);
+
+			return Math.ceil((((date - onejan) / 86400000) + onejan.getDay()+1)/7);
+		},
+
+		/*
+		 * 달별 일자 Offset
+		 */
+		_dayOfYearOffset : [ 0,
+							31,
+							31 + 28,
+							31 + 28 + 31,
+							31 + 28 + 31 + 30,
+							31 + 28 + 31 + 30 + 31,
+							31 + 28 + 31 + 30 + 31 + 30,
+							31 + 28 + 31 + 30 + 31 + 30 + 31,
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31,
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30,
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31,
+							31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30],
+
+		/*
+		 * 해당연도의 1월 1일부터 날짜까지의 일 수 반환한다..
+		 *
+		 * date 	: yyyyMMdd 형태의 날짜 또는 문자.
+		 *
+		 * return Number 일수
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20130420"); // convert Date type from "20130420".
+		 * var days = CommonJs.getDayOfYear(dt);
+		 * CommonJs.log(days); // output : 110
+		 * var dtstr = "20130420";
+		 * var days = CommonJs.getDayOfYear(dtstr);
+		 * CommonJs.log(days); // output : 110
+		 */
+		getDayOfYear : function(date)
+		{
+			if (this.isString(date))
+			{
+				date = this.strToDate(date);
+			}
+
+			if (!this.isDate(date))
+			{
+			//	this.log({"message":"invalid date", "stack":true});
+			}
+
+			var nDay = this._dayOfYearOffset[date.getMonth()] + date.getDate();
+			if (this.isLeapYear(date.getFullYear()))
+			{
+				nDay = nDay + 1;
+			}
+			return nDay;
+		},
+
+		/*
+		 * yyyy, yyyyMM, yyyyMMdd, yyyyMMddhh, yyyyMMddhhmm, yyyyMMddhhmmss 형태의 String을 Date객체로 만든다.
+		 *
+		 * value 		: value yyyy ~ yyyyMMddhhmmss형태의 날짜String ( 예 : "20121122" ).
+		 *
+		 * return Date Date object
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20120331"); // convert Date type from "20120331".
+		 * CommonJs.log(dt); // output : Sat Mar 31 2012 00:00:00 GMT+0900
+		 * var dt = CommonJs.strToDate("20130320123022"); // convert Date type from "20130320123022".
+		 * CommonJs.log(dt); // output : Wed Mar 20 2013 12:30:22 GMT+0900
+		 */
+		strToDate : function(value)
+		{
+			var dt = new Date();
+			if (value.length == 4) //yyyy
+			{
+				dt.setFullYear(parseInt(value), 0, 0);
+				dt.setHours(0, 0, 0);
+				dt.setMilliseconds(0);
+			}
+			else if (value.length == 6) //yyyyMM
+			{
+				dt.setFullYear(parseInt(value.substr(0,4)), parseInt(value.substr(4,2))-1, 0);
+				dt.setHours(0, 0, 0);
+				dt.setMilliseconds(0);
+			}
+			else if (value.length == 8) //yyyyMMdd
+			{
+				dt.setFullYear(parseInt(value.substr(0,4)), parseInt(value.substr(4,2))-1, parseInt(value.substr(6,2)));
+				dt.setHours(0, 0, 0);
+				dt.setMilliseconds(0);
+			}
+			else if (value.length == 10) //yyyyMMddhh
+			{
+				dt.setFullYear(parseInt(value.substr(0,4)), parseInt(value.substr(4,2))-1, parseInt(value.substr(6,2)));
+				dt.setHours(parseInt(value.substr(8,2)), 0, 0);
+				dt.setMilliseconds(0);
+			}
+			else if (value.length == 12)//yyyyMMddhhmm
+			{
+				dt.setFullYear(parseInt(value.substr(0,4)), parseInt(value.substr(4,2))-1, parseInt(value.substr(6,2)));
+				dt.setHours(parseInt(value.substr(8,2)), parseInt(value.substr(10,2)), 0);
+				dt.setMilliseconds(0);
+			}
+			else if (value.length == 14) //yyyyMMddhhmmss
+			{
+				dt.setFullYear(parseInt(value.substr(0,4)), parseInt(value.substr(4,2))-1, parseInt(value.substr(6,2)));
+				dt.setHours(parseInt(value.substr(8,2)), parseInt(value.substr(10,2)), parseInt(value.substr(12,2)));
+				dt.setMilliseconds(0);
+			}
+			return dt;
+		},
+
+
+		/*
+		 * 요일 명칭.
+		 * */
+		weekName : ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+		weekNameEng: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+
+		/*
+		 * 축약 요일명칭.
+		 * */
+		weekShortName : ["일", "월", "화", "수", "목", "금", "토"],
+		weekShortNameEng : [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+		weekShortBigNameEng : [ "S", "M", "T", "W", "T", "F", "S" ],
+
+		/*
+		 * 월 명칭.
+		 * */
+		monthName : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		monthNameEng : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+
+		/*
+		 * 축약 월 명칭.
+		 * */
+		monthShortName : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+		monthShortNameEng : ["Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+
+		/*
+		 * 오전/오후.
+		 * */
+		ttName : ["오전", "오후"],
+
+		/*
+		 * mask format cache.
+		 */
+		_dateMaskCache: {},
+
+
+		/*
+		 * mask format 변환 정보 반환한다.
+		 *
+		 * strMask 		: mask할 format 문자열.
+		 *
+		 * return array mask format 변환 정보
+		 */
+		_parseDateMask: function(strMask)
+		{
+			var res = this._dateMaskCache[strMask];
+			if (res) return res;
+
+			var arrMask = [], tokenStr, seq = 0,
+				bEscape = false, bQuote = false,
+				maskArr = strMask.split(""),
+				tmpStr;
+
+			for (var i = 0, len = maskArr.length ; i < len ;)
+			{
+				tokenStr = maskArr[i];
+				//CommonJs.log(i + "===>" + tokenStr);
+				if (bEscape == false && tokenStr == "'")
+				{ // Mask가 Quotation이 시작될 경우.
+					if( bQuote == false )
+						bQuote = true;
+					else
+						bQuote = false;
+					i++;
+					continue;
+				}
+				if (bEscape == false && tokenStr == "\\" && !bQuote)
+				{ // Mask에서 Escape에 진입할 경우.
+					bEscape = true;
+					i++;
+					continue;
+				}
+				else if (bEscape)
+				{ // Mask에서 Escape를 사용할 경우.
+					//CommonJs.log(i + "(EEE)===>" + tokenStr);
+					arrMask[seq] = i;
+					seq++;
+					bEscape = false;
+				}
+				else if (bQuote == false)
+				{// Mask에서 Quotation 밖의 글자에 대해.
+					tmpStr = strMask.substr(i, 4);
+					if (tmpStr == "yyyy" || tmpStr == "MMMM" || tmpStr == "dddd") //yyyy, MMMM, dddd
+					{
+						arrMask[seq] = tmpStr;
+						i += 4;
+						seq++;
+						continue;
+					}
+					tmpStr = strMask.substr(i, 3);
+					if (tmpStr == "MMM" || tmpStr == "ddd" || tmpStr == "sss") //MMM, ddd, sss
+					{
+						arrMask[seq] = tmpStr;
+						i += 3;
+						seq++;
+						continue;
+					}
+					tmpStr = strMask.substr(i, 2);
+					if (tmpStr == "yy" || tmpStr == "MM" || tmpStr == "dd" ||
+						tmpStr == "HH" || tmpStr == "mm" || tmpStr == "ss" ||
+						tmpStr == "hh" || tmpStr == "tt" || tmpStr == "tt") // yy, MM, dd, HH, mm , ss, tt, WW
+					{
+						arrMask[seq] = tmpStr;
+						i += 2;
+						seq++;
+						continue;
+					}
+
+					if (tokenStr == "M" || tokenStr == "d" || tokenStr == "H" ||
+						tokenStr == "h" || tokenStr == "m" || tokenStr == "s" || tokenStr == "W") // M, d, H, h, m, s, W
+					{
+						arrMask[seq] = tokenStr;
+						seq++;
+					}
+					else
+					{
+						arrMask[seq] = i;
+						seq++;
+					}
+				}
+				i++;
+			}
+
+			this._dateMaskCache[strMask] = arrMask;
+
+			return arrMask;
+		},
+
+		/*
+		 * 주어진 날짜 개체의 Mask Format 처리된 문자열을 반환한다.
+		 * 요일명칭, 달명칭, 오전오후 명칭 표시 처리는 CommonJs에 정의된 값으로 처리된다.
+		 * CommonJs.weekName : 요일명칭(Array value)
+		 * CommonJs.weekShortName : 요일축약명칭(Array value)
+		 * CommonJs.monthName : 월명칭(Array value)
+		 * CommonJs.monthShortName : 월축약 명칭(Array value)
+		 * CommonJs.ttName : 오전/오후 명칭(Array value)
+		 *
+		 * date			: dt Date 개체.
+		 * string		: strMask mask할 format 문자열.
+		 *
+		 * return String 변환된 문자열.
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20130430123412"); // convert Date type from "20130430123412".
+		 * CommonJs.log(CommonJs.getMaskFormatString(dt, "yyyy년 MM월 dd일 tt hh시 mm분 ss초")); // output : 2013년 04월 30일 오후 12시 34분 12초
+		 * CommonJs.log(CommonJs.getMaskFormatString(dt, "yyyy-MM-dd")); // output : 2013-04-30
+		 * CommonJs.log(CommonJs.getMaskFormatString(dt, "yy MM.dd")); // output : 13 04.30
+		 * CommonJs.log(CommonJs.getMaskFormatString(dt, "yyyy-MM-dd W \\Week")); // output : 2013-04-30 18 Week
+		 * CommonJs.log(CommonJs.getMaskFormatString(dt, "MMMM dddd")); // output : 4월 화요일
+		 */
+		getMaskFormatString: function(dt, strMask)
+		{
+			var arrMask = this._parseDateMask(strMask),
+				arrDt = [], mask, h;
+			for ( var i = 0, len = arrMask.length; i < len ; i++ )
+			{
+				mask = arrMask[i];
+				if ( mask > -1 )
+				{
+					arrDt[arrDt.length] = strMask.charAt(mask);
+				}
+				else
+				{
+					switch (mask)
+					{
+						case "yyyy"	: arrDt[arrDt.length] = new String(dt.getFullYear()); break;
+						case "MMMM"	: arrDt[arrDt.length] = this.monthName[dt.getMonth()]; break;
+						case "dddd"	: arrDt[arrDt.length] = this.weekName[dt.getDay()]; break;
+						case "MMM"	: arrDt[arrDt.length] = this.monthShortName[dt.getMonth()]; break;
+						case "ddd"	: arrDt[arrDt.length] = this.weekShortName[dt.getDay()]; break;
+						case "sss"	: arrDt[arrDt.length] = this.lpad(new String(dt.getMilliseconds()),3,'0'); break;
+						case "yy"	: arrDt[arrDt.length] = this.lpad(new String(dt.getFullYear() % 1000),2,'0'); break;
+						case "MM"	: arrDt[arrDt.length] = this.lpad(new String(dt.getMonth() + 1),2,'0'); break;
+						case "WW"	: arrDt[arrDt.length] = this.lpad(new String(getWeekNumber(dt)),2,'0'); break;
+						case "dd"	: arrDt[arrDt.length] = this.lpad(new String(dt.getDate()),2,'0'); break;
+						case "HH"	: arrDt[arrDt.length] = this.lpad(new String(dt.getHours()),2,'0'); break;
+						case "hh"	: arrDt[arrDt.length] = this.lpad(new String(((h = dt.getHours() % 12) ? h : 12)),2,'0'); break;
+						case "mm"	: arrDt[arrDt.length] = this.lpad(new String(dt.getMinutes()),2,'0'); break;
+						case "ss"	: arrDt[arrDt.length] = this.lpad(new String(dt.getSeconds()),2,'0'); break;
+						case "tt"	: arrDt[arrDt.length] = dt.getHours() < 12 ? this.ttName[0] : this.ttName[1]; break;
+						case "M"	: arrDt[arrDt.length] = new String(dt.getMonth() + 1); break;
+						case "d"	: arrDt[arrDt.length] = new String(dt.getDate()); break;
+						case "H"	: arrDt[arrDt.length] = new String(dt.getHours()); break;
+						case "h"	: arrDt[arrDt.length] = new String(((h = dt.getHours() % 12) ? h : 12)); break;
+						case "m"	: arrDt[arrDt.length] = new String(dt.getMinutes()); break;
+						case "s"	: arrDt[arrDt.length] = new String(dt.getSeconds()); break;
+						case "W"	: arrDt[arrDt.length] = new String(this.getWeekOfYear(dt)); break;
+					}
+				}
+			}
+			return arrDt.join("");
+		},
+
+		/*
+		 * 현재 날짜를 가져온다.
+		 *
+		 * return String
+		 * */
+		today : function(){
+			var strToday = "";
+			var currDate = new Date();
+
+			var strToday  = currDate.getFullYear() + "";
+				strToday += this.right("0" + (currDate.getMonth() + 1), 2);
+				strToday += this.right("0" +  currDate.getDate()	  , 2);
+
+			return strToday;
+		},
+
+		/*
+		 * 현재 시간을 가져온다.
+		 *
+		 * return String
+		 * */
+		todayTime : function ()
+		{
+			var strToday = "";
+			var objDate = new Date();
+
+			var strToday = objDate.getFullYear() + "";
+				strToday += this.right("0" + (objDate.getMonth() + 1), 2);
+				strToday += this.right("0" + objDate.getDate()   , 2);
+				strToday += this.right("0" + objDate.getHours()  , 2);
+				strToday += this.right("0" + objDate.getMinutes(), 2);
+				strToday += this.right("0" + objDate.getSeconds(), 2);
+
+			return strToday;
+		},
+
+		toDate : function(dDate)
+		{
+			var dDay;
+
+			if (!this.isNull(dDate))
+				dDay = new Date(Number(dDate.substr(0,4)), Number(dDate.substr(4,2))-1, Number(dDate.substr(6,2)));
+
+			return dDay;
+		},
+
+		/*
+		 * 입력된 날짜에 OffSet 으로 지정된 만큼의 시간를 증감한다.
+		 *
+		 * value 		: 'yyyyMMddHHmmss' 형태로 표현된 String 또는 Date.
+		 * offset		: 날짜로부터 증가 감소값.
+		 *
+		 * return String 'yyyyMMddHHmmss' 형태로 표현된 String 또는 Date Value.
+		 *
+		 * @example
+		 * CommonJs.log(CommonJs.addHour(new Date(), 1)); // output : Thu May 02 2013 16:39:04 GMT+0900
+		 * var val = CommonJs.getMaskFormatString(new Date(), "yyyyMMddHHmmss");
+		 * CommonJs.log(CommonJs.addHour(val, 3)); 		// output : 20161115231010
+		 * */
+		addHour : function(value, offset)
+		{
+			var dt;
+			if (this.isDate(value))
+			{
+				dt = new Date();
+				dt.setFullYear(value.getFullYear(), value.getMonth(), value.getDate());
+				dt.setHours(value.getHours()+ offset, value.getMinutes(), value.getSeconds());
+				dt.setMilliseconds(value.getMilliseconds());
+
+				return dt;
+			}
+			else
+			{
+				var nHours 	 = parseInt(this.isNull(value.substr( 8,2))?"00":value.substr( 8,2));
+				var nMinutes = parseInt(this.isNull(value.substr(10,2))?"00":value.substr(10,2));
+				var nSeconds = parseInt(this.isNull(value.substr(12,2))?"00":value.substr(12,2));
+
+				dt = new Date();
+				dt.setFullYear(parseInt(value.substr(0, 4)), parseInt(value.substr(4, 2)-1), parseInt(value.substr(6, 2)));
+				dt.setHours(nHours+offset, nMinutes, nSeconds);
+				dt.setMilliseconds(0);
+
+				return this.getMaskFormatString(dt, "yyyyMMddHHmmss");
+			}
+		},
+
+		/*
+		 * 입력된 날짜에 OffSet 으로 지정된 만큼의 날짜를 증감한다.
+		 *
+		 * value 		: 'yyyyMMdd' 형태로 표현된 String 또는 Date.
+		 * offset		: 날짜로부터 증가 감소값.
+		 *
+		 * return String 'yyyyMMdd' 형태로 표현된 String 또는 Date Value.
+		 *
+		 * @example
+		 * // 2013/04/29 16:39:04 test함.
+		 * CommonJs.log(CommonJs.addDate(new Date(), 3)); // output : Thu May 02 2013 16:39:04 GMT+0900
+		 * var val = CommonJs.getMaskFormatString(new Date(), "yyyyMMdd");
+		 * CommonJs.log(CommonJs.addDate(val, 3)); // output : 20130502
+		 * */
+		addDate : function(value, offset)
+		{
+			var dt;
+			if (this.isDate(value))
+			{
+				//var nTmpHour = value.getHours();
+				dt = new Date();
+				dt.setFullYear(value.getFullYear(), value.getMonth(), value.getDate() + offset);
+				dt.setHours(value.getHours(), value.getMinutes(), value.getSeconds());
+				dt.setMilliseconds(value.getMilliseconds());
+				//if ( dt.getHours() != nTmpHour )
+				//{
+				//	dt.setHours(dt.getHours() + 2);
+				//}
+				return dt;
+			}
+			else
+			{
+				dt = new Date();
+				dt.setFullYear(parseInt(value.substr(0, 4)), parseInt(value.substr(4, 2)-1), parseInt(value.substr(6, 2)) + offset);
+				dt.setHours(0, 0, 0);
+				dt.setMilliseconds(0);
+				return this.getMaskFormatString(dt, "yyyyMMdd");
+			}
+		},
+
+		/*
+		 * 입력된 날짜에 OffSet 으로 지정된만큼의 월을 증감한다.
+		 *
+		 * value 		: 'yyyyMMdd' 형태로 표현된 String 또는 Date.
+		 * offset 		: 월 증감값 ( 예 : 1 또는 -1 )
+		 *
+		 * return String 'yyyyMMdd' 형태로 표현된 String 또는 Date Value.
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20130331");
+		 * var dt0 = CommonJs.addMonth(dt, 1);
+		 * CommonJs.log(dt0); // output : Tue Apr 30 2013 00:00:00 GMT+0900
+		 * var str1 = "20130331";
+		 * var str = CommonJs.addMonth(str1, 1);
+		 * CommonJs.log(str); // output : 20130430
+		 * */
+		addMonth : function(value, offset)
+		{
+			var dt;
+			if (this.isDate(value))
+			{
+				var nTmpday = value.getDate();
+				dt = new Date();
+				dt.setFullYear(value.getFullYear(), value.getMonth() + offset, value.getDate());
+				dt.setHours(value.getHours(), value.getMinutes(), value.getSeconds());
+				dt.setMilliseconds(value.getMilliseconds());
+				if ( dt.getDate() != nTmpday )
+				{
+					dt.setMonth(dt.getMonth() - 1);
+					dt.setDate(this.getLastDayOfMonth(dt));
+				}
+				return dt;
+			}
+			else
+			{
+				var nTmpday = parseInt(value.substr(6, 2));
+				dt = new Date();
+				dt.setFullYear(parseInt(value.substr(0, 4)), parseInt(value.substr(4, 2)-1) + offset, nTmpday);
+				dt.setHours(0, 0, 0);
+				dt.setMilliseconds(0);
+				if (dt.getDate() != nTmpday)
+				{
+					dt.setMonth(dt.getMonth() - 1);
+					dt.setDate(this.getLastDayOfMonth(dt));
+				}
+				return this.getMaskFormatString(dt, "yyyyMMdd");
+			}
+		},
+
+		/*
+		 * 두 일자간의 차이 일수 계산한다.
+		 *
+		 * fromDate		: Date Object 또는 yyyyMMdd형태의 From 일자 ( 예 : "20121122" ).
+		 * toDate		: Date Object 또는 yyyyMMdd형태의 To 일자 ( 예 : "20121202" ).
+		 *
+		 * return Number 숫자 형태의 차이일수  ( 예 : 10 ). 단, fromDate < toDate 음수가 return된다.
+		 *
+		 * @example
+		 * var fromdt = CommonJs.strToDate("20120331");
+		 * var todt = CommonJs.strToDate("20130420");
+		 * var day = CommonJs.getDiffDay(fromdt, todt);
+		 * CommonJs.log(day); // output : 385
+		 * var fromstr = "20120331";
+		 * var tostr = "20130420";
+		 * var day = CommonJs.getDiffDay(fromstr, tostr);
+		 * CommonJs.log(day); // output : 385
+		 * */
+		getDiffDay : function(fromDate, toDate)
+		{
+			if (this.isString(fromDate) && this.isString(toDate))
+			{
+				fromDate = new Date(parseInt(fromDate.substring(0,4),  10), parseInt(fromDate.substring(4,6)-1,  10), parseInt(fromDate.substring(6,8), 10));
+				toDate   = new Date(parseInt(toDate.substring(0,4),  10), parseInt(toDate.substring(4,6)-1,  10), parseInt(toDate.substring(6,8), 10));
+			}
+
+			var flag = 1, nDay;
+			if (fromDate >  toDate)
+			{
+				flag = -1;
+				var tmpDt = toDate;
+				toDate = fromDate;
+				fromDate = tmpDt;
+			}
+
+			if (fromDate.getFullYear() != toDate.getFullYear() )
+			{
+				nDay = (this.isLeapYear(fromDate.getFullYear()) ? 366 : 365) - this.getDayOfYear(fromDate) + this.getDayOfYear(toDate);
+				var nYear = fromDate.getFullYear();
+				while (nYear++ < toDate.getFullYear() - 1)
+				{
+					nDay = nDay + (this.isLeapYear(nYear) ? 366 : 365);
+				}
+			}
+			else
+			{
+				nDay = this.getDayOfYear(toDate) - this.getDayOfYear(fromDate);
+			}
+			return nDay*flag;
+		},
+
+		/*
+		 * 두 월간의 차이 월수 계산한다.. (정확한 달수를 처리하려면 fromDate Day값을 1로 하고 toDate를 마지막일자로 처리하여야 한다.)
+		 * 시작일자의 Day값이 1로 아니면 소수점((마지막일자 - 해당월의 일수)/마지막일자)으로 계산한다.
+		 * 끝일자의 Day값이 마지막일자가 아니면 소수점(해당월의 일수/마지막일자)를 계산한다.
+		 *
+		 * fromDate 	: Date Object 또는 yyyyMMdd형태의 From 일자 ( 예 : "20121122" ).
+		 * toDate 		: Date Object 또는 yyyyMMdd형태의 To 일자 ( 예 : "20121202" ).
+		 *
+		 * return Number 숫자 형태의 차이월수  ( 예 : 10 ). 단, fromDate < toDate 음수가 return된다.
+		 *
+		 * @example
+		 * var fromdt = CommonJs.strToDate("20130301");
+		 * var todt = CommonJs.strToDate("20130501");
+		 * var month = Math.ceil(CommonJs.getDiffMonth(fromdt, todt));
+		 * CommonJs.log(month); // output : 3
+		 * var fromstr = "20120331";
+		 * var tostr = "20130420";
+		 * var month = CommonJs.getDiffMonth(fromstr, tostr);
+		 * CommonJs.log(month); // output : 12.69
+		 * */
+		getDiffMonth : function(fromDate, toDate)
+		{
+			if(this.isString(fromDate) && this.isString(toDate))
+			{
+				fromDate = new Date(parseInt(fromDate.substring(0,4),  10), parseInt(fromDate.substring(4,6)-1,  10), parseInt(fromDate.substring(6,8), 10));
+				toDate   = new Date(parseInt(toDate.substring(0,4),  10), parseInt(toDate.substring(4,6)-1,  10), parseInt(toDate.substring(6,8), 10));
+			}
+
+			var flag = 1, nMonth, nDay;
+			if (fromDate >  toDate)
+			{
+				flag = -1;
+				var tmpDt = toDate;
+				toDate = fromDate;
+				fromDate = tmpDt;
+			}
+
+			if (fromDate.getDate() == 1)
+			{
+				nMonth = 1;
+				nDay = 0;
+			}
+			else
+			{
+				nMonth = 0;
+				var lastday = this.getLastDayOfMonth(fromDate);
+				nDay = Math.floor((lastday - fromDate.getDate() + 1)/lastday, 2);
+			}
+
+			if (toDate.getDate() == this.getLastDayOfMonth(toDate))
+			{
+				nMonth += 1;
+			}
+			else
+			{
+				nDay += Math.floor(toDate.getDate()/this.getLastDayOfMonth(toDate), 2);
+			}
+
+			if (fromDate.getFullYear() != toDate.getFullYear())
+			{
+				nMonth += 12 - (fromDate.getMonth() + 1) + toDate.getMonth();
+				var nYear = fromDate.getFullYear();
+				while (nYear++ < toDate.getFullYear() - 1)
+				{
+					nMonth = nMonth + 12;
+				}
+			}
+			else
+			{
+				nMonth += toDate.getMonth() - (fromDate.getMonth() + 1);
+			}
+			return (nMonth + nDay)*flag;
+		},
+
+		/*
+		 * 해당월의 마지막 날짜를 숫자로 구한다.
+		 *
+		 * value 		: yyyyMMdd형태의 날짜 ( 예 : "20121122" ).
+		 *
+		 * return Number 마지막 날짜 숫자값 ( 예 : 30 ).
+		 *
+		 * @example
+		 * var dt = CommonJs.strToDate("20120302"); // convert Date type from "20120302".
+		 * var day = CommonJs.getLastDayOfMonth(dt);
+		 * CommonJs.log(day); // output : 31
+		 * var dtstr = "20120302";
+		 * var day = CommonJs.getLastDayOfMonth(dtstr);
+		 * CommonJs.log(day); // output : 31
+		 * */
+		getLastDayOfMonth : function(value)
+		{
+			var nMonth, nLastDate;
+
+			if (this.isDate(value))
+			{
+				nMonth = value.getMonth() + 1;
+			}
+			else
+			{
+				nMonth = parseInt(value.substr(4,2), 10);
+			}
+			if (nMonth == 1 || nMonth == 3 || nMonth == 5 || nMonth == 7  || nMonth == 8 || nMonth == 10 || nMonth == 12)
+			{
+				nLastDate = 31;
+			}
+			else if (nMonth == 2)
+			{
+				if (this.isLeapYear(value) == true)
+				{
+					nLastDate = 29;
+				}
+				else
+				{
+					nLastDate = 28;
+				}
+			}
+			else
+			{
+				nLastDate = 30;
+			}
+
+			return nLastDate;
+		},
+
+
+
+
+
+
+		/*
+		 * 윤년 여부.
+		 *
+		 * sDate	 : yyyyMMdd형태의 날짜 ( 예 : "20121122" ).
+		 *
+		 * return 윤년 여부.입력되지 않은 경우도 false
+		 * */
+		isLeapYear : function(value){
+			var result;
+			var year;
+			if (this.isString(value))
+			{
+				year = parseInt(value.substring(0,4), 10);
+			}
+
+			if ((year % 4) == 0)
+			{
+				if ((year % 100) != 0 || (year % 400) == 0)
+					result = true;
+				else
+					result = false;
+			}
+			else
+			{
+				result = false;
+			}
+
+			return result;
+		},
+
+		/*
+		 * 각 월별 음력 기준 정보 (처리가능 기간  1841 - 2043년)
+		 * */
+		solarBase : (function(){
+			var sBase;
+
+			//1841
+			sBase = "1,2,4,1,1,2,1,2,1,2,2,1,";
+			sBase += "2,2,1,2,1,1,2,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,4,1,2,1,2,1,";
+			sBase += "2,2,1,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,5,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,3,2,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			//1851
+			sBase += "2,2,1,2,1,1,2,1,2,1,5,2,";
+			sBase += "2,1,2,2,1,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,5,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,5,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,6,1,1,2,1,1,2,1,2,2,";
+			//1861
+			sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,1,2,2,1,2,2,3,1,2,";
+			sBase += "1,2,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,4,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,3,2,1,1,2,1,2,2,1,";
+			sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,5,2,1,";
+			//1871
+			sBase += "2,2,1,2,2,1,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,4,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,5,1,2,1,2,2,1,2,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,4,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+			//1881
+			sBase += "1,2,1,2,1,2,5,2,2,1,2,1,";
+			sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,3,2,1,2,2,1,2,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,5,2,1,1,2,1,2,1,2,";
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,5,2,1,2,2,1,2,1,2,1,2,";
+			//1891
+			sBase += "1,2,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,5,2,2,1,2,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,5,1,2,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,5,2,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,5,2,2,1,2,";
+			//1901
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,3,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,4,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			//1911
+			sBase += "2,1,2,1,1,5,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,5,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,3,2,1,2,2,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,5,2,2,1,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			//1921
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,2,2,3,2,1,1,2,1,2,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,1,2,";
+			sBase += "2,1,2,1,2,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,5,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,5,1,2,1,1,2,2,1,2,2,2,";
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,1,1,5,1,2,1,2,2,1,";
+			//1931
+			sBase += "2,2,2,1,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,6,1,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,4,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,2,1,4,1,2,2,1,2,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			//1941
+			sBase += "2,2,1,2,2,4,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,1,2,4,1,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+			sBase += "2,5,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,3,2,1,2,1,2,";
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			//1951
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,4,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,2,1,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+			sBase += "2,1,4,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,5,2,1,2,2,";
+			sBase += "1,2,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,5,2,1,2,1,2,1,";
+			//1961
+			sBase += "2,1,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,2,3,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,5,2,1,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,2,1,2,";
+			sBase += "1,2,2,1,2,1,5,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,2,1,2,1,2,2,1,2,";
+			//1971
+			sBase += "1,2,1,1,5,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,2,1,";
+			sBase += "2,2,1,5,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,5,2,1,1,2,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,1,";
+			sBase += "2,2,1,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,1,6,1,2,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			//1981
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,3,2,1,1,2,2,1,2,2,";
+			sBase += "2,1,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "2,1,2,2,1,1,2,1,1,5,2,2,";
+			sBase += "1,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,2,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,2,1,5,2,2,1,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,1,2,1,2,2,1,2,2,";
+			sBase += "1,2,1,1,5,1,2,1,2,2,2,2,";
+			//1991
+			sBase += "1,2,1,1,2,1,1,2,1,2,2,2,";
+			sBase += "1,2,2,1,1,2,1,1,2,1,2,2,";
+			sBase += "1,2,5,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,2,1,2,1,2,1,1,2,1,2,";
+			sBase += "1,2,2,1,2,2,1,5,2,1,1,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,1,2,3,2,2,1,2,2,2,1,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,2,1,";
+			sBase += "2,2,1,1,2,1,1,2,1,2,2,1,";
+			//2001
+			sBase += "2,2,2,3,2,1,1,2,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,2,1,2,2,1,2,1,1,2,1,2,";
+			sBase += "1,5,2,2,1,2,1,2,2,1,1,2,";
+			sBase += "1,2,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,1,2,1,2,1,5,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,2,1,2,";
+			sBase += "2,1,1,2,1,1,2,1,2,2,1,2,";
+			sBase += "2,2,1,1,5,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			//2011
+			sBase += "2,1,2,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,6,2,1,2,1,1,2,1,2,1,";
+			sBase += "2,1,2,2,1,2,1,2,1,2,1,2,";
+			sBase += "1,2,1,2,1,2,1,2,5,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,2,1,2,2,";
+			sBase += "1,1,2,1,1,2,1,2,2,1,2,2,";
+			sBase += "2,1,1,2,3,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,2,1,2,2,";
+			sBase += "2,1,2,1,2,1,1,2,1,2,1,2,";
+			sBase += "2,1,2,5,2,1,1,2,1,2,1,2,";
+			//2021
+			sBase += "1,2,2,1,2,1,2,1,2,1,2,1,";
+			sBase += "2,1,2,1,2,2,1,2,1,2,1,2,";
+			sBase += "1,5,2,1,2,1,2,2,1,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,2,1,2,2,1,";
+			sBase += "2,1,2,1,1,5,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,2,1,2,2,2,";
+			sBase += "1,2,1,2,1,1,2,1,1,2,2,2,";
+			sBase += "1,2,2,1,5,1,2,1,1,2,2,1,";
+			sBase += "2,2,1,2,2,1,1,2,1,1,2,2,";
+			sBase += "1,2,1,2,2,1,2,1,2,1,2,1,";
+			//2031
+			sBase += "2,1,5,2,1,2,2,1,2,1,2,1,";
+			sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,5,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,2,1,2,2,2,1,";
+			sBase += "2,1,2,1,1,2,1,1,2,2,1,2,";
+			sBase += "2,2,1,2,1,4,1,1,2,1,2,2,";
+			sBase += "2,2,1,2,1,1,2,1,1,2,1,2,";
+			sBase += "2,2,1,2,1,2,1,2,1,1,2,1,";
+			sBase += "2,2,1,2,5,2,1,2,1,2,1,1,";
+			sBase += "2,1,2,2,1,2,2,1,2,1,2,1,";
+			//2041
+			sBase += "2,1,1,2,1,2,2,1,2,2,1,2,";
+			sBase += "1,5,1,2,1,2,1,2,2,2,1,2,";
+			sBase += "1,2,1,1,2,1,1,2,2,1,2,2";
+
+			var arrBase = [];
+				arrBase = sBase.split(",");
+
+			return arrBase;
+		})(),
+
+		/*
+		 * 양력을 음력으로 변환해주는 함수
+		 * [주의사항]
+		 *  1. return값이 8자리가 아니고 9자리임에 주의
+		 *  2. 처리가능 기간  1841 - 2043년
+		 * value	: string,date value yyyyMMdd형태의 양력일자 ( 예 : "20121122" ).
+		 *
+		 * return 문자열 Flag(평달 = "0", 윤달 = "1") + 'yyyyMMdd'형태의 음력일자
+		 *
+		 * @example
+		 * CommonJs.solarToLunar("20170815");
+		 */
+		solarToLunar : function(value)
+		{
+			var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+			var arrMd       = [];
+			var arrBaseInfo = [];
+			var arrDt       = [];	// 매년의 음력일수를 저장할 배열 변수
+			var nTd;		    			// 음력일을 계산하기 위해 양력일과의 차이를 저장할 변수
+			var nTd1;			    		// 1840년까지의 날수
+			var nTd2;				    	// 현재까지의 날수
+			var nTemp;					    // 임시변수
+			var nLy, nLm, nLd;			    // 계산된 음력 년, 월, 일을 저장할 변수
+			var sLyoon;					    // 현재월이 윤달임을 표시
+
+			var nY, nM, nD;
+			if (this.isDate(value))
+			{
+				nY = value.getFullYear();
+				nM = value.getMonth() + 1;
+				nD = value.getDate();
+			}
+			else
+			{
+				nY = parseInt(value.substr(0,4), 10);
+				nM = parseInt(value.substr(4,2), 10);
+				nD = parseInt(value.substr(6,2), 10);
+			}
+
+			if (nY < 1841 || nY > 2043)
+			{
+				return null;
+			}
+
+			arrBaseInfo = this.solarBase;
+			arrMd       = sMd.split(",");
+			arrMd[1]    = 28;
+
+			//윤년여부 확인
+			if ((nY % 4) == 0)
+			{
+				if ((nY % 100) != 0 || (nY % 400) == 0)
+				{
+					arrMd[1] = 29;
+				}
+			}
+
+			// 672069 = 1840 * 365 + 1840/4 - 1840/100 + 1840/400 + 23  //1840년까지 날수
+			nTd1 = 672069;
+
+			// 1841년부터 작년까지의 날수
+			nTd2 = (nY - 1) * 365 + parseInt((nY - 1)/4) - parseInt((nY - 1)/100) + parseInt((nY - 1)/400);
+
+			// 전월까지의 날수를 더함
+			for (var i = 0; i <= nM - 2; i++)
+			{
+				nTd2 = nTd2 + parseInt(arrMd[i]);
+			}
+
+			// 현재일까지의 날수를 더함
+			nTd2 = nTd2 + nD;
+
+			// 양력현재일과 음력 1840년까지의 날수의 차이
+			nTd = nTd2 - nTd1 + 1;
+
+			// 1841년부터 음력날수를 계산
+			for (var i = 0; i <= nY - 1841; i++)
+			{
+				arrDt[i] = 0;
+				for (var j = 0; j <= 11; j++)
+				{
+					switch (parseInt(arrBaseInfo[i * 12 + j]))
+					{
+						case 1 : nTemp = 29;
+								 break;
+						case 2 : nTemp = 30;
+								 break;
+						case 3 : nTemp = 58;	// 29 + 29
+								 break;
+						case 4 : nTemp = 59;	// 29 + 30
+								 break;
+						case 5 : nTemp = 59;	// 30 + 29
+								 break;
+						case 6 : nTemp = 60;	// 30 + 30
+								 break;
+					}
+
+					arrDt[i] = arrDt[i] + nTemp;
+				}
+			}
+
+			// 1840년 이후의 년도를 계산 - 현재까지의 일수에서 위에서 계산된 1841년부터의 매년 음력일수를 빼가면수 년도를 계산
+			nLy = 0;
+			do
+			{
+				nTd = nTd - arrDt[nLy];
+				nLy = nLy + 1;
+			}
+			while(nTd > arrDt[nLy]);
+
+			nLm    = 0;
+			sLyoon = "0";	// 현재월이 윤달임을 표시할 변수 - 기본값 평달
+			do
+			{
+				if (parseInt(arrBaseInfo[nLy * 12 + nLm]) <= 2)
+				{
+					nTemp = parseInt(arrBaseInfo[nLy * 12 + nLm]) + 28;
+					if (nTd > nTemp)
+					{
+						nTd = nTd - nTemp;
+						nLm = nLm + 1;
+					}
+					else
+					{
+						break;
+					}
+				}
+				else
+				{
+					switch (parseInt(arrBaseInfo[nLy * 12 + nLm]))
+					{
+						case 3 :
+							m1 = 29;
+							m2 = 29;
+							break;
+						case 4 :
+							m1 = 29;
+							m2 = 30;
+							break;
+						case 5 :
+							m1 = 30;
+							m2 = 29;
+							break;
+						case 6 :
+							m1 = 30;
+							m2 = 30;
+							break;
+					}
+
+					if (nTd > m1)
+					{
+						nTd = nTd - m1;
+						if (nTd > m2)
+						{
+							nTd = nTd - m2;
+							nLm = nLm + 1;
+						}
+						else
+						{
+							sLyoon = "1";
+						}
+					}
+					else
+					{
+						break;
+					}
+				}
+			}
+			while(1);
+
+			nLy = nLy + 1841;
+			nLm = nLm + 1;
+			nLd = nTd;
+
+			var sRtn = sLyoon + nLy;
+			sRtn = sRtn + this.lpad(nLm.toString().toString(), 2, "0");
+			sRtn = sRtn + this.lpad(nLd.toString().toString(), 2, "0");
+
+			return sRtn;
+		},
+
+		/*
+		 * 음력을 양력으로 변환.
+		 *
+		 * value		: string,date value yyyyMMdd형태의 양력일자 ( 예 : "20121122" ).
+		 * leapMonth	: 윤달여부(true, false)
+		 *
+		 * return 문자열 Flag(평달 = "0", 윤달 = "1") + 'yyyyMMdd'형태의 음력일자
+		 *
+		 * @example
+		 * CommonJs.lunarToSolar("20170815");
+		 */
+		lunarToSolar : function(value, leapMonth)
+		{
+			var sMd         = "31,0,31,30,31,30,31,31,30,31,30,31";
+			var arrMd       = [];
+			var arrBaseInfo = [];
+			var nTd         = 0;
+			var nSy, nSm, nSd;			    // 계산된 양력 년, 월, 일을 저장할 변수
+			var nY1, nM1, nY2, nY3, nTemp;	// 임시변수
+			var nLeap;
+
+			var nLy, nLm, nLd;
+			if (this.isDate(value))
+			{
+				nLy = value.getFullYear();
+				nLm = value.getMonth() + 1;
+				nLd = value.getDate();
+			}
+			else
+			{
+				nLy = parseInt(value.substr(0,4), 10);
+				nLm = parseInt(value.substr(4,2), 10);
+				nLd = parseInt(value.substr(6,2), 10);
+			}
+
+			if (nLy < 1841 || nLy > 2043)
+			{
+				return null;
+			}
+
+			arrBaseInfo = this.solarBase;
+			arrMd       = sMd.split(",");
+			arrMd[1]    = 28;
+
+			//윤년여부 확인
+			if ((nLy % 4) == 0)
+			{
+				if ((nLy % 100) != 0 || (nLy % 400) == 0)
+				{
+					arrMd[1] = 29;
+				}
+			}
+
+			nY1   = nLy - 1841;
+			nM1   = nLm - 1;
+			nLeap = 0;
+
+			if (parseInt(arrBaseInfo[nY1 * 12 + nM1]) > 2)
+			{
+				//윤년여부 확인
+				if ((nLy % 4) == 0)
+				{
+					if ((nLy % 100) != 0 || (nLy % 400) == 0)
+					{
+						nLeap = 1;
+					}
+				}
+			}
+
+			if (nLeap == 1)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTemp = 29;
+							 break;
+					case 4 : nTemp = 30;
+							 break;
+					case 5 : nTemp = 29;
+							 break;
+					case 6 : nTemp = 30;
+							 break;
+				}
+			}
+			else
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 1 : nTemp = 29;
+							 break;
+					case 2 : nTemp = 30;
+							 break;
+					case 3 : nTemp = 29;
+							 break;
+					case 4 : nTemp = 29;
+							 break;
+					case 5 : nTemp = 30;
+							 break;
+					case 6 : nTemp = 30;
+							 break;
+				}
+			}
+
+			var tempY1 = nY1 - 1;
+			for (var i = 0; i <= tempY1; i++)
+			{
+				for (var j = 0; j <= 11; j++)
+				{
+					switch (parseInt(arrBaseInfo[i * 12 + j]))
+					{
+						case 1 : nTd = nTd + 29;
+								 break;
+						case 2 : nTd = nTd + 30;
+								 break;
+						case 3 : nTd = nTd + 58;
+								 break;
+						case 4 : nTd = nTd + 59;
+								 break;
+						case 5 : nTd = nTd + 59;
+								 break;
+						case 6 : nTd = nTd + 60;
+								 break;
+					}
+				}
+			}
+
+			var tempM1 = nM1 - 1;
+			for (var j = 0; j <= tempM1; j++)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + j]))
+				{
+					case 1 : nTd = nTd + 29;
+							 break;
+					case 2 : nTd = nTd + 30;
+							 break;
+					case 3 : nTd = nTd + 58;
+							 break;
+					case 4 : nTd = nTd + 59;
+							 break;
+					case 5 : nTd = nTd + 59;
+							 break;
+					case 6 : nTd = nTd + 60;
+							 break;
+				}
+			}
+
+			if (nLeap == 1)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTemp = 29;
+							 break;
+					case 4 : nTemp = 29;
+							 break;
+					case 5 : nTemp = 30;
+							 break;
+					case 6 : nTemp = 30;
+							 break;
+				}
+			}
+
+			nTd = nTd + nLd + 22;
+
+			if (leapMonth)
+			{
+				switch (parseInt(arrBaseInfo[nY1 * 12 + nM1]))
+				{
+					case 3 : nTd = nTd + 29;
+							 break;
+					case 4 : nTd = nTd + 30;
+							 break;
+					case 5 : nTd = nTd + 29;
+							 break;
+					case 6 : nTd = nTd + 30;
+							 break;
+				}
+			}
+
+			nY1 = 1840;
+			do
+			{
+				nY1 = nY1 + 1;
+
+				nLeap = 0;
+
+				//윤년여부 확인
+				if ((nY1 % 4) == 0)
+				{
+					if ((nY1 % 100) != 0 || (nY1 % 400) == 0)
+					{
+						nLeap = 1;
+					}
+				}
+
+				if (nLeap == 1)
+				{
+					nY2 = 366;
+				}
+				else
+				{
+					nY2 = 365;
+				}
+
+				if( nTd <= nY2 )
+				{
+					break;
+				}
+
+				nTd = nTd - nY2;
+			}
+			while(1);
+
+			nSy      = nY1;
+			arrMd[1] = nY2 - 337;
+			nM1      = 0;
+
+			do
+			{
+				nM1 = nM1 + 1;
+				if (nTd <= parseInt(arrMd[nM1-1]))
+				{
+					break;
+				}
+				nTd = nTd - parseInt(arrMd[nM1-1]);
+			}
+			while(1);
+
+			nSm = nM1;
+			nSd = nTd;
+			nY3 = nSy;
+			nTd = nY3 * 365 + parseInt(nY3/4) - parseInt(nY3/100) + parseInt(nY3/400);
+
+			var tempSm = nSm - 1;
+			for (var i = 0; i <= tempSm; i++)
+			{
+				nTd = nTd + parseInt(arrMd[i]);
+			}
+
+			nTd = nTd + nSd;
+
+			var sRtn = nY3;
+			sRtn = sRtn + this.lpad(nSm.toString(), 2, "0");
+			sRtn = sRtn + this.lpad(nSd.toString(), 2, "0");
+
+			return sRtn;
+		},
+
+		/*
+		 * 특수문자, 특정문자(SQL) 제거
+		 *
+		 * obj		: input
+		 *
+		 * return String
+		 * */
+		getCheckedInput : function(obj){
+			var strValue = obj.val();
+
+			if(strValue.length > 0){
+
+				//특수문자 제거
+				var expText = /[%=><]/ ;
+				if(expText.test(strValue) == true){
+					alert("특수문자를 입력 할수 없습니다.") ;
+					obj.val(strValue.split(expText).join(""));
+					return false;
+				}
+
+				//특정문자열(sql예약어의 앞뒤공백포함) 제거
+				var sqlArray = new Array(
+					//sql 예약어
+					"OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+		             		 "UNION",  "FETCH", "DECLARE", "TRUNCATE"
+				);
+
+				var regex ;
+				var regex_plus ;
+				for(var i=0; i<sqlArray.length; i++){
+					regex = new RegExp("\\s" + sqlArray[i] + "\\s","gi") ;
+					if (regex.test(strValue)) {
+					    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+					    obj.val(strValue.replace(regex, ""));
+						return false;
+					}
+
+					regex_plus = new RegExp( "\\+" + sqlArray[i] + "\\+","gi") ;
+					if (regex_plus.test(strValue)) {
+					    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+					    obj.val(strValue.replace(regex_plus, ""));
+						return false;
+					}
+				}
+			}
+
+			return true ;
+		},
+
+		/*
+		 * 페이지 변경시 메세지 여부
+		 *
+		 * tBoolean	: 사용여부
+		 *
+		 * */
+		pageOut : function(tBoolean){
+			var isUpdate = false;
+
+			if(tBoolean){
+				$("input").change(function(){
+					isUpdate  = true;
+				});
+
+				$(window).bind("beforeunload",function(event) {
+					// 데이터 변경이 있을경우
+					if(isUpdate == true){
+						return $.i18n.prop('COM_VAL_DATEISO');
+					}
+				});
+			}
+
+		},
+
+		/*
+		 * 브라우저가 ie, chrome, ie인지 체크한다.
+		 *
+		 * */
+		isBrowser : function(){
+			var agent = navigator.userAgent.toLowerCase(),
+		        name = navigator.appName,
+		        browser;
+
+
+		    if(name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
+		        browser = 'ie';
+		        if(name === 'Microsoft Internet Explorer') { // IE old
+																// version (IE
+																// 10 or Lower)
+		            agent = /msie ([0-9]{1,}[\.0-9]{0,})/.exec(agent);
+		            browser += parseInt(agent[1]);
+		        } else { // IE 11+
+		            if(agent.indexOf('trident') > -1) { // IE 11
+		                browser += 11;
+		            } else if(agent.indexOf('edge/') > -1) { // Edge
+		                browser = 'edge';
+		            }
+		        }
+		    } else if(agent.indexOf('safari') > -1) { // Chrome or Safari
+		        if(agent.indexOf('opr') > -1) { // Opera
+		            browser = 'opera';
+		        } else if(agent.indexOf('chrome') > -1) { // Chrome
+		            browser = 'chrome';
+		        } else { // Safari
+		            browser = 'safari';
+		        }
+		    } else if(agent.indexOf('firefox') > -1) { // Firefox
+		        browser = 'firefox';
+		    }
+
+		    if(browser == "chrome" || browser == "safari" || browser.indexOf("ie") > -1){
+		    	return true;
+		    }
+		    else{
+		    	return false;
+		    }
+		},
+
+		/*
+		 * 공통코드(DB)를 조회하여 코드명을 조회
+		 *
+		 * codeList	: 공통코드 List
+		 * fixValue	: 비교할 대상 값
+		 *
+		 * */
+		getCommonCode : function(codeList, fixValue){
+			if(CommonJs.isNull(fixValue))	return "";
+
+			var str = codeList.filter(function(item){
+				return item.sclasCd === fixValue;
+			});
+
+			return CommonJs.isNull(str) ? "" : str[0].clasNm;
+		},
+
+		/*
+		 * 공통코드(API)를 조회하여 코드명을 조회
+		 *
+		 * codeList	: 공통코드 List
+		 * fixValue	: 비교할 대상 값
+		 *
+		 * */
+		getCommonApiCode : function(codeList, fixValue){
+			var str = codeList.filter(function(item){
+				return item.code3 === fixValue;
+			});
+
+			return CommonJs.isNull(str) ? "" : str[0].code3;
+		},
+
+		/*
+		 * input 숫자만 입력 가능
+		 *
+		 * 이벤트 바인드 할때
+		 *  <input type="text" name="abc" id="abc" />
+		 *  ex] this.$("[name=abc]").bind("keyup", CommonJs.inputNumber);
+		 */
+		inputNumber : function(){
+			var tmpNumber = $(this).val();
+
+			if(tmpNumber.replace(/[^0-9]/g,'').length == 0){
+				$(this).val( "" );
+				return;
+			}
+
+			// 첫자리부터 숫자 아닌경우 체크
+			if( tmpNumber.length == 1 ){
+				if( !$.isNumeric(tmpNumber) ){
+					tmpNumber = 0;
+				}
+			}
+
+			// 데이터 비어 있지 않고 숫자 데이터만 입력 되게
+			if( !CommonJs.isNull(tmpNumber) ){
+				tmpNumber = parseInt(tmpNumber.replace(/[^0-9]/g,'')).toString();
+			}
+
+			$(this).val( Number(tmpNumber) );
+		},
+
+		/*
+		 *  input 영문, 한글 입력 가능
+		 *
+		 *  이벤트 바인드 할때
+		 *  <input type="text" name="abc" id="abc" />
+		 *  ex] this.$("[name=abc]").bind("keyup", CommonJs.inputKrEn);
+		 */
+		inputKrEn : function(){
+			var tmpKrEn = $(this).val();
+
+			// 데이터 비어 있지 않고 숫자 데이터만 입력 되게
+			if( !CommonJs.isNull(tmpKrEn) ){
+				tmpKrEn = tmpKrEn.replace(/[~!@\#$%<>^&*\()\-=+_\’;0-9]/g,'');
+			}
+
+			$(this).val( tmpKrEn );
+		},
+
+		/*
+		 * 팝업을 오픈한다.
+		 *
+		 * pUrl		: url
+		 * pId		: id
+		 * pWidth	: width
+		 * pHeight	: height
+		 * pOption	: {} 기타 옵션..
+		 *
+		 * */
+		open : function(pUrl, pId, pWidth, pHeight, pOption){
+
+			if(CommonJs.isNull(pOption))	pOption = {};
+
+			var tmp = (document.body.scrollTop + (window.innerHeight/2)) ;
+
+			var left = (window.innerWidth - pWidth) / 2 ;
+			var top = (tmp - (pHeight / 2));
+
+			var option  = "  width=" 		+ pWidth
+				option += ", height=" 		+ pHeight;
+				option += ", left=" 		+ left;
+				option += ", top=" 			+ top;
+				option += ", scrollbars="	+ CommonJs.isNull(pOption.scrollbars) ? "yes" : "no";
+				option += ", resizable="	+ CommonJs.isNull(pOption.resizable) ? "yes" : "no";
+			if(!CommonJs.isNull(pOption)) option += ", " + pOption;
+
+			window.open(pUrl, pId, option);
+		},
+
+		/*
+		 * 숫자에 콤마를 찍어서 리턴한다.
+		 *
+		 * num	: 숫자
+		 *
+		 * */
+		setCurrency : function(num){
+
+			if(!CommonJs.isNumber(num)){
+				return "";
+			}
+
+			return num.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		},
+
+		/*
+		 * 1~10000 사이의 랜덤한 숫자를 리턴한다.
+		 *
+		 * */
+		getRandomNumber : function(){
+			return Math.floor(Math.random()*10000) + 1;
+		},
+
+		/*
+		 * 휴대폰번호, 전화번호 형식의 문자열을 리턴한다.
+		 *
+		 * num	: 전화번호
+		 * tBoolean : 가운데자리 마스크 여부
+		 * */
+		setTelFormat : function(num, tBoolean){
+			if(CommonJs.isNull(num)) return "";
+
+			var res = "";
+
+			if (num.length == 11) {
+				if(tBoolean)	res = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-****');
+				else			res = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+
+			} else if (num.length == 8) {
+				res = num.replace(/(\d{4})(\d{4})/, '$1-$2');
+
+            } else if(num.length == 9) {
+
+                if (tBoolean) res = num.replace(/(\d{3})(\d{3})(\d{3})/, '$1-$2-***');
+                else res = num.replace(/(\d{3})(\d{3})(\d{3})/, '$1-$2-$3');
+
+            } else {
+				if (CommonJs.left(num, 2) == 02) {
+					if(tBoolean)	res = num.replace(/(\d{2})(\d{3,4})(\d{4})/, '$1-$2-****');
+					else			res = num.replace(/(\d{2})(\d{3,4})(\d{4})/, '$1-$2-$3');
+				} else {
+					if(tBoolean)	res = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-****');
+					else			res = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+				}
+			}
+
+			return res;
+		},
+
+		/*
+		 * 이메일 마스킹
+		 *
+		 * str	: 이메일
+		 * */
+		setMaskEmail : function(str){
+			if(CommonJs.isNull(str)) return "";
+
+			var tArr = str.split("@");
+
+			var addr1 = tArr[0];
+			var addr2 = tArr[1];
+
+			if(addr1.length < 3){
+				return str;
+			}
+			else{
+				return addr1.substring(0,2).concat(this.lpad("", addr1.length-2, "*")).concat("@").concat(addr2);
+			}
+		},
+
+		/*
+		 * 이름 마스킹
+		 *
+		 * str	: 이름
+		 * */
+		setMaskName : function(str){
+			if(CommonJs.isNull(str)) return "";
+
+			if(str.length <= 1)	return str;
+
+			var firstName = CommonJs.left(str, 1);
+			var secondName = CommonJs.right(str, str.length - 2);
+
+			return firstName + "*" + secondName;
+
+		},
+
+		/*
+		 * 계좌번호 마스킹
+		 *
+		 * str	: 계좌번호
+		 *
+		 * ex> 146846434313  ==> 146***434313
+		 * */
+		setMaskAccount : function(str){
+			if(CommonJs.isNull(str)) return "";
+
+			if(str.length <= 1)	return str;
+
+			var firstAccount 		= "";
+			var lastAccount 		= "";
+
+			if (str.length < 3) {
+				firstAccount = str;
+			} else {
+				firstAccount 	= CommonJs.left(str, 3);
+
+				if (str.length < 6) {
+					firstAccount = CommonJs.rpad(firstAccount, str.length-3, "*");
+				} else {
+					firstAccount = CommonJs.rpad(firstAccount, 6, "*");
+					lastAccount = CommonJs.substring(str, 6);
+				}
+
+			}
+			return firstAccount + lastAccount;
+		},
+
+		/*
+		 * 입력한 숫자를 한글로 변환해서 리턴한다. (54320 -> 오만 사천삼백이십) ※백조단위까지 표시
+		 *
+		 * num : 입력한 숫자
+		 * */
+		numberToKorean : function(num){
+			num = num.replace(/[^0-9]/g,'').toString();
+
+			var arrKor1 = new Array ('영','일','이','삼','사','오','육','칠','팔','구' );
+			var arrKor2 = new Array ('일', '만', '억', '조' );
+			var arrKor3 = new Array ('일','십', '백', '천' );
+
+			delimiter = ' ';
+
+			bPos = 0;
+			sPos = 0;
+			digit = 0;
+
+			szDigit = '';
+			is_start = false;
+			appendFF = false;
+			len = num.length;
+			szHan = '';
+
+			for (i=len-1;i>=0;i--) {
+				szDigit=num.substring(i,i+1);
+				digit=parseInt(szDigit);
+
+				if (digit!=0) {
+					if (bPos!=0 && sPos==0) {
+						if (is_start==true) szHan += delimiter;
+						szHan += arrKor2[bPos];
+						appendFF=false;
+					}
+					if (bPos!=0 && appendFF==true) {
+						if (is_start==true) szHan += delimiter;
+						szHan += arrKor2[bPos];
+						appendFF=false;
+					}
+					if (sPos!=0) szHan += arrKor3[sPos];
+					szHan += arrKor1[digit];
+					is_start=true;
+				}
+				else if (sPos==0 && bPos!=0) appendFF=true;
+				sPos++;
+				if (sPos%4==0) {
+					sPos=0;
+					bPos++;
+					if (bPos>=4) return "(범위초과)";
+				}
+			}
+			if (is_start==false) szHan += "영";
+
+			rslt = '';
+			for(i = szHan.length - 1; i >= 0; i--) {
+				rslt += szHan.substring(i, i + 1);
+			}
+
+			return rslt;
+		},
+
+
+		/*
+		 * selectBox 데이터 변경
+		 *
+		 * selectObj	: Select Object
+		 *
+		 * */
+		selectVal : function(selectObj, value){
+			selectObj.val(value).trigger("chosen:updated");
+		},
+
+
+
+
+
+
+		/*
+		 * 페이징 카운트
+		 *
+		 * */
+		pageSizeSelect : [50,70,100],
+
+		/*
+		 * 페이징 처리(Top)
+		 *
+		 * selectObj	: Select Object
+		 * pageSizeObj	: pageSize Object(Default pageSize)
+		 *
+		 * */
+		setPageSelect : function(selectObj, pageSizeObj){
+			if(this.isNull(pageSizeObj)){
+				pageSizeObj = $("#pageSize");
+			}
+
+			var tmpStr  = "";
+			var pageSizeSelect = this.pageSizeSelect;
+
+			for(var a in pageSizeSelect){
+				tmpStr += "<option value='"+pageSizeSelect[a];
+
+				if(pageSizeSelect[a] == pageSizeObj.val()){
+					tmpStr += "' selected='selected'>";
+				}else{
+					tmpStr += "'>";
+				}
+				//T_0550=개씩보기
+				tmpStr += pageSizeSelect[a] + $.i18n.prop('T_0550');
+				tmpStr += "</option>";
+			}
+
+			selectObj.empty().append(tmpStr);
+			selectObj.chosen({disable_search:true});
+
+			selectObj.change(function(evt) {
+				pageSizeObj.val($(this).val());
+			});
+
+		},
+
+		/*
+		 * 페이징 처리
+		 *
+		 * divTopObj	: div Top Object
+		 * divBottomObj	: div Bottom Object
+		 * totalCnt		: 총 건수
+		 * pageNumObj	: pageNum Object(Default pageNum)
+		 * pageSizeObj	: pageSize Object(Default pageSize)
+		 * popupBoolean : 팝업 여부(팝업에서는 페이징을 5개씩 보여준다.)
+		 *
+		 * */
+		setPage : function(divTopObj, divBottomObj, totalCnt, pageNumObj, pageSizeObj, pageCallback, popupYn){
+			var tmpStr  = "";
+
+			if(this.isNull(pageNumObj)){
+				pageNumObj = $("#pageNum");
+			}
+			if(this.isNull(pageSizeObj)){
+				pageSizeObj = $("#pageSize");
+			}
+			if(this.isNull(pageCallback)){
+				pageCallback = "goPage";
+			}
+
+			var cntObj = divTopObj.find("strong");
+
+			cntObj.text(totalCnt);
+
+			//BOTTOM
+			var pageNum = pageNumObj.val();
+			var pageSize = pageSizeObj.val();
+			//var pageListSize = popupYn == "Y" ? 5 : 10;
+			var pageListSize = 5; //User site 페이지 리스트는 최대 5개만 노출
+			
+			console.log('pageNum: '+pageNum);
+			console.log('pageSize: '+pageSize);
+
+			//총 페이지
+			var totalPage = Math.ceil(totalCnt/pageSize);
+
+			//한 화면에 보여질 페이지 개수
+			var totalPageList = Math.ceil(totalPage/pageListSize);
+
+			var pageList = Math.ceil(pageNum/pageListSize);
+
+			//페이지리스트가 1보다 작으면 1페이지
+			if(pageList < 1){
+				pageList = 1;
+			}
+
+			//페이지 리스트가 총 페이지리스트보다 크면
+			if(pageList > totalPageList){
+				pageList = totalPageList;
+			}
+
+			//시작페이지
+			var startPageList = (pageList-1)*pageListSize + 1;
+
+			//끝페이지
+			var endPageList = Number(startPageList) + Number(pageListSize) - 1;
+
+			//시작페이지가 1보다 작으면 1페이지..
+			if(startPageList < 1)		startPageList = 1;
+			//총건수보다 마지막페이지가 크면 마지막페이지는 총 페이지수
+		    if(endPageList>totalPage) 	endPageList=totalPage;
+			//마지막페이지가 1보다 작으면 1페이지...
+		    if(endPageList<1) 			endPageList=1;
+		    
+		    tmpStr  = "";
+
+		    if(pageNum != 1){
+		    	//처음
+		    	tmpStr += "<a href='javascript:$."+pageCallback+"(1);' class=\"arrow first\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_first.png\" alt=\"처음으로\" />";
+		    	tmpStr += "</a>";
+		    	//이전
+		    	tmpStr += "<a href='javascript:$."+pageCallback+"(" + (Number(pageNum)-1) + ");' class=\"arrow prev\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_prev.png\" alt=\"이전으로\" />";
+		    	tmpStr += "</a>";
+		    }
+		    else{
+		    	//처음
+		    	tmpStr += "<a class=\"arrow first disable\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_first.png\" alt=\"처음으로\" />";
+		    	tmpStr += "</a>";
+		    	//이전
+		    	tmpStr += "<a class=\"arrow prev disable\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_prev.png\" alt=\"이전으로\" />";
+		    	tmpStr += "</a>";
+		    }
+
+		    tmpStr += "<div class='nums'>";
+		    
+		    for(var i=startPageList; i<=endPageList; i++){
+
+		    	tmpStr += "<a href='javascript:$."+pageCallback+"(" +(i)+ ")'";
+		    	if(i == pageNum)
+		    	tmpStr += "   class=\"select\"";
+		    	tmpStr += ">";
+
+		    	//if(i == pageNum)	tmpStr += "<strong>";
+
+		    	tmpStr += i;
+
+		    	//if(i == pageNum)	tmpStr += "</strong>";
+
+		    	tmpStr += "</a>";
+
+		    }
+		    
+		    tmpStr += "</div>";
+
+		    if(pageNum != totalPage){
+		    	//다음
+		    	tmpStr += "<a href='javascript:$."+pageCallback+"(" + (Number(pageNum)+1) + ");' class=\"arrow next\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_next.png\" alt=\"다음으로\" />";
+		    	tmpStr += "</a>";
+
+		    	//마지막
+		    	tmpStr += "<a href='javascript:$."+pageCallback+"(" + totalPage + ");' class=\"arrow end\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_last.png\" alt=\"마지막으로\" />";
+		    	tmpStr += "</a>";
+		    }
+		    else{
+		    	//다음
+		    	tmpStr += "<a class=\"arrow next disable\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_next.png\" alt=\"다음으로\" />";
+		    	tmpStr += "</a>";
+
+		    	//마지막
+		    	tmpStr += "<a class=\"arrow end disable\">";
+		    	tmpStr += "	<img src=\"../images/common/btn_pa_last.png\" alt=\"마지막으로\" />";
+		    	tmpStr += "</a>";
+		    }
+
+
+		    var divCenter = $("<div>").addClass("center")
+		    						.append(tmpStr);
+
+
+		    divBottomObj.empty().append(divCenter);
+
+		},
+
+		/*
+		 * 페이징 처리(팝업)
+		 *
+		 * divTopObj	: div Top Object
+		 * divBottomObj	: div Bottom Object
+		 * totalCnt		: 총 건수
+		 * pageNumObj	: pageNum Object(Default pageNum)
+		 * pageSizeObj	: pageSize Object(Default pageSize)
+		 *
+		 * */
+		setPagePopup : function(divTopObj, divBottomObj, totalCnt, pageNumObj, pageSizeObj, pageCallback){
+			this.setPage(divTopObj, divBottomObj, totalCnt, pageNumObj, pageSizeObj, pageCallback, "Y");
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
+		 * 스크롤 처리
+		 *
+		 * obj		: object
+		 * */
+		setScroll : function(obj){
+			obj.addClass("scrollbar-chrome").scrollbar();
+		},
+
+		/*
+		 * 스크롤을 최고 상단으로 이동
+		 *
+		 * obj		: object
+		 * */
+		setScrollTop : function(obj){
+			obj.scrollTop(0);
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
+		 * 월 달력을 그려준다.
+		 *
+		 * divObj		: div Calender Object
+		 * year			: Calendar Object
+		 * month		: Calendar Object
+		 *
+		 * return String
+		 * */
+		getMonthCalendar : function(divObj, year, month){
+			if(CommonJs.isNull(year) || CommonJs.isNull(month))	return;
+
+			var id = year+CommonJs.lpad(month.toString(), 2, '0');
+
+			month = month-1;
+
+			var divMonth = $("<div>").addClass("month");
+			var ulMonth = $("<ul id='month_" + id + "'></ul>");
+			var ulWeekdays = $("<ul id='weekdays_" + id + "' class='weekdays'></ul>");
+			var ulDays = $("<ul id='days_" + id + "' class='days'></ul>");
+
+
+			//월 추가
+			var liMonth = $("<li style='text-align: center' id='month_" + id + "'>").append(this.monthShortName[month]);
+//			var liMonth = $("<li style='text-align: center' id='month_" + id + "'>").append(year + "<br/>" + this.monthShortName[month]);
+			ulMonth.append(liMonth);
+
+			//요일 추가
+			for(var a in this.weekShortBigNameEng){
+				var liWeekday = $("<li>").text(this.weekShortBigNameEng[a]);
+				ulWeekdays.append(liWeekday).append("\n");
+			}
+
+			//일 추가
+			var m_oMonth = new Date(year, month);
+				m_oMonth.setDate(1);
+
+			var oStartDt = new Date(m_oMonth.getTime());
+			// 1일에서 1일의 요일을 빼면 그 주 첫번째 날이 나온다.
+			oStartDt.setDate(oStartDt.getDate() - oStartDt.getDay());
+
+			var oStartDt = new Date(m_oMonth.getTime());
+			// 1일에서 1일의 요일을 빼면 그 주 첫번째 날이 나온다.
+			oStartDt.setDate(oStartDt.getDate() - oStartDt.getDay());
+
+			for (var i = 0; i < 100; i++) {
+				var liDay = "";
+
+				if (m_oMonth.getMonth() == oStartDt.getMonth()) {
+
+					if(oStartDt.getDay() == 0){
+						liDay += "<li class='sun'>";
+					}else{
+						liDay += "<li>";
+					}
+					liDay += "<span>" + oStartDt.getDate() + "</span>";
+					liDay += "</li>";
+				}else{
+					liDay = "<li></li>";
+				}
+
+				ulDays.append(liDay).append("\n");
+
+				oStartDt.setDate(oStartDt.getDate() + 1);
+
+				if (i % 7 == 6) {
+					if (m_oMonth.getMonth() != oStartDt.getMonth()) {
+						break;
+					}
+				}
+			}
+
+			divMonth.append(ulMonth);
+			divObj.append(divMonth).append(ulWeekdays).append(ulDays);
+
+//			//이벤트
+//			$("#days_" + id+"  > li > span").bind("click", function(){
+//				$(this).toggleClass("active");
+//			});
+		},
+
+		/*
+		 * 현재 달력에 일을 가져온다.
+		 *
+		 * divObj	: div Calender Object
+		 *
+		 * return String
+		 * */
+		getMonthDays : function(divObj){
+			var returnArr = new Array();
+
+			//일을 돌면서
+			divObj.find(".days > li > span").each(function(i) {
+
+				if($(this).hasClass("active")){
+					returnArr.push($(this).text());
+				}
+
+			});
+
+			return returnArr;
+		},
+
+		/*
+		 * 현재 달력에 일을 선택해준다.
+		 *
+		 * divObj	: div Calender Object
+		 * days		: array
+		 *
+		 * return String
+		 * */
+		setMonthDays : function(divObj, days){
+			//일을 돌면서
+			divObj.find(".days > li > span").each(function(i) {
+
+				var str = $(this).text();
+
+				if(days.indexOf(str) > -1){
+					$(this).toggleClass("active");
+				}
+			});
+		},
+
+
+
+
+
+
+		/*
+		 * 현재 날짜를 가져온다.
+		 *
+		 * obj		: Calendar Object
+		 * interval	: 분 간격
+		 *
+		 * return String
+		 * */
+		datetimepicker : function(obj, interval){
+			if(this.isNull(interval)) interval = 60;
+
+			obj.datetimepicker({
+				step : interval
+			});
+		},
+
+		/*
+		 * 현재 날짜를 가져온다.
+		 *
+		 * obj		: Calendar Object
+		 *
+		 * return String
+		 * */
+		datepicker : function(obj){
+			obj.datetimepicker({
+				timepicker : false,
+				format : 'Y/m/d'
+			});
+		},
+
+		/*
+		 * 현재 날짜를 가져온다.
+		 *
+		 * obj		: Calendar Object
+		 * interval	: 분 간격
+		 *
+		 * return String
+		 * */
+		timepicker : function(obj, interval){
+			if(this.isNull(interval)) interval = 60;
+			obj.datetimepicker({
+				datepicker : false,
+				format : 'H:i',
+				step : interval
+			});
+		},
+
+		/*
+		 * 현재 날짜를 가져온다.
+		 *
+		 * obj		: Calendar Object
+		 *
+		 * return String
+		 * */
+		getDate : function(obj){
+			if( this.isNull(obj.val()) )	 return "";
+
+			var type = obj.val().length == 5 ? "T" : "D";
+
+			if(type == "T"){
+				return obj.val().replace(":","");
+			}else if(type == "D"){
+				var strDate 	= new Date(obj.val());
+				var resToday  = strDate.getFullYear() + "";
+				resToday += this.right("0" + (strDate.getMonth() + 1), 2);
+				resToday += this.right("0" +  strDate.getDate()	  , 2);
+
+				resToday += strDate.getHours() == 0 ? "" : this.right("0" +  strDate.getHours(), 2);
+				resToday += this.right("0" +  strDate.getMinutes(), 2);
+
+				return resToday;
+			}
+		},
+
+		/*
+		 * 현재 날짜를 입력한다.
+		 *
+		 * obj		: Calendar Object
+		 * value	: 20170308(date), 0900(time), 201703101520(datetime) 형태의 날짜
+		 * */
+		setDate : function(obj, value){
+			value = value.replace(/-/g,"").replace(/\//g,"").replace(/:/g,"");
+
+			if( this.isNull(value) )		return [true];
+
+			if( 	value.length != 4
+				&& 	value.length != 8
+				&& 	value.length != 12 )	return [false];
+
+			var strValue = "";
+
+			//TIME
+			if(value.length == 4){
+				strValue = this.left(value, 2) + ":" + this.right(value, 2);
+			}
+			//DATE
+			else if(value.length == 8){
+				value = value.substring(0, 4) + "/" + value.substring(4, 6) + "/" + value.substring(6, 8);
+				var strDate   = new Date(value);
+
+				strValue  = strDate.getFullYear() + "/";
+				strValue += this.right("0" + (strDate.getMonth() + 1), 2) + "/";
+				strValue += this.right("0" +  strDate.getDate(), 2);
+			}
+			//DATETIME
+			else if(value.length == 12){
+				var time = this.right(value, 4);
+				value  = value.substring(0, 4) + "/" + value.substring(4, 6) + "/" + value.substring(6, 8);
+
+				var strDate   = new Date(value);
+				strDate.setHours(this.left(time, 2), this.right(time, 2));
+
+				strValue  = strDate.getFullYear() + "/";
+				strValue += this.right("0" + (strDate.getMonth() + 1), 2) + "/";
+				strValue += this.right("0" +  strDate.getDate(), 2);
+				strValue += strDate.getHours() == 0 ? "" : " " + this.right("0" +  strDate.getHours(), 2);
+				strValue += ":"+this.right("0" +  strDate.getMinutes(), 2);
+			}
+
+			obj.val(strValue);
+
+			return [true, strValue];
+		},
+
+		/*
+		 * From ~ To 형태의 달력 셋팅
+		 *
+		 * fObj 	: From Object
+		 * tObj 	: To Object
+		 * fValue 	: From Value
+		 * tValue 	: To Value
+		 *
+		 * */
+		setFromToCalendar : function(fObj, tObj, fValue, tValue){
+
+			fObj.on("change", function(){tObj.datetimepicker({minDate : $(this).val()});});
+			tObj.on("change", function(){fObj.datetimepicker({maxDate : $(this).val()});});
+
+			if(this.isNull(fValue))		fValue = "";//this.today();
+			if(this.isNull(tValue))		tValue = "";//this.today();
+
+			var tBoolean = true;
+
+			tBoolean = this.setDate(fObj, fValue);
+
+			if(tBoolean[0]){
+				fObj.datetimepicker({
+					timepicker : false,
+					format : 'Y/m/d',
+					maxDate : CommonJs.isNull(tValue) ? false : tValue
+				});
+			}
+
+			tBoolean = this.setDate(tObj, tValue);
+			if(tBoolean[0]){
+				tObj.datetimepicker({
+					timepicker : false,
+					format : 'Y/m/d',
+					minDate : CommonJs.isNull(fValue) ? false : fValue
+				});
+			}
+
+            fObj.trigger("change");
+            tObj.trigger("change");
+            
+		},
+
+		/*
+		 * 달력 옆에 기간 버튼을 생성한다.
+		 *
+		 * areaObj 	: 버튼이 표출 될 영역
+		 * fObj 	: From Object
+		 * tObj 	: To Object
+		 * buttonArr: 0, 1, 3, 7, 30, 90, 180, 365일 기간
+		 *
+		 * */
+		setFromToCalendarButton : function(areaObj, fObj, tObj, buttonArr){
+
+			for(var i in buttonArr){
+				var day = buttonArr[i];
+				//T_0001=전체
+				//T_0093=주일
+				//T_0094=개월
+				//T_0290=년
+				//T_0291=월
+				//T_0292=일
+				//T_0544=당일
+				var strTitle;
+
+				switch(day){
+					case 0 		:	strTitle = $.i18n.prop('T_0001');
+						break;
+					case 1 		:	strTitle = "1" + $.i18n.prop('T_0292');
+						break;
+					case 3 		:	strTitle = "3" + $.i18n.prop('T_0292');
+						break;
+					case 7 		:	strTitle = "1" + $.i18n.prop('T_0093');
+						break;
+					case 30 	:	strTitle = "1" + $.i18n.prop('T_0094');
+						break;
+					case 90 	:	strTitle = "3" + $.i18n.prop('T_0094');
+						break;
+					case 180 	:	strTitle = "6" + $.i18n.prop('T_0094');
+						break;
+					case 365 	:	strTitle = "1" + $.i18n.prop('T_0290');
+						break;
+					//당일
+					default 	:	strTitle = $.i18n.prop('T_0544');
+						break;
+				}
+
+				//btn_cal_on, btn_cal_off
+				var btn = $("<button type='button'>" + strTitle + "</button>").addClass("btn_cal_off")
+																			.attr("id", "btnCal_"+day);
+
+				areaObj.append(btn);
+
+				//이벤트
+				btn.bind("click", function(){
+					var day = $(this).attr("id");
+						day = Number(CommonJs.replace(day, "btnCal_", ""));
+
+					var today = CommonJs.today();
+					var fValue;
+					switch(day){
+
+						case 0 		:	fObj.val(""); tObj.val("");
+							break;
+						case 1 		:	fValue = CommonJs.addDate(today, -1);
+							break;
+						case 3 		:	fValue = CommonJs.addDate(today, -3);
+							break;
+						case 7 		:	fValue = CommonJs.addDate(today, -7);
+							break;
+						case 30 	:	fValue = CommonJs.addMonth(today, -1);
+							break;
+						case 90 	:	fValue = CommonJs.addMonth(today, -3);
+							break;
+						case 180 	:	fValue = CommonJs.addMonth(today, -6);
+							break;
+						case 365 	:	fValue = CommonJs.addMonth(today, -12);
+							break;
+						default 	:	fValue = today;
+							break;
+					}
+
+					if(day != 0){
+						CommonJs.setDate(tObj, today);
+						CommonJs.setDate(fObj, fValue);
+
+						fObj.trigger("change");
+						tObj.trigger("change");
+					}else{
+						fObj.datetimepicker({minDate : false, maxDate : false});
+						tObj.datetimepicker({minDate : false, maxDate : false});
+					}
+
+					//이벤트
+					areaObj.find("button").each(function(){
+						$(this).attr("class", "btn_cal_off");
+					});
+
+					$(this).attr("class", "btn_cal_on");
+
+				});
+			}
+		},
+
+		/*
+		 * 달력 옆에 기간 버튼의 선택을 초기화한다.
+		 *
+		 * areaObj 	: 버튼이 표출 될 영역
+		 * */
+		clearCalendarButton : function(areaObj){
+			//이벤트
+			areaObj.find("button").each(function(){
+				$(this).attr("class", "btn_cal_off");
+			});
+		},
+
+		/*
+		 * 버튼의 클래스에 따라 ascending descending 리턴한다.
+		 *
+		 * btnObj 	: 버튼
+		 * */
+		getAscDesc : function(btnObj){
+			var sortButtonClass = btnObj.attr("class");
+
+			var resStr = "";
+
+			switch(sortButtonClass){
+				case CommonJs.nomal :
+					break;
+				case CommonJs.up :
+					resStr = "ASC";
+					break;
+				case CommonJs.down :
+					resStr = "DESC";
+					break;
+				default :
+					break;
+			}
+
+			return resStr;
+		},
+
+		nomal	: "btn_tbl_nomal",
+		up		: "btn_tbl_up",
+		down	: "btn_tbl_down"
+	}
+
+	window.CommonJs = CommonJs;
+
+	/*
+	 * form을 json 형태의 문자열로 변경시켜준다.
+	 * */
+	$.fn.formToJson = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+    /*
+	 * 테이블 정렬기능을 추가한다.
+	 * */
+	$.fn.tableSort = function (param) {
+
+		var nomal 	 = CommonJs.nomal;
+		var up		 = CommonJs.up;
+		var down	 = CommonJs.down;
+
+		var sortList = param.sortList;
+		var table 	 = $(this);
+		var thList	 = table.find("th");
+
+		//thList each
+		thList.each (function(i) {
+			var thIndex = $(this).index();
+
+			var sort = sortList.filter(function(item){
+				return item.tableIndex === thIndex;
+			});
+
+			//sort button create
+			if(!CommonJs.isNull(sort)){
+				var th = $(this);
+				var thHtml = th.html();
+
+				var sortButton = $("<button/>");
+					sortButton.addClass(nomal);
+					sortButton.data("tableIndex", 	sort[0].tableIndex);
+					sortButton.data("tableColumn", 	sort[0].tableColumn);
+
+				//sort button click event
+				sortButton.click(function(e){
+
+					var sortColumn = "";
+					var sortButtonClass = sortButton.attr("class");
+					var changeButtonClass = "";
+
+					switch(sortButtonClass){
+						case nomal :
+							changeButtonClass = up;
+							break;
+						case up :
+							changeButtonClass = down;
+							break;
+						case down :
+							changeButtonClass = nomal;
+							break;
+						default :
+							changeButtonClass = nomal;
+							break;
+					}
+
+					thList.each(function(){
+						var thisIndex = $(this).index();
+
+						var etcSort = sortList.filter(function(item){
+							return item.tableIndex === thisIndex;
+						});
+
+						if(!CommonJs.isNull(etcSort)){
+							if(thIndex != thisIndex){
+								var thisButton = $(this).find("button");
+								thisButton.attr("class", nomal);
+							}
+						}
+					});
+
+					sortButton.attr("class", changeButtonClass);
+
+					if(!CommonJs.isNull(CommonJs.getAscDesc(sortButton))){
+						sortColumn += sort[0].tableColumn + " " + CommonJs.getAscDesc(sortButton);
+					}
+
+					if(!CommonJs.isNull(param.searchFunction)){
+						param.searchFunction(sortColumn);
+					}
+
+				});//sort button click event
+
+
+				th.append(sortButton);
+
+			}//end sort button create
+
+		});//end thList each
+
+	};
+
+});

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>September</title>
+    <style>
+        /* reset */
+        *,*::before,*::after{
+        margin:0;
+        padding:0;
+        list-style: none;
+        border:0;
+        box-sizing: border-box;
+        }
+        html, body{
+        height: 100%;
+        }
+        /* table box */
+        .tablebox{
+            width: 800px;
+            height: 800px;
+            /* border: 1px solid #000; */
+            margin: 0 auto;
+            overflow: auto;
+        }
+        table{
+            width: 100%;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        thead th{
+            padding: 5px;
+            background: rgba(7, 167, 119, 0.925);
+            color: #fff;
+            font-size: 16px;
+        }
+        tbody td{
+            border: 1px solid #000;
+            height: 100px;
+            width: 150px;
+            padding: 5px;
+            vertical-align: top;
+            font-size: 14px;
+        }
+        caption{
+            font-size: 30px;
+            padding: 15px;
+            font-weight: 900;
+        }
+        .red{
+            color: red;
+        }
+        .blue{
+            color:blue;
+        }
+        tbody th:first-child{
+            color:red;
+        }
+        tbody th:last-child{
+            color: blue;
+        }
+        tbody td:first-child{
+            color: red;
+        }
+        tbody td:last-child{
+            color: blue;
+        }
+        span{
+            display: block;
+            font-size: 11px;
+        }
+        li{
+            font-size: 11px;
+            display: block;
+            color:rgb(0, 0, 0);
+        }
+        li::before{
+            content: "🎂";
+            font-size: 20px;
+        }
+        .prev, .next{
+            background: rgba(0, 0, 0, 0.041);
+        }
+        .holi{
+            color:red;
+        }
+        .autumm{
+            text-align: center;
+            position: absolute;
+            left: 0;
+            bottom: 12%;
+            right: 0;
+            margin: 0 auto;
+        }
+        .autumm > span {
+            padding: 5px;
+        }
+        .autumm > span > a{
+            text-decoration: none;
+        }
+        .visi{
+            visibility:hidden;
+        }
+        .active > a {
+            font-size: 16px;
+            color: #000;
+            font-weight: 600;
+        }
+        .active a:active{
+            color: rgb(255, 16, 88);
+        }
+        .visit a{
+            color: #000;
+        }
+        .visit a:link{
+            font-size: 14px;
+            color: #777;
+        }
+        .visit a:visited{
+            color: rgb(245, 27, 74);
+        }
+        .focus > a{
+            font-size: 13px;
+            color: rgb(59, 27, 216);
+        }
+        .focus a:focus{
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="tablebox">
+        <table>
+            <caption>September</caption>
+            <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="red">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THR</th>
+                    <th>FRI</th>
+                    <th class="blue">SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="prev">26</td>
+                    <td class="prev">27</td>
+                    <td class="prev">28</td>
+                    <td class="prev">29</td>
+                    <td class="prev">30</td>
+                    <td class="prev">31</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td class="eight">8
+                        <span>백로</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18
+                        <ul>
+                            <li>미애이모생일</li>
+                        </ul>
+                    </td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22
+                        <ul>
+                            <li>민아생일</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="holi">23
+                        <span>추석연휴</span>
+                    </td>
+                    <td class="holi">24
+                        <span>추석</span>
+                    </td>
+                    <td class="holi">25
+                        <span>추석연휴</span>
+                    </td>
+                    <td class="holi">26
+                        <span>대체공휴일(추석)</span>
+                    </td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td class="next">1</td>
+                    <td class="next">2</td>
+                    <td class="next">3</td>
+                    <td class="next">4</td>
+                    <td class="next">5</td>
+                    <td class="next">6</td>
+                </tr>
+                <div class="autumm">
+                    <span class="visi"><a href="#">즐거운 CSS</a></span>
+                    <span class="active"><a href="javascript:;">Autumm is second spring when every leaf is a flower.</a></span>
+                    <span class="visit"><a href="view1.html">가을은 모든 잎이 꽃이되는 두번째 봄이다.</a></span>
+                    <span class="focus"><a href="#">Albert Camus (알베르 까뮈)</a></span>
+                </div>
+            </tbody>
+        </table>
+    </div>
+    <!-- // END : Tablebox -->
+</body>
+</html>

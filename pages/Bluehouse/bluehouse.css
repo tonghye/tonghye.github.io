@@ -1,0 +1,149 @@
+    @font-face{font-family: 'Nanum Gothic';font-style: normal;font-weight: 900;src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot);src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.woff) format('woff'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.ttf) format('truetype');}
+    @font-face{font-family: 'Nanum Gothic';font-style: normal;font-weight: 700;src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot);src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.woff) format('woff'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.ttf) format('truetype');}
+    @font-face{font-family: 'Nanum Gothic';font-style: normal;font-weight: 400;src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot);src: url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.woff) format('woff'),url(http://themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.ttf) format('truetype');}
+
+    /* reset */  
+    *,*::before,*::after{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: all 0.5s;
+    }
+    body{
+        font-family: 'Nanum Gothic';
+        font-weight: 700;
+    }
+    /* navwrap */
+    h1{
+        position: fixed;
+        width: 169px;
+        height: 197px;
+        top: 0;
+        left: 5%;
+        z-index: 2;
+        display: block;
+    }
+
+    /* nav */
+    .nav{
+        position: fixed;
+        width: 100%;
+        /* height: 67px; */
+        background: rgba(0, 0, 0, 0.65);
+        top: 55px;
+        z-index: 1;
+    }
+    .navi{
+        width: 1075px;
+        float: right;
+        margin-right: 120px;
+        /* border: 1px solid #000; */
+    }
+    .navi::after{
+        clear: both;
+    }
+    /* 1 depth  */
+    .navi .dep1{
+        float: left;
+        width: 16.66666666666667%;
+        height: 67px;
+        position: relative;
+        
+    }
+    .navi .dep1 > a{
+        color: #fff;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 22px 0;
+        font-size: 18px;
+        font-weight: 800;
+        text-align: center;
+        transition: all 0.5s;
+        background: transparent;
+
+    }
+    .navi .dep1 > a:hover{
+        /* background: #071942; */
+
+    }
+    .search{
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        top: 20px;
+        right:30px;
+    }
+
+    /* 2 depth */
+    .navi .dep2{
+        max-height: 0;
+        overflow: hidden;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        transition: all .5s;
+    }
+    .navi .dep2 > li {
+        width: 100%;
+    }
+    .navi .dep2 > li > a{
+        display: block;
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+        /* font-weight: 600; */
+        color: #fff;
+        /* background: #071942; */
+        
+
+    }
+    .navi .dep1:hover{
+        background: #071942;
+        /* transition: all .5s; */
+        
+    }
+    .navi .dep1:hover .dep2{
+        max-height: 700px;
+        overflow: visible;
+        font-size: 15px;
+        background: #0a235ece;
+        border-radius: 0 0 10px 10px;
+
+    }
+    .navi .dep2 > li > a:hover{
+        text-decoration: underline;
+
+    }
+    .language{
+        position: absolute;
+        top: 16px;
+        right: 25px;
+        width: 92px;
+        height: 25px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.35);
+        border-radius: 3px;
+        display: inline-block;
+        line-height: 25px;
+        padding: 0px 13px 0px 13px;
+        font-size: 13px;
+    }
+    .language img{
+        margin-right: 5px;
+        margin-top: -3px;
+        vertical-align: middle;
+        width: 13px;
+    }
+    .language:hover{
+        background: #071942;
+    }
+    .container img{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 178px;
+    }

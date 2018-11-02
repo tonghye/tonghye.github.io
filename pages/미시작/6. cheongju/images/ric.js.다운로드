@@ -1,0 +1,44 @@
+/*
+ * INSIGHT CUSTOM COOKIE REMOVER 
+ * */
+
+if(typeof(_las) != 'undefined') {
+	var __cookieMax = 5;
+	var __cookies = document.cookie.split(";");
+	var __ins_cookies = [];
+	for(var i=0; i<__cookies.length; i++) {
+		__cookies[i] = __cookies[i].replace(/^\ /, "");
+		var cookieSplit = __cookies[i].split(/[=|:]/)
+		if(cookieSplit[0].indexOf('_INSIGHT_CK') == 0) {
+			__ins_cookies.push(__cookies[i]);
+		}
+	}
+	if(__ins_cookies.length > __cookieMax) {
+		var sort_by = function(field, reverse, primer){
+		   var key = primer ? 
+			   function(x) {return primer(x[field])} : 
+			   function(x) {return x[field]};
+		   reverse = !reverse ? 1 : -1;
+		   return function (a, b) {
+			   return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+			 } 
+		}	
+		var cookieArray = [];
+		for(var i=0; i<__ins_cookies.length; i++) {
+			var cookieSplit = __ins_cookies[i].split(/[=|:]/);
+			var cookieObj = {
+				"cookieName": cookieSplit[0],
+				"uid": cookieSplit[1],
+				"sid": cookieSplit[2],
+				"compareTime": cookieSplit[3],
+			};
+			cookieArray.push(cookieObj);
+		}
+		cookieArray.sort(sort_by("compareTime", true, parseInt));
+		cookieArray.splice(0, __cookieMax);
+
+		for(var i=0; i<cookieArray.length; i++) {
+			_las.rc(cookieArray[i].cookieName);
+		}
+	}
+}

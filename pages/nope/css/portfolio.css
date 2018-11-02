@@ -1,0 +1,41 @@
+body{
+    width: 100%;
+    height: auto;
+    background-color: rgb(255, 238, 241);
+}
+
+/* header */
+.header{
+    width: 100%;
+    height: 55px;
+    display: block;
+    /* background-color: #fff; */
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.headerwrap{
+    width: 1850px;
+    margin: 0 auto;
+}
+.headerwrap h1 a img{
+    width: 200px;
+    height: 35px;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* background: url(../images/logo_pink.png) no-repeat 50% 50%; */
+}
+.navi{
+    padding-top: 100px;
+}
+.navi img{
+    margin-top: 80px;
+    margin-left: 100px;
+}
+
+/* container */
+.container img{
+    float: right;
+    margin-top: 18%;
+    margin-right: 80px;
+}

@@ -1,0 +1,576 @@
+/* sec */
+@font-face{
+    font-family:'SECGCWL';
+    src:url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWL.eot");
+    src:url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWL.eot?#iefix") format("embedded-opentype"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWL.woff") format("woff"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWL.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face{
+    font-family:'SECGCWB';
+    src:url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWB.eot");
+    src:url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWB.eot?#iefix") format("embedded-opentype"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWB.woff") format("woff"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/SECGCWB.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+}
+
+@font-face {
+    font-family: 'NanumBarunBold';
+    src: url("//cdn.samsung.com/etc/designs/smg/sec/font/NanumBarunGothicWebBold.eot");
+    src: url("//cdn.samsung.com/etc/designs/smg/sec/font/NanumBarunGothicWebBold.eot?#iefix") format("embedded-opentype"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/NanumBarunGothicWebBold.woff") format("woff"),
+    url("//cdn.samsung.com/etc/designs/smg/sec/font/NanumBarunGothicWebBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SamsungOneKorean';
+    src: url('/etc/designs/smg/sec/font/SamsungOneKorean-400.eot');
+    src: url('/etc/designs/smg/sec/font/SamsungOneKorean-400.eot?#iefix') format("embedded-opentype"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-400.woff2') format("woff2"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-400.woff') format("woff"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-400.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'SamsungOneKorean';
+    src: url('/etc/designs/smg/sec/font/SamsungOneKorean-700.eot');
+    src: url('/etc/designs/smg/sec/font/SamsungOneKorean-700.eot?#iefix') format("embedded-opentype"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-700.woff2') format("woff2"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-700.woff') format("woff"),
+    url('/etc/designs/smg/sec/font/SamsungOneKorean-700.ttf') format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+body, textarea, input, select, textarea, button { font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+/* header */
+.gb-gnb a.s-btn-link[data-omni="support"] .s-svg:after {background:none !important;}
+.gb-gnb__drop-mobile{background-color:#f2f2f2}
+.gb-gnb__drop-mobile .s-depth2-wrap{background-color:#f2f2f2}
+.gb-gnb__drop-mobile .s-depth1-wrap{border-color:#dadada}
+.gb-gnb__drop-mobile .s-depth1-wrap:first-child{background-color:#fff}
+.gb-gnb__drop-mobile .s-depth1-wrap:nth-child(2){padding-bottom:0}
+
+/* footer */
+.gb-footer__top .gb-footer__col-wrap strong a {font-weight: bold;}
+.gb-footer__top .s-support-link .gb-footer__svg {top:1px;}
+.gb-footer__top .s-support-link strong{font-weight:bold; font-size:16px; font-weight:normal;}
+.gb-footer__depth2 a{}
+.gb-footer__btn-top{font-size:11px;}
+.gb-footer__copyright{font-size:11px; line-height:1;}
+.gb-footer__bottom-list .gb-footer__item a{font-weight:bold; font-size:12px; line-height:1.66667;}
+.gb-footer__bottom-list .gb-footer__item:nth-child(2) a{color:#add8ff;}
+.gb-footer__legal p{font-size:11px; line-height:1.90909;}
+.gb-footer__legal p i{font-style: normal;}
+.gb-footer__lang a{font-weight:bold; font-size:12px; line-height:1.33333;}
+.gb-footer__lang a:after{top:50%; margin-top:-4.5px;}
+.gb-footer__flag{top:50%; margin-top:-6px;}
+.gb-footer__sns-list a{text-indent:-9999px;}
+.gb-footer__local-logo .gb-footer__item {display:inline-block; margin:0;}
+.gb-footer__local-logo .gb-footer__item + .gb-footer__item {margin-left:12px;}
+.gb-footer__local-logo .gb-footer__item img {vertical-align:middle;}
+.gb-footer__top .gb-footer__col-wrap strong {font-weight: bold;}
+
+/* main */
+.hp-onetile-cluster__title{font-weight:bold; font-size:62px; font-size:4.3055vw; word-break: keep-all;}
+.hp-onetile-cluster__desc{margin-top:28px; font-size:20px; font-size:1.3888vw; line-height:1.88235; word-break: keep-all;}
+.hp-onetile-cluster .s-btn-cluster{font-weight:bold; font-size:12px; font-size:0.83333vw; font-weight:normal; }
+
+/* anchor-nav */
+.product-anchor-nav__title-text{font-weight:bold;}
+.product-anchor-nav__container a{font-weight:bold;}
+
+
+/* benefits */
+/* Mixin 미 적용 컴포넌트의 경우 가이드에 따라 font-family와 font-weight를 수정 적용 */
+.feature-benefit__title{font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; font-size:58px; font-size: 4.02777vw; word-break:keep-all; font-weight:bold;}
+.feature-benefit__sub-title{font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;    font-weight:bold; word-break:keep-all; }
+.feature-benefit__desc{ word-break:keep-all; font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+.feature-benefit__disclaimer{font-size:14px; font-size:0.972222vw;}/*�佔�語���伎� ���� 16.11.24*/
+.feature-benefit.s-img-align-left .feature-benefit__text-wrap .feature-benefit__desc, .feature-benefit.s-img-align-right .feature-benefit__text-wrap .feature-benefit__desc{font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+.feature-benefit .s-btn-encased {font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; font-weight: bold}
+
+.s-btn-play span{font-weight:bold; font-size:14px; font-size:0.97222vw;}
+.s-btn-encased, .s-btn-text{font-weight:bold;}
+
+/* Feature */
+.shop-header__title {font-size:70px; font-size:4.8611vw; font-weight:bold; font-weight:normal; word-break:keep-all;}
+.shop-header__desc {font-weight:bold;}
+.primary-selection__title-tit {font-weight: bold; word-break:keep-all; }
+.primary-selection__title .s-btn-text {font-weight:normal;}
+.primary-selection__product-name {font-weight: bold;}
+.primary-selection__product-desc {font-weight: bold;}
+
+/* spec highlights */
+.product-specs__highlights-wrap .product-specs__highlights-list .product-specs__highlights-sub-title{font-weight:bold; }
+.product-specs__highlights-wrap .product-specs__highlights-list .product-specs__highlights-sub-title + .product-specs__highlights-desc {word-break:break-all;}
+
+.product-summary__card .card__content-area .card__icon-title {min-height:58px; min-height:4.0277vw; line-height:4.0277vw; font-size:36px; font-size:2.5vw;}
+.product-specs__wrap .product-specs__list .product-specs__spec-title {min-height:48px; min-height:3.3333vw; line-height:48px; line-height:3.3333vw; font-size:36px; font-size:2.5vw;}
+
+/* product support */
+.product-support__resource-section-text{font-weight:bold;}
+
+/* recently view */
+.recently-viewed__title{font-weight:bold; }
+.recently-viewed__prd-name{font-weight:bold; }
+
+/* related product */
+.related-products__title{font-weight:bold; }
+.related-products__lst-cont .related-products-info__title{font-weight:bold; }
+
+/* compare */
+.product-compare__headline-title{font-weight:bold; }
+
+/* aboutsamsung */
+.sc-keyvisual-full-bleed.s-full .s-slogan-big {word-break:keep-all;}
+.sc-keyvisual-full-bleed.s-full .s-desc {word-break:keep-all;}
+.sc-keyvisual-carousel-with-text .s-slogan-big {word-break:keep-all;}
+.box_layout .con .tit {word-break:keep-all;}
+
+/* pf */
+.shop-header--pf .shop-header__desc {font-size:16px; font-size:1.11111vw;}
+.product-card__feature-value .value-txt--type1 {font-size:20px; font-size:1.38888vw;}
+.product-card__prd-info-title-wrap a{ display:block; }
+
+.product-support .s-btn-encased,
+.product-support .s-btn-text {font-size:16px; font-size:1.11111vw;}
+
+
+/* 20171229 pd �� ��蠏殊�� ���� */
+.product-details.new-2017 .s-options.product-details__toggler .product-details__item .product-details__link::after{ content:none; }
+.product-details.new-2017 .s-options.product-details__toggler .product-details__item .product-details__link{border:1px solid #dedede;}
+.product-details.new-2017 .s-options.product-details__toggler [aria-selected='true'] .product-details__link{border-color: #000;}
+.product-details.new-2017 .s-options.product-details__toggler .product-details__item .product-details__link:hover{border-color: #000;}
+.product-details.new-2017 .product-details__thumb .s-pd-slick .product-details__link:after{ content:none !important; }
+.product-details.new-2017 .product-details__thumb-wrap .product-details__item[aria-selected="false"] .product-details__link:after {content:none;}
+.product-details.new-2017 .product-details__thumb .s-pd-slick [aria-selected="true"] .product-details__link:after {content:none;}
+.product-details.new-2017 .product-details__thumb .s-pd-slick .product-details__link{border: 1px solid #e6e6e6; width:auto;}
+.product-details.new-2017 .product-details__thumb .s-pd-slick [aria-selected="true"] .product-details__link{border: 1px solid #000;}
+.product-details.new-2017 .product-details__toggler.s-options .product-details__item[aria-disabled="true"] .product-details__link{border-color: #d1d1d1;}
+
+/* disclaimer */
+.st-page-pd .pr-g-product-disclaimer p { margin-top:0 }
+
+@media screen and (min-width: 1440px){
+    /* main */
+    .hp-onetile-cluster__title{font-size:62px;}
+    .hp-onetile-cluster__desc{font-size:20px;}
+    .hp-onetile-cluster .s-btn-cluster{font-size:12px;}
+
+    /* benefits */
+    .feature-benefit__title{font-size:58px;}
+    .feature-benefit__disclaimer{font-size:14px;}/*폰트사이즈 수정 16.11.24*/
+
+    .s-btn-play span{font-size:14px;}
+
+    /* Feature */
+    .shop-header__title {font-size:70px;}
+
+    .product-support .s-btn-encased,
+    .product-support .s-btn-text {font-size:16px;}
+
+    /* pf */
+    .product-card__feature-value .value-txt--type1 {font-size:20px;}
+
+    /* spec */
+    .product-summary__card .card__content-area .card__icon-title {min-height:58px; line-height:58px; font-size:36px;}
+    .product-specs__wrap .product-specs__list .product-specs__spec-title {min-height:48px; line-height:48px; font-size:36px;}
+}
+
+@media screen and (max-width: 1024px) {
+    /* anchor-nav */
+    .product-anchor-nav-nonprice__title-text {font-size:14px; font-size:1.36719vw;}
+}
+
+@media screen and (max-width: 1024px) and (max-width: 1279px){
+    .product-summary__card .card__content-area .card__icon-title {font-size:36px; font-size:2.5vw;}
+}
+
+@media screen and (max-width: 768px){
+    /* footer */
+    .gb-footer__top .gb-footer__nav-link a{font-size:16px; line-height:1.875;}
+    .gb-footer__top .s-support-link strong{font-size:16px; line-height:1.875;}
+    .gb-footer__top .s-support-link .gb-footer__item a{font-size:12px;}
+    .gb-footer__btn-top{font-size:13px;}
+    .gb-footer__copyright{font-weight:bold; font-size:10px; line-height:2;}
+    .gb-footer__bottom-list .gb-footer__item a{font-size:10px;}
+    .gb-footer__legal p{font-size:10px;}
+    .gb-footer__lang a{font-size:10px;}
+
+    /* main */
+    .hp-onetile-cluster__title{font-size:76px; font-size:9.89583vw;}
+    .hp-onetile-cluster__desc{margin-top:10px; margin-top:1.30208vw; font-size:32px; font-size:4.16667vw;}
+    .hp-onetile-cluster .s-btn-cluster{font-size:24px; font-size:3.125vw;}
+
+    /* benefits */
+
+    .feature-benefit__disclaimer{font-size:20px; font-size:2.60416vw;}
+
+    .s-btn-play span{font-size:26px; font-size:3.38541vw;}
+
+    /* Feature */
+    .shop-header__title {font-size:82px; font-size:10.67708vw;}
+    .feature-benefit__title {font-size:82px; font-size:10.67708vw;}
+
+    /* spec highlights */
+    .product-specs__highlights-wrap .product-specs__highlights-list .product-specs__highlights-title{font-weight:bold; }
+
+    .product-specs__wrap .product-specs__list .product-specs__spec-title { min-height:80px; min-height:10.4166vw; line-height:10.4166vw; font-size:48px; font-size:6.25vw;}
+
+    /* pf */
+    .shop-header--pf .shop-header__desc {margin-top:-2.13333px; margin-top:-0.27778vw; font-size:29.86667px; font-size:3.88889vw;}
+
+    .product-support .s-btn-encased,
+    .product-support .s-btn-text {font-size:24px; font-size:3.125vw;}
+
+    /* disclaimer */
+    .st-page-pd .pr-g-product-disclaimer p { margin-top:0 }
+    .BT_price-list.active+ul li.BT_sample a{ margin-top:5.2083vw;}
+
+}
+
+/* 영문 title 부분 폰트 재정의 */
+.hp-onetile-cluster__title.hp-onetile-cluster__title-eng {
+    font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;
+    font-weight: bold;
+    font-size:60px;
+    font-size:4.16666vw;
+    line-height: 1.17;
+}
+
+.shop-header__title.shop-header__title-eng {
+    margin-top: -3px;
+    margin-top: -0.20833vw;
+    margin-bottom: -4px;
+    margin-bottom: -0.27778vw;
+    font-size: 68px;
+    font-size: 4.7222vw;
+  font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;
+  font-weight:bold;
+    line-height: 1.15;
+}
+
+.feature-benefit__title.feature-benefit__title-eng {
+    width: 66.67%;
+    margin: 0 auto;
+    padding: 0 24px;
+  font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.16;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 56px;
+    font-size: 3.8888vw;
+    margin-top: 83px;
+    margin-top: 5.76389vw;
+}
+
+@media (min-width: 1440px) {
+    .hp-onetile-cluster__title.hp-onetile-cluster__title-eng {
+        font-size: 60px;
+    }
+
+    .shop-header__title.shop-header__title-eng {
+        margin-top: -3px;
+        margin-bottom: -4px;
+        font-size: 68px;
+    }
+
+    .feature-benefit__title.feature-benefit__title-eng {
+        font-size: 56px;
+        margin-top: 83px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .hp-onetile-cluster__title.hp-onetile-cluster__title-eng {
+        font-size: 74px;
+        font-size: 9.63541vw;
+        line-height: 1.19;
+    }
+
+    .shop-header__title.shop-header__title-eng {
+        margin-top: -2.13333px;
+        margin-top: -0.27778vw;
+        font-size: 80px;
+        font-size: 10.41666vw;
+        margin-bottom: 19.2px;
+        margin-bottom: 2.5vw;
+        line-height: 1.18;
+    }
+
+    .feature-benefit__title.feature-benefit__title-eng {
+        width: 100%;
+        padding: 0;
+        line-height: 1.18;
+        font-size: 80px;
+        font-size: 10.41666vw;
+        margin-top: 55.46667px;
+        margin-top: 7.22222vw;
+    }
+}
+
+
+
+
+
+.gb-footer__sns-list .s-kakao{ display:none; }
+/* home 간격 재정의 */
+@media screen and (max-width: 768px) {
+    .hp-onetile-cluster__text {padding:6.5893vw 0 3.25vw;}
+    .hp-onetile-cluster__desc {margin-top:0.2604vw;}
+    .hp-onetile-cluster__btn-wrap {margin-top:0;}
+    .hp-onetile-cluster .s-btn-cluster {margin-top:6px;}
+    .gb-footer__sns-list .s-kakao{ display:block; }
+    .gb-footer__sns-list .s-kakao a {background-image: url('//cdn.samsung.com/etc/designs/smg/sec/images/svg-gb-kakao.svg');}
+    .gb-footer__sns-list .s-kakao a:hover {background-image: url('//cdn.samsung.com/etc/designs/smg/sec/images/svg-gb-kakao-hover.svg');}
+}
+
+/*  kakao 추가 */
+
+.product-card-grid__name{font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;font-weight:bold;}
+
+/* pf 버튼 스타일 수정 */
+.product-card-grid__btn-wrap .s-btn-encased.detail { background: #fff; color: #363636; border-color: #363636; }
+.product-card-grid__btn-wrap .s-btn-encased.detail:hover, .product-card-grid__btn-wrap .s-btn-encased.detail:active, .product-card-grid__btn-wrap .s-btn-encased.detail:focus { color: #1428a0; border-color: #1428a0; }
+.product-card-grid__btn-wrap { padding: 12px 86px 0px 85px; padding: 0.83333vw 6.81944vw 0vw 6.75vw; }
+.product-card-grid__btn-wrap .s-btn-encased { font-size: 14px; font-size: 1.1vw; }
+@media (min-width:1440px) {
+    .product-card-grid__btn-wrap { padding: 12px 96px 0px; }
+    .product-card-grid__btn-wrap .s-btn-encased { font-size: 16px; }
+}
+@media screen and (max-width:768px) {
+    .product-card-grid__btn-wrap { padding: 59.73333px 0px 0px; padding: 7.77778vw 0vw 0vw; }
+    .product-card-grid__btn-wrap .s-btn-encased { font-size: 25.6px; font-size: 3.33333vw; }
+}
+
+/* Product Card v3 */
+.product-card{padding:26px 0 38px;padding:1.80556vw 0 2.63889vw}
+.product-card__energy {display:none;}
+.product-card__prd-info-flag-item{font-size:14px;font-size:0.972222vw}
+.product-card__img-ctrl-group { margin: 0px 55px; margin: 0vw 3.819444vw; padding-bottom: 11px; padding-bottom: 0.763889vw; }
+.product-card__img-ctrl-item{line-height:26px;line-height:1.80556vw}
+.product-card__prd-info-title-name span{font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; font-weight:bold; }
+.product-card__detail-price-wrap {padding:7px 0 19px;padding:0.48611vw 0 1.31944vw}
+.product-card__detail-price b.price-wrap-item .discounted-price{font-weight:bold; font-size:22px;font-size:1.52778vw;color: #363636;}
+.product-card__detail-price p.price-wrap-item{font-weight:bold}
+.product-card__detail-marketing-message-wrap{border:none;}
+.product-card__detail-marketing-message .message-list{padding:19px 0 14px;padding:1.31944vw 0 0.97222vw;border-top: 1px solid #dadada;}
+@media (min-width:1440px) {
+    .product-card__prd-info-flag-item{font-size:14px}
+    .product-card__img-ctrl-group { margin: 0px 55px; padding-bottom: 11px;}
+    .product-card__img-ctrl-item{line-height:26px}
+    .product-card__detail-price-wrap {padding:7px 0 19px}
+    .product-card__detail-price b.price-wrap-item .discounted-price{font-size:22px}
+    .product-card__detail-marketing-message .message-list{padding:19px 0 14px}
+}
+@media (max-width:1240px) {
+    .product-card{padding:26px 0 38px;padding:2.09677vw 0 3.06452vw}
+    .product-card__prd-info-flag-item{font-size:14px;font-size:1.12903vw}
+    .product-card__img-ctrl-group {margin: 0px 55px; margin: 0vw 5.371094vw;}
+    .product-card__img-ctrl-group {padding-bottom: 11px; padding-bottom: 1.074219vw;}
+    .product-card__img-ctrl-inner.type-text{line-height:26px;line-height:2.09677vw}
+    .product-card__detail-price{font-size:22px;font-size:1.77419vw}
+    .product-card__detail-marketing-message .message-list {padding:19px 0 14px;padding:1.53226vw 0 1.12903vw}
+}
+@media (max-width:768px) {
+    .product-card__prd-info-flag-item{font-size:19.2px;font-size:2.5vw}
+    .product-card__img-ctrl-inner{padding:5px 0px;padding:0.488281vw 0vw}
+    .product-card__img-ctrl-item{padding:inherit}
+    .product-card__detail-price .wrap-item{padding:0;}
+    .product-card__detail-price b.price-wrap-item .discounted-price{font-size:27.733333px;font-size:3.611111vw}
+    .product-card__detail-price p.price-wrap-item span{display:block;line-height:1.5}
+    .product-card__detail-price p.price-wrap-item .discount{margin:0}
+    .product-card__detail-marketing-message:before {content:''; display:block; height:12px; height:3.333333vw;}
+    .product-card__detail-marketing-message-wrap {border:none;}
+    .product-card__detail-marketing-message .message-list{padding:25.6px 0px 32px;padding:3.333333vw 0vw 4.166667vw;border-top:1px solid #ededed;}
+
+
+    .product-card-group__list--mode-list .product-card{padding:53.333333px 0px 53.333333px;padding:6.944444vw 0vw 6.944444vw}
+    .product-card-group__list--mode-list .product-card__prd-info-title-name span{line-height:1.2}
+    .product-card-group__list--mode-list .product-card__img-ctrl-group {width: 44.4%; margin: 17% 6.6% 0 0; float: right;}
+
+    .product-card-group__list--mode-grid .product-card__detail-price p.price-wrap-item{font-size:10px;font-size:1.30208vw;padding:3px 0;padding:0.39063vw}
+    .product-card-group__list--mode-grid .product-card__detail-price p.price-wrap-item span{line-height:1.4}
+    .product-card-group__list--mode-grid .product-card__detail-price p.price-wrap-item span{line-height:1.4}
+    .product-card-group__list--mode-grid .product-card__detail-marketing-message:before{content:'';display:block;height:42.666667px;height:5.555556vw}
+
+    .product-card-group__list--mode-list .product-card.type-B .product-card__img-ctrl-group { margin-bottom: 19.2px; margin-bottom: 2.5vw; }
+}
+
+/* sec.css : for component-02_PD-Feature-Container-Header */
+.pd-feature-menubar-container .heading { font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+/* sec.css : for component-04_PD-Package-Specs-Tab-Menu */
+.pd-specs-tabmenu-container .heading .inner-heading { font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+.pd-specs-tabmenu-container .inside .inside-item > .btn-tab {font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+@media (min-width:769px) {
+    .BT_price-option .BT_detail-price{z-index:99!important}
+}
+.pd-popup-add-to-cart .pd-pop-content__desc-txt{font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;font-weight:bold;}
+.ab-g-c-default-anchor-nav__wrap .ab-g-c-default-anchor-nav__top h3 a{font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+.fs-title-x-large,
+.fs-title-large,
+.fs-title-medium,
+.fs-title-small,
+.c1920__headline,
+.c1920.full-bleed.kv-type .c1920__text .c1920__sub-headline,
+.ma-g-c-halftext__title,
+.ma-jump-controls-button .ma-jump-controls-name,
+.c1920.intro-copy .c1920__copy-text,
+.m_jump_controls .control .name {font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+.ho-product-3column-group__ct:hover .ho-product-3column-group__sub-headline {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+/* SamsungOneKorea Test Sec Home Three column */
+
+.sec-home-three-column--event .sec-home-three-column__title {font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+.sec-home-three-column__sub-title {font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; font-weight:bold;}
+.sec-home-three-column--event .sec-home-three-column__shop-title h3 {font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial; font-weight:bold;}
+.sec-home-three-column .s-marketing-cta .s-btn-encased {font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+.sec-home-three-column--event .sec-home-three-column__num p{font-family:'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;}
+
+/* flagship PD */
+.flagship-pd__headline {
+    font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;
+    font-weight:bold;
+}
+.shop-header-carousel__title,
+.shop-header__title,
+.ma-g-c-banner-full__title,
+.ma-g-c-banner-half__title {
+    font-family:'SamsungSharpSans', 'SamsungOneKorean', 'Dotum', '돋움', 'Apple SD Gothic Neo', arial;
+    font-weight:bold;
+}
+
+.product-card__detail-reviews .review-count{
+    font-weight:normal;
+    color: #363636 !important; 
+}
+.product-card__detail-reviews .star-rating__star {
+	width: 16px;
+	width: 1.111883252258513vw;
+	height: 16px;
+	width: 1.111883252258513vw;
+}
+.product-card__detail-reviews .star-rating .icon-star-empty:after {
+	width: 16px;
+	width: 1.111883252258513vw;
+	height: 16px;
+	width: 1.111883252258513vw;
+	background-image: url(https://images.samsung.com/is/content/samsung/p5/sec/common/pf/ico-star-empty.svg);
+}
+.product-card__detail-reviews .star-rating .icon-star-filled:after {
+	width: 16px;
+	width: 1.111883252258513vw;
+	height: 16px;
+	width: 1.111883252258513vw;
+    background-image: url(https://images.samsung.com/is/content/samsung/p5/sec/common/pf/ico-star-full.svg);
+}
+@media (min-width: 1440px) {
+	.product-card__detail-reviews .star-rating__star {
+		width: 16px;
+		height: 16px;
+	}
+    .product-card__detail-reviews .star-rating .icon-star-empty:after {
+		width: 16px;
+		height: 16px;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-filled:after {
+		width: 16px;
+		height: 16px;
+	}
+}
+@media (min-width: 769px) and (max-width: 1024px){
+	.product-card__detail-reviews .star-rating__star {
+		width: 16px;
+		width: 1.5625vw;
+		height: 12px;
+		height: 1.5625vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-empty:after {
+		width: 16px;
+		width: 1.5625vw;
+		height: 16px;
+		height: 1.5625vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-filled:after {
+		width: 16px;
+		width: 1.5625vw;
+		height: 16px;
+		height: 1.5625vw;
+	}
+}
+@media screen and (max-width: 768px) {
+	.product-card__detail-reviews .star-rating__star {
+		width: 16px;
+		width:  2.083333333333333vw;
+		height: 16px;
+		height:  2.083333333333333vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-empty:after {
+		width: 16px;
+		width:  2.083333333333333vw;
+		height: 16px;
+		height:  2.083333333333333vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-filled:after {
+		width: 16px;
+		width:  2.083333333333333vw;
+		height: 16px;
+		height:  2.083333333333333vw;
+	}
+	.product-card__detail-reviews .review-count {
+		margin: 4px;
+		margin: 0.55556vw;
+        font-size: 1.57778vw;
+        line-height: 1.57778vw;
+        top: 0.333333333vw; 
+	}
+}
+@media screen and (max-width: 480px) {
+	.product-card__detail-reviews .star-rating__star {
+		width: 16px;
+		width: 3.3333333333333335vw;
+		height: 16px;
+		height: 3.3333333333333335vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-empty:after {
+		width: 16px;
+		width: 3.3333333333333335vw;
+		height: 14px;
+		height: 3.3333333333333335vw;
+	}
+	.product-card__detail-reviews .star-rating .icon-star-filled:after {
+		width: 16px;
+		width: 3.3333333333333335vw;
+		height: 16px;
+		height: 3.3333333333333335vw;
+	}
+	.product-card__detail-reviews .review-count {
+		margin: 4px;
+		margin: 0.55556vw;
+        top: 0.12222222vw;
+        font-size: 2.17778vw;
+        line-height: 2.17778vw;
+	}
+}

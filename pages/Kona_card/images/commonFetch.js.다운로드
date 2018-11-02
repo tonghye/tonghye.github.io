@@ -1,0 +1,139 @@
+$(function() {
+
+    var FetchJs = {
+
+            /*
+             * 응답결과를 return 한다.
+             * */
+            processStatus : function(response) {
+                if (response.status === 200 || response.status === 0) {
+                	response.rpc = false;
+                    return Promise.resolve(response);
+                }
+                else if(response.status === 303){
+                	return Promise.resolve(response.json()).then(function( res){
+                		response.rpc = true;
+                		var msg = "["+res.returnCode+"] - " + res.returnMessage;
+                		return Promise.reject(new Error(msg));
+                	});
+                }
+                else {
+                    return Promise.reject(new Error(response.statusText));
+                }
+            },
+
+            /*
+             * parseJson
+             * */
+            parseJson : function(response) {
+                return response.json();
+            },
+
+            /*
+             * parseText
+             * */
+            parseText : function(response) {
+                return response.text();
+            },
+
+            /*
+             * getWrappedPromise
+             * */
+            getWrappedPromise : function() {
+                var wrappedPromise = {},
+                    promise = new Promise(function(resolve, reject) {
+                        wrappedPromise.resolve = resolve;
+                        wrappedPromise.reject = reject;
+                    });
+
+                wrappedPromise.then = promise.then.bind(promise);
+                wrappedPromise.catch = promise.catch.bind(promise);
+                wrappedPromise.promise = promise; // e.g. if you want to provide
+                // somewhere
+                // only promise, without
+                // .resolve/.reject/.catch methods
+
+                return wrappedPromise;
+            },
+
+            /*
+             * getWrappedFetch
+             * */
+            getWrappedFetch : function() {
+                var wrappedPromise = this.getWrappedPromise();
+                var args = Array.prototype.slice.call(arguments);
+                fetch.apply(null, args) // calling original fetch() method
+                    .then(function(response) {
+                        wrappedPromise.resolve(response);
+                    }, function(error) {
+                        wrappedPromise.reject(error);
+                    })
+                    .catch(function(error) {
+                        wrappedPromise.catch(error);
+                    });
+
+                return wrappedPromise;
+            },
+
+            /*
+             * fetch 호출
+             *
+             * params	: method, body 타입
+             * */
+            fetch : function(params) {
+            	//lodingbar 활성화
+            	ModalJs.loading(true);
+
+            	var headers = {};
+
+            	headers["Accept"] = CommonJs.isNull(params.accept) ? 'application/json' : params.accept;
+
+            	if(params.contentType != "multipart/form-data"){
+            		headers["Content-Type"] = CommonJs.isNull(params.contentType) ? 'application/json' : params.contentType
+            	}
+
+            	var wrappedFetch = this.getWrappedFetch(
+                    params.url, {
+                    	mode: "same-origin",
+                    	credentials: 'same-origin',
+                        method: params.method,
+                        headers: headers,
+                        body: params.body
+                    });
+
+                var timeoutId = setTimeout(function() {
+                	//lodingbar 비활성화
+                	ModalJs.loading(false);
+
+                    wrappedFetch.reject(new Error('Load timeout for resource: ' + params.url));
+                }, 30000);	//30초
+
+                return wrappedFetch.promise
+                    .then(function(response) {
+                    	//lodingbar 비활성화
+                    	ModalJs.loading(false);
+
+                        clearTimeout(timeoutId);
+                        return response;
+                    })
+                    .then(this.processStatus)
+                    .then(function(response){
+
+                    	if(!response.rpc){
+                    		var returnType = params.returnType;
+
+                    		if(CommonJs.isNull(returnType))	returnType = "json";
+
+                    		if(returnType == "json") return response.json();
+                    		if(returnType == "text") return response.text();
+                    		if(returnType == "blob") return response.blob();
+                    	}
+
+                    });
+            }
+        } // end FetchJs
+
+
+    window.FetchJs = FetchJs;
+
+});

@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* *********************************************
+Project ===== Hyundai Motor Group
+FileName === layout.css
+Author ===== the fifty one
+Date ======= 2014-04-01
+Last ======= 2014-04-01
+********************************************* */
+
+
+/* --------------------------------------------
+ * accessibility
+/* ------------------------------------------ */
+div#accessibility {position:absolute;width:100%;margin:0 auto;z-index:9999;}
+div#accessibility a {text-indent:0;background:#000;position:absolute;z-index:1;top:-500px;width:100%;padding:5px 0px;text-align:center;}
+div#accessibility a:active {top:0;font-size:11px;font-weight:bold;color:#fff;}
+div#accessibility a:focus {top:0;font-size:11px;font-weight:bold;color:#fff;}
+
+
+/* --------------------------------------------
+ * layout
+/* ------------------------------------------ */
+div#wrapper {min-width:1080px;}
+div#wrapper header#header {background:#fff;height:140px;text-align:center;} /* 170217 수정 */
+div#wrapper div#container {display:inline-block;width:100%;}
+div#wrapper div#container section#contents header.title {width:984px;margin:0 auto;position:relative;padding:60px 0 0;color:#333;z-index:1}
+div#wrapper div#container section#contents header.title h1 {font-family:HDHarmonyM;font-size:36px;font-weight:normal;min-height:48px;letter-spacing:-1px;line-height:44px;}
+div#wrapper div#container section#contents article.article-default {width:984px;margin:0 auto;min-height:200px;overflow:hidden;}
+div#wrapper div#container section#contents div.article-group {width:984px;margin:0 auto;}
+div#wrapper div#container section#contents div.article-group article.article-view {float:left;width:652px;min-height:200px;background:#fff;}
+div#wrapper div#container section#contents div.article-group aside.aside-view {float:right;width:320px;min-height:200px;}
+div#wrapper div#container section#contents div.article-group2 {width:984px;margin:0 auto;}
+div#wrapper div#container section#contents div.article-group2 article.article-view {float:left;width:735px;min-height:200px;background:#fff;}
+div#wrapper div#container section#contents div.article-group2 aside.aside-view {float:right;width:237px;min-height:200px;}
+div#wrapper div#container section#contents div.comm-contents {background:#ddd url(/images/comm/bg/bg-ontents.gif) repeat-x;padding:50px 0 60px}
+div#wrapper div#container section#contents div.comm-contents h1 {font-family:HDHarmonyM;font-size:25px;font-weight:normal;color:#333;height:50px;}
+div#wrapper footer#footer {height:156px;text-align:center;background:#333;}
+
+
+
+/* --------------------------------------------
+ * location
+/* ------------------------------------------ */
+p.location {width:984px;margin:0 auto;font-size:12px;padding:100px 0 13px;clear:both;}
+p.location a,
+p.location span,
+p.location strong {display:inline-block;vertical-align:middle;color:#666;font-family:dotum;}
+p.location a.home {background:url(/images/comm/ico/ico-home.gif) no-repeat center top;text-indent:0;font-size:0;line-height:0;height:13px;width:15px;}
+p.location span {background:url(/images/comm/bu/bu-arrow1-rgt1.gif) no-repeat center 2px;display:inline-block;margin-right:-2px;width:20px;height:12px;text-indent:-99999px;}
+p.location span.nolink {background:none;display:inline-block;margin-right:0;width:auto;height:auto;text-indent:0;}
+p.location strong {color:#333;font-weight:bold;}
+
+
+
+/* --------------------------------------------
+ *  header
+/* ------------------------------------------ */
+/* 170217 수정 : GNB 수정 */
+div.header-area{width:100%;position:relative;z-index:100;clear:both;}
+div.header-area .logo-area {width:984px;margin:0 auto;padding-top:29px;position:relative;z-index:100;clear:both;}
+div.header-area .logo-area h1.logo{padding-bottom:29px;}
+div.header-area .logo-area .site_area a.logo_Journal {position:absolute;left:0;top:40px;}
+div.header-area .logo-area .site_area a.logo_tv {position:absolute;right:0;top:40px;}
+div.header-area .gnb-area .gnb-box {width:984px;margin:0 auto;position:relative;z-index:100;clear:both;}
+
+div.header-area div.util-area {float:right;}
+div.header-area div.util-area div.util-search {float:left;}
+div.header-area div.util-area div.util-search a.search {display:inline-block;width:16px;height:16px;font-size:0;line-height:0;margin:13px 10px 0 0;background:url(/images/comm/btn/btn-search3.png) no-repeat 0 0;}
+
+div.header-area div.util-area div.language {float:left;}
+div.header-area div.util-area div.language a {float:left;display:inline-block;height:12px;margin:16px 0;padding:0 10px;border-left:1px solid #b3bfd7;font-size:12px;color:#b3bfd7;font-family:HDharmonyM;}
+div.header-area div.util-area a.newsletter {float:left;display:inline-block;height:12px;margin:16px 0;padding-left:10px;border-left:1px solid #b3bfd7;text-align:left;font-size:12px;color:#b3bfd7;font-family:HDharmonyM;}
+
+div.header-area .gnb-area {background:#00287a;height:44px;}
+ul#nav {float:left;padding-left:18px;}
+ul#nav li {float:left;margin-left:40px;padding:0 25px;position:relative;display:inline-block;}
+ul#nav li a {position:relative;display:block;padding:15px 3px 14px;height:15px;font-size:14px;color:#fff;font-family:HDharmonyL;}
+ul#nav li a.on {color:#fff;}
+ul#nav li ul {display:none;position:absolute;top:44px;left:4px;width:155px;}
+ul#nav li ul li {background:#fff;padding:0;margin:0;}
+ul#nav li ul li a {position:relative;display:block;padding:13px 15px 0;width:123px;height:26px;text-align:left;font-size:14px;color:#333;font-family:HDharmonyL;border-top:1px solid #eee;border-left:1px solid #eee;border-right:1px solid #eee;}
+ul#nav li ul li.last a {border-bottom:1px solid #eee;}
+ul#nav li ul li a.on,
+ul#nav li ul li a:hover {background:#333;border-color:#333;color:#fff;}
+ul#nav li ul li a.depth03 {background:url(/images/comm/header/btn_nav_2depth.png) no-repeat 140px 16px;border-color:#eee;color:#747474;cursor:default;}
+ul#nav li ul li a.depth03:hover, 
+ul#nav li ul li.depth03.on a.depth03 {background:#747474 url(/images/comm/header/btn_nav_2depth.png) no-repeat 140px -17px;border-color:#747474;color:#fff;}
+ul#nav li ul li ul {position:absolute;top:0;left:155px;}
+ul#nav li ul li ul.second {width:310px;}
+ul#nav li ul li ul.second li {float:left;}
+/* //170217 수정 : GNB 수정 */
+
+
+div.search-wrap {position:absolute;top:71px;left:0;z-index:100;width:100%;display:none;}
+div.search-wrap div.bodal-bg {background:#000;opacity:0.75;filter:alpha(opacity=75);;height:100%;width:100%;position:fixed;top:0;left:0;z-index:1}
+div.search-area {background:#fff;max-width:1600px;min-width:984px;margin:0 auto;position:relative;z-index:2}
+div.search-area div.inner-search{width:984px;margin:0 auto;padding:58px 0 60px;position:relative;}
+div.search-area div.inner-search a.search-close {position:absolute;top:19px;right:18px}
+div.search-area div.inner-search input.search {font-size:36px;border-left:1px solid #747474;padding-left:11px;width:860px;font-family:HDharmonyL}
+
+
+
+/* --------------------------------------------
+ * section#contents header
+/* ------------------------------------------ */
+header.title p.desc {font-size:14px;line-height:20px;}
+header.title .selection {position:absolute;right:0;top:40px;}
+
+
+
+/* --------------------------------------------
+ * footer
+/* ------------------------------------------ */
+div.footer {position:relative;padding-top:30px;width:984px;margin:0 auto;text-align:left !important;}
+div.footer ul.comm-menu {display:inline-block;width:100%;}
+div.footer ul.comm-menu li {float:left;padding-left:8px;margin-left:8px;background:url(/images/comm/bg/bg-line3.gif) no-repeat left 3px;}
+div.footer ul.comm-menu li a{font-family:dotum;color:#ddd;font-size:12px;}
+div.footer ul.comm-menu li a.strong {font-weight:bold;color:#fff;} /* 161108 추가 */
+div.footer ul.comm-menu li:first-child {padding-left:0;background:none;margin-left:0;}
+div.footer ul.comm-menu li a:hover {color:#fff;text-decoration:underline;}
+
+/* ----------------- 170217 수정 : sns 영역 전체 수정 */
+div.footer ul.sns-area {display:inline-block;width:100%;margin-top:30px;}
+div.footer ul.sns-area li {float:left;margin-left:9px;}
+div.footer ul.sns-area li a {color:#ddd;display:inline-block;width:23px;height:22px;background:url(/images/comm/ico/ico-sns-ft.png) no-repeat -2px -2px;font-size:0;line-height:0;}
+div.footer ul.sns-area li a.ft-hmgjournal {background-position:-28px -2px;}
+div.footer ul.sns-area li a.ft-twiter {background-position:-52px -2px;}
+div.footer ul.sns-area li a.ft-instagram {background-position:-77px -2px;}
+div.footer ul.sns-area li a.ft-brunch {background-position:-103px -2px;} /* 171107 수정 */
+div.footer ul.sns-area li a.ft-youtube {background-position:-129px -2px;}
+div.footer ul.sns-area li a.ft-naverblog {background-position:-155px -2px;}
+div.footer ul.sns-area li a.ft-naverpost {background-position:-181px -2px;}
+div.footer ul.sns-area li a.ft-navertvcast {background-position:-207px -2px;}
+div.footer ul.sns-area li a.ft-tvkakao {background-position:-233px -2px;}
+div.footer ul.sns-area li:first-child {margin-left:0;}
+
+div.footer ul.sns-area li:hover a {background-position:-2px -26px;}
+div.footer ul.sns-area li:hover a.ft-hmgjournal {background-position:-28px -26px;}
+div.footer ul.sns-area li:hover a.ft-twiter {background-position:-52px -26px;}
+div.footer ul.sns-area li:hover a.ft-instagram {background-position:-77px -26px;}
+div.footer ul.sns-area li:hover a.ft-brunch {background-position:-103px -26px;} /* 171107 수정 */
+div.footer ul.sns-area li:hover a.ft-youtube {background-position:-129px -26px;}
+div.footer ul.sns-area li:hover a.ft-naverblog {background-position:-155px -26px;}
+div.footer ul.sns-area li:hover a.ft-naverpost {background-position:-181px -26px;}
+div.footer ul.sns-area li:hover a.ft-navertvcast {background-position:-207px -26px;}
+div.footer ul.sns-area li:hover a.ft-tvkakao {background-position:-233px -26px;}
+
+div.footer ul.sns-area li a, div.footer ul.sns-area li img, div.footer ul.sns-area li em {vertical-align:middle; }
+div.footer ul.sns-area li em {font-size:14px;line-height:16px;font-family:HDharmonyM;background:none;color:#ddd;padding:0 10px;vertical-align:-4px;}
+div.footer ul.sns-area li:hover em {color:#fff;}
+/* -----------------//170217 수정 */
+
+div.footer dl.select-g {position:absolute;top:25px;right:0;width:152px;height:28px;text-align:left;}
+div.footer dl.select-g dt {border:1px solid #666;}
+div.footer dl.select-g dt a {padding:12px 20px 12px 24px; display:block;background:url(/images/comm/bu/bu-select-off.gif) no-repeat 130px 14px;color:#ddd;font-family:dotum;font-size:12px;line-height:1;}
+div.footer dl.select-g dt a.on {background:url(/images/comm/bu/bu-select-on.gif) no-repeat 130px 14px;}
+div.footer dl.select-g dd {position:absolute;padding:25px 0 0 30px;height:375px;width:952px;right:0;top:-410px;background:#fff;border:1px solid #c8c8c8;display:none;z-index:10;} /* 161209 수정 */
+div.footer dl.select-g dd ul {display:block;overflow:hidden;}
+div.footer dl.select-g dd ul li {float:left;width:127px;}
+div.footer dl.select-g dd ul li.first {width:135px;}
+div.footer dl.select-g dd ul li > span {font-family:dotum;font-weight:bold;color:#333;font-size:14px;letter-spacing:-1px;margin-bottom:16px;display:block;}
+div.footer dl.select-g dd ul li ul li {float:none;width:100%;}
+div.footer dl.select-g dd ul li ul li a {color:#747474;font-family:dotum;font-size:12px;margin-bottom:5px;line-height:18px;letter-spacing:-1px;display:block;}
+div.footer dl.select-g dd a.close {position:absolute;top:0;right:0;width:40px;height:40px;display:inline-block;background:url(/images/comm/btn/btn-close3.gif) no-repeat 0 0;font-size:0;line-height:0;}
+
+div.footer p.copy {font-family:dotum;clear:both;margin-top:12px;font-size:12px;color:#aaa;}
+
+div.footer p.mark {position:absolute; right:165px; top:13px;}

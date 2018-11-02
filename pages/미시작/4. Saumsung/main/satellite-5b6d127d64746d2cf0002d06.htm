@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=EUC-KR"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<div id=\"ttdUniversalPixelTag92c5418d439f4bf1b9d7ad53873e94d6\" style=\"display:none\">\n\t<script src=\"https://js.adsrvr.org/up_loader.1.1.0.js\" type=\"text/javascript\"></scr"+"ipt>\n  <script type=\"text/javascript\">\n  \t(function(global) {\n\t\t\tif (typeof TTDUniversalPixelApi === 'function') {\n      var universalPixelApi = new TTDUniversalPixelApi();\n      \tuniversalPixelApi.init(\"pf35t7n\", [\"8yhnu4y\"], \"https://insight.adsrvr.org/track/up\", \"ttdUniversalPixelTag92c5418d439f4bf1b9d7ad53873e94d6\");\n       }\n    })(this);\n\t</scr"+"ipt>\n</div>\n";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><div id="ttdUniversalPixelTag92c5418d439f4bf1b9d7ad53873e94d6" style="display:none">
+	<script src="up_loader.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  	(function(global) {
+			if (typeof TTDUniversalPixelApi === 'function') {
+      var universalPixelApi = new TTDUniversalPixelApi();
+      	universalPixelApi.init("pf35t7n", ["8yhnu4y"], "https://insight.adsrvr.org/track/up", "ttdUniversalPixelTag92c5418d439f4bf1b9d7ad53873e94d6");
+       }
+    })(this);
+	</script>
+</div>
+
+  
+
+<iframe id="universal_pixel" allowtransparency="true" style="display:none;" src="satellite-5b6d127d64746d2cf0002d06_data/up.htm" width="0" height="0"></iframe></body></html>

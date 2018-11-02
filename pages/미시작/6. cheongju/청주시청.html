@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://www.cheongju.go.kr/www/index.do -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0, user-scalable=yes">
+    <meta name="title" content="청주시청">
+	<meta name="description" content="청주시청 대표 홈페이지">
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src &#39;self&#39; &#39;unsafe-inline&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; http://www.cheongju.go.kr">
+    <link rel="stylesheet" href="./청주시청_files/font.css">
+    <link rel="stylesheet" href="./청주시청_files/main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.cheongju.go.kr/common_2018/favicon.ico">
+    <script src="./청주시청_files/jquery-1.11.1.min.js.다운로드"></script>
+    <!--[if lt IE 9]><script src="/common_2018/js/html5.js"></script><![endif]-->
+    <script src="./청주시청_files/slick.min.js.다운로드"></script>
+    <script src="./청주시청_files/common.js.다운로드"></script>
+    <script src="./청주시청_files/main.js.다운로드"></script>
+	
+	
+	
+	
+	
+	
+
+	<script>
+	//<![CDATA[
+
+
+		//한자리 숫자 앞에 0 붙이기
+		function pad(number, length) {
+			var str = '' + number;
+			while (str.length < length) {
+				str = '0' + str;
+			}
+			return str;
+		}
+		//YYYYMMDDHH 만들기
+		Date.prototype.YYYYMMDDHH = function () {
+			var yyyy = this.getFullYear().toString();
+			var MM = pad(this.getMonth() + 1,2);
+			var dd = pad(this.getDate(), 2);
+			var hh = pad(this.getHours(), 2);
+
+			return yyyy + MM + dd + hh;
+		};
+		//현재 날짜 구하기
+		var now = new Date();
+		now = Number(now.YYYYMMDDHH());   //문자형 > 숫자형
+
+
+		function getCookie(name) {
+		var nameOfCookie = name + "=";
+		var x = 0
+		while ( x <= document.cookie.length ) {
+		var y = (x+nameOfCookie.length);
+		if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+		if ( (endOfCookie=document.cookie.indexOf( ";",y )) == -1 )
+		endOfCookie = document.cookie.length;
+		return unescape( document.cookie.substring(y, endOfCookie ) );
+		}
+		x = document.cookie.indexOf( " ", x ) + 1;
+		if ( x == 0 )
+		break;
+		}
+		return "";
+		}
+
+
+		function openWin() {
+			//if (getCookie("eovy_popup01") != "done") {
+			//  if (now >= 2015123000){
+			//    window.open("popup/eovy_popup01.html","eovy_popup01","width=600, height=423, top=0,left=0");
+			//  }
+			//}
+			//if (getCookie("eovy_popup02") != "done") {
+			//  if (now >= 2015123000 && now < 2016010101){
+			//    window.open("popup/eovy_popup02.html","eovy_popup02","width=500, height=709, top=0,left=620");
+			//  }
+			//}
+			/*
+			if (getCookie("popElection") != "done") {
+			  if (now >= 2018060200 && now < 201806131800){
+			    window.open("http://www.cheongju.go.kr/popElection.do","popElection","width=500, height=700, top=0,left=0");
+			  }
+			}*/
+
+			if (getCookie("h_170420") != "done") {
+				if (now >= 2017051900 && now < 2017052020){
+					window.open("popup/h_170420.html","h_170420","width=620, height=415, top=0,left=0");
+				}
+			}
+			
+			if (getCookie("Notice1") != "done") {
+				
+			}
+			/*
+			
+			*/
+			/*
+			if (getCookie("Notice1") != "done") {
+				
+			}*/
+		}
+
+	//]]>
+	</script>
+
+
+	<script>
+	//<![CDATA[
+		function changeIframeUrl(obj_id,loading_id,l_url) {
+			var obj_src = document.getElementById(obj_id).src;
+
+			//src에 값이 없을때만 수행
+			if(obj_src == '') {
+				$("#"+loading_id).show(); //로딩중 표시 활성화
+				$("#"+obj_id).attr("src",l_url);
+
+				document.getElementById(obj_id).onload = function() {
+					$("#"+loading_id).hide();
+				};
+			}
+		}
+	//]]>
+	</script>
+    <title>청주시청</title>
+</head>
+
+<body id="main" onload="openWin()" cz-shortcut-listen="true" class="">
+<div class="accessibility">
+    <a href="https://www.cheongju.go.kr/www/index.do#container">본문 바로가기</a>
+</div>
+
+<hr>
+<!--D-day-->
+		<div class="weather clearfix">
+			
+		</div>
+<!--D-day-->
+<header id="header">
+    <div class="header_top wrap">
+        <h1 class="logo">
+            <a href="http://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do" class="flag" onclick="window.open(&#39;http://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do&#39;, &#39;국가상징팝업&#39;, &#39;width=890px height=725px toolbars=no resizable=no scrollbars=yes&#39;); return false;"><img src="./청주시청_files/flag.png" alt="국가상징팝업"></a>
+            <a href="https://www.cheongju.go.kr/www/index.do" class="logo_img"><img src="./청주시청_files/logo.png" alt="청주시 로고"></a>
+        </h1>
+		<!-- <div class="weather">
+                    <span class="img_box"><img src="images/common/weather_03.gif" alt="구름 많음" /></span>
+                    <span class="now_box">
+                        <strong>현재 날씨</strong>
+                        <span><span>25.0</span>℃</span>
+                    </span>
+                    <span class="dust_box">
+                        <strong>미세먼지</strong>
+                        <span class="row">좋음</span>클래스 변경(높을 경우 high, 낮을 경우 row, 보통일 경우 클래스 없음)
+                    </span>
+        </div> -->
+        <div class="search_box">
+            <div class="wrap">
+                <button type="button" class="search_open">검색영역 열기</button>
+                <div class="search">
+                    <h2 class="skip">통합검색</h2>
+                    <form onsubmit="return fn_search(this)" method="get" action="http://search.cheongju.go.kr/search.jsp" id="search" name="search">
+                        <fieldset>
+                            <legend>통합검색</legend>
+                            <span class="sel">
+                                <label for="search_sel" class="skip">검색 분류 선택</label>
+                                <select name="search_sel" id="search_sel" title="검색 분류 선택">
+                                    <option value="ALL">통합검색</option>
+                                    <option value="menu">메뉴검색</option>
+                                    <option value="webpage">웹페이지</option>
+                                    <option value="task">직원 및 담당업무</option>
+                                    <option value="bunya">분야별정보</option>
+                                    <option value="tonghab">청주시통합예약</option>
+                                </select>
+                            </span>
+                            <label for="query" class="skip">검색어 입력</label>
+                            <input type="search" name="query" id="query" class="text" onfocus="this.value=&#39;&#39;" placeholder="검색어를 입력하세요">
+                            <input type="submit" value="검색">
+                        </fieldset>
+                    </form>
+                    <div id="popular" class="popular"><a href="http://search.cheongju.go.kr/search.jsp?collection=ALL&amp;query=%EC%8B%9C%ED%8B%B0%ED%88%AC%EC%96%B4">시티투어</a><a href="http://search.cheongju.go.kr/search.jsp?collection=ALL&amp;query=%EC%A7%81%EC%A7%80%EC%BD%94%EB%A6%AC%EC%95%84">직지코리아</a><a href="http://search.cheongju.go.kr/search.jsp?collection=ALL&amp;query=%EC%B2%AD%EC%9B%90%EC%83%9D%EB%AA%85%EC%B6%95%EC%A0%9C">청원생명축제</a></div>
+		    <div class="keyboard">
+			<a href="https://www.cheongju.go.kr/www/contents.do?key=20033"><img src="./청주시청_files/keyboard.png" alt="화상키보드"></a>
+		    </div>
+                </div>
+                <button type="button" class="search_close">검색영역 닫기</button>
+            </div>
+        </div>
+        <!-- //search_box -->
+        <div class="gnb_box">
+            
+            <div class="gnb">
+                <ul class="clearfix">
+                    <li><a href="https://www.cheongju.go.kr/www/index.do">홈</a></li>
+					
+						<li><a href="https://www.cheongju.go.kr/www/login.do">로그인</a></li>
+					
+					
+					<!-- <li><a href="/www/contents.do?key=586">이용안내</a></li> -->
+					<li class="last"><a href="https://www.cheongju.go.kr/www/sitemap.do?key=589">사이트맵</a></li>
+                </ul>
+            </div>
+            <div class="language">
+                <h2 class="skip">외국어사이트 바로가기</h2>
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">KOR</a>
+                <div class="cont_box">
+                    <ul>
+                    <li><a href="https://www.cheongju.go.kr/english/index.do" target="_blank" title="청주시청 영문 사이트 새창">ENG</a></li>
+					<li><a href="https://www.cheongju.go.kr/japanese/index.do" target="_blank" title="청주시청 일문 사이트 새창">JPN</a></li>
+					<li><a href="https://www.cheongju.go.kr/chinese/index.do" target="_blank" title="청주시청 중문 사이트 새창">CHN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- //gnb_box -->
+        <div class="mask"></div>
+    </div>
+    <nav id="lnb_box" class="" style="height: 59px;">
+        <div class="wrap">
+            <h2 class="skip">주메뉴</h2>
+            <button type="button" class="lnb_open">주메뉴 열기</button>
+
+            
+
+
+<div id="lnb">
+	<ul class="clearfix">
+			<li class="depth1 rule01"><a href="https://www.cheongju.go.kr/www/contents.do?key=104" target="_self" class="tit">정보공개</a>
+			<div class="depth2">
+                <div class="title_box"><span>정보공개</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=104" target="_self" class=""><span>공공정보공개</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=104" target="_self">정보공개제도 안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectAdministinfoList.do?key=108" target="_self">사전정보공표</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=111" target="_self">정보목록(일별)</a></li>
+						<li><a href="http://www.open.go.kr/" title="새창" class="link" target="_blank">정보공개청구</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=114" target="_self">공공데이터개방</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=20&amp;key=115" target="_self">정책실명제</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=582&amp;key=7272" target="_self">정보공개방</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7330" target="_self" class=""><span>시정정책</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7330" target="_self">시정설계</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=119" target="_self">시정(통합)백서</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectPolicyDscsnList.do?key=122" target="_self">정책토론방</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3844" target="_self" class=""><span>규제개혁</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3844" target="_self">규제개혁이란?</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=2037&amp;key=20218" target="_self">시장님께 바라는 규제 완화</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=31&amp;key=3850" target="_self">자료실</a></li>
+						<li><a href="https://www.better.go.kr/fz.prpsl.RegulPrpslIsF.laf" title="새창" class="link" target="_blank">규제개혁신문고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=671&amp;key=7876" target="_self">규제개혁아이디어공모</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17150" target="_self" class=""><span>예산정보</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17150" target="_self">세입·세출예산서</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6940" target="_self">세입·세출예산서(구.청주시)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6945" target="_self">세입·세출예산서(구.청원군)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=8241" target="_self">세입·세출결산서(통합청주시)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6927" target="_self">세입·세출결산서(구.청주시)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7293" target="_self">세입·세출결산서(구.청원군)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=549&amp;key=6929" target="_self">자료실</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectRevList.do?key=7918" target="_self" class=""><span>재정운영 매일공개</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectRevList.do?key=7918" target="_self">세입현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectAraeList.do?key=7917" target="_self">세출현황 및 세부사항</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7218" target="_self" class=""><span>재정공시</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7218" target="_self">재정공시안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17244" target="_self">재정공시 (예산)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20214" target="_self">재정공시 (결산)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=548&amp;key=7220" target="_self">재정공시(이전자료)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=572&amp;key=7221" target="_self">자료실</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=550&amp;key=6931" target="_self" class=""><span>시민참여예산</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=550&amp;key=6931" target="_self">운영계획</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7057" target="_self">예산교실</a></li>
+						<li><a href="https://www.epeople.go.kr/jsp/user/bw/cvreq/UBwCvreqForm.jsp?flag=N&amp;" title="새창" class="link" target="_blank">예산낭비신고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=24&amp;key=128" target="_self">업무추진비</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=664&amp;key=7838" target="_self">업무추진비(부단체장 이상)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=618&amp;key=7562" target="_self">예산낭비사례</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=619&amp;key=7563" target="_self">예산절감사례</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6936" target="_self" class=""><span>지방공기업정보</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6936" target="_self">지방공기업이란</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=530&amp;key=6939" target="_self">산하지방공기업 결산정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=562&amp;key=7213" target="_self">자료실</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=132" target="_self" class=""><span>계약/입찰정보</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=132" target="_self">발주계획</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6886" target="_self">입찰공고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6890" target="_self">개찰결과</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectCntrctList.do?key=6893&amp;ctrtKindCd=1" target="_self">계약현황(1인수의포함)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectPricList.do?key=6896&amp;ctrtKindCd=1" target="_self">대금지급</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=134" target="_self" class=""><span>법제도정보</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=134" target="_self">입법예고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=26&amp;key=135" target="_self">달라지는제도</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=136" target="_self">민원관계법령</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=137" target="_self">도시관련법규</a></li>
+						<li><a href="http://www.elis.go.kr/newlaib/laibLaws/h1126/laws.jsp?regionId=43990&amp;isfez=" title="새창" class="link" target="_blank">자치법규(조례)</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=27&amp;key=141" target="_self" class=""><span>청렴/감사정보</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=27&amp;key=141" target="_self">청렴, 감사 정보공개</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=668&amp;key=7851" target="_self">청탁금지법</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=149" target="_self">부조리신고센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=144" target="_self">부패방지관계법령 및 제도</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7416" target="_self"><span>행정서비스 헌장</span></a>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7754" target="_self" class=""><span>조직정보 공개</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7754" target="_self">공무원 정원</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7755" target="_self">과장급 이상 상위직 비율</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7756" target="_self">공무원 1인당 주민수</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7757" target="_self">소속기관 및 읍면동 공무원 비율</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7758" target="_self">재정규모 대비 인건비 운영 비율</a></li>
+						</ul>
+					</div>
+				</li>
+				</ul>
+			</div>
+		</li>
+		<li class="depth1 rule02"><a href="https://www.cheongju.go.kr/www/contents.do?key=159" target="_self" class="tit">전자민원</a>
+			<div class="depth2">
+                <div class="title_box"><span>전자민원</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=159" target="_self" class=""><span>민원안내</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=159" target="_self">민원실안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectCffdnGudList.do?key=7875" target="_self">민원편람</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=165" target="_self">민원처리절차</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=166" target="_self">어디서나민원처리제</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=167" target="_self">사전심사청구제</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7840" target="_self">폐업신고 간소화 서비스</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=168" target="_self">건강가족(결혼중개업)</a></li>
+						<li><a href="http://110.go.kr/ic.do?pi=chatCamMain" title="새창" class="link" target="_blank">110 채팅ㆍ화상(수화)상담</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7965" target="_self">구술민원</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7741" target="_self" class=""><span>365민원콜센터</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7741" target="_self">청주365민원콜센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7742" target="_self">생활민원안내 요령</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=170" target="_self" class=""><span>여권업무</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=170" target="_self">여권업무안내</a></li>
+						<li><a href="http://www.passport.go.kr/main/index.php" title="새창" class="link" target="_blank">여권민원서식</a></li>
+						<li><a href="https://www.0404.go.kr/dev/main.mofa" title="새창" class="link" target="_blank">국가별안전정보</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7726" target="_self"><span>민원신청</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7726" target="_self">민원상담(국민신문고)</a></li>
+						<li><a href="http://www.minwon.go.kr/main?a=AA020InfoMainApp" title="새창" class="link" target="_blank">민원24</a></li>
+						<li><a href="http://www.110.go.kr/" title="새창" class="link" target="_blank">정부민원안내콜센터</a></li>
+						<li><a href="http://www.gmap.go.kr/tcportal/" title="새창" class="link" target="_blank">생활불편스마트폰</a></li>
+						<li><a href="http://garo.cheongju.go.kr/" title="새창" class="link" target="_blank">가로등보안등고장접수</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7727" target="_self"><span>민원확인</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7727" target="_self">민원조회</a></li>
+						<li><a href="https://www.epeople.go.kr/jsp/user/frame/pc/opencvreq/UPcOpenCvreqList.jsp?anc_code=5710000&amp;channel=5710000&amp;menu_code=PC001" title="새창" class="link" target="_blank">2016년 8월 이후 민원보기</a></li>
+						<li><a href="https://eminwon.cheongju.go.kr/emwp/gov/mogaha/ntis/web/emwp/cns/action/EmwpCnslWebAction.do?method=selectCnslWebPage&amp;menu_id=EMWPCnslWebInqL&amp;jndinm=EmwpCnslWebEJB&amp;methodnm=selectCnslWebPage&amp;context=N" title="새창" class="link" target="_blank">2016년 8월 이전 민원보기</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7739" target="_self">2013년 이전 민원보기</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6919" target="_self"><span>공직비리·부패신고센터</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6919" target="_self">복지·보조금 부정신고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7669" target="_self">공익신고</a></li>
+						<li><a href="https://1398.acrc.go.kr/hpg/req/hpgPsmStep1.do" title="새창" class="link" target="_blank">부패행위신고</a></li>
+						<li><a href="https://www.epeople.go.kr/jsp/user/bw/cvreq/UBwCvreqForm.jsp?flag=N&amp;" title="새창" class="link" target="_blank">예산낭비신고센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=693&amp;key=255" target="_self">공직비리 익명신고센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=2033&amp;key=20208" target="_self">공공분야 갑질 피해 신고방</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7832" target="_self">부정청탁 및 금품 등 수수 신고센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=247" target="_self">위조상품신고</a></li>
+						<li><a href="https://www.epeople.go.kr/jsp/user/pc/cvreq/UPcCvreqForm.jsp?flag=N" title="새창" class="link" target="_blank">불법하도급신고센터</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="http://www.cheongju.go.kr/tongsin/index.do" title="새창" class="link" target="_blank"><span>통신판매업신고안내</span></a>
+				</li>
+				<li><a href="http://check.cheongju.go.kr/" title="새창" class="link" target="_blank"><span>사용전검사필증발급</span></a>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=161" target="_self"><span>무인민원발급</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=161" target="_self">발급안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=162" target="_self">제증명수수료</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7582" target="_self">무인민원발급창구설치현황</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7590" target="_self"><span>대형폐기물 배출신고</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7590" target="_self">대형폐기물 무인발급</a></li>
+						<li><a href="http://clean.cheongju.go.kr/" title="새창" class="link" target="_blank">배출신고(인터넷)</a></li>
+						</ul>
+					</div>
+				</li>
+				</ul>
+			</div>
+		</li>
+		<li class="depth1 rule03"><a href="https://www.cheongju.go.kr/www/contents.do?key=7660" target="_self" class="tit">시민참여</a>
+			<div class="depth2">
+                <div class="title_box"><span>시민참여</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7660" target="_self" class=""><span>상상발전제안(시민제안)</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7660" target="_self">상상발전안내</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=36&amp;key=265" target="_self" class=""><span>시민참여</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=36&amp;key=265" target="_self">칭찬합시다</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectQestnarList.do?key=263" target="_self">설문조사</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=2006&amp;key=20022" target="_self">홍보게시판</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=35&amp;key=264" target="_self">자유게시판</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=37&amp;key=267" target="_self">여성참여마당</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=34&amp;key=262" target="_self"><span>홈페이지오류사항</span></a>
+				</li>
+				</ul>
+			</div>
+		</li>
+		<li class="depth1 rule04"><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=38&amp;key=270" target="_self" class="tit">시정소식</a>
+			<div class="depth2">
+                <div class="title_box"><span>시정소식</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=38&amp;key=270" target="_self" class=""><span>청주소식</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=38&amp;key=270" target="_self">청주시보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=5597" target="_self">청주여유</a></li>
+						<li><a href="http://www.cheongju.go.kr/jiksok/contents.do?key=7854" title="새창" class="link" target="_blank">TV청주시정소식</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=273" target="_self">청주시민신문</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=40&amp;key=279" target="_self"><span>새소식</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=40&amp;key=279" target="_self">새소식</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=510&amp;key=280&amp;integrDeptCode=000100101" target="_self">공지사항</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=281" target="_self">고시공고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=46&amp;key=286" target="_self">언론보도 해명</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=43&amp;key=283" target="_self">인사발령</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=44&amp;key=284" target="_self">시험채용</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=45&amp;key=285" target="_self" class=""><span>주요일정</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=45&amp;key=285" target="_self">주간행사</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=39&amp;key=278" target="_self">시정일지</a></li>
+						<li><a href="http://schedule.cheongju.go.kr/" title="새창" class="link" target="_blank">청주시 일정</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=598&amp;key=7324" target="_self"><span>청원청주 상생발전 합의사항 추진현황</span></a>
+				</li>
+				</ul>
+			</div>
+		</li>
+		<li class="depth1 rule05"><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=162&amp;key=3900" target="_self" class="tit">분야별정보</a>
+			<div class="depth2">
+                <div class="title_box"><span>분야별정보</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=162&amp;key=3900" target="_self" class=""><span>행정/민원</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=162&amp;key=3900" target="_self">행정처분내역</a></li>
+						<li><a href="http://gongsi.cheongju.go.kr:8080/" title="새창" class="link" target="_blank">공시지가열람</a></li>
+						<li><a href="http://house.cheongju.go.kr/" title="새창" class="link" target="_blank">주택가격정보</a></li>
+						<li><a href="http://library.cheongju.go.kr/" title="새창" class="link" target="_blank">도서관이용안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=50&amp;key=298" target="_self">분묘개장공고</a></li>
+						<li><a href="http://bojo.cheongju.go.kr/" title="새창" class="link" target="_blank">민간보조사업관리</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=52&amp;key=303" target="_self">수질검사결과</a></li>
+						<li><a href="http://animal.go.kr/portal_rnl/abandonment/loss_list.jsp" title="새창" class="link" target="_blank">유기동물찾기</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7681" target="_self">마을세무사</a></li>
+						<li><a href="http://www.simpan.go.kr/" title="새창" class="link" target="_blank">온라인행정심판</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17248" target="_self"><span>세금</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17248" target="_self">청주시 살림살이</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17249" target="_self">세금공과금 조회/납부</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17250" target="_self">지방세 개요</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17405" target="_self">세목별 안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17252" target="_self">세목별 납기 및 세율</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17253" target="_self">지방세 구제제도</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17254" target="_self">지방세 가산세체계</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17255" target="_self">지방세달력</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17256" target="_self">세외수입</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17419" target="_self">지방세 세금납부</a></li>
+						<li><a href="http://www.wetax.go.kr/" title="새창" class="link" target="_blank">지방세 환급금 찾기</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=377" target="_self" class=""><span>보건/체육</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=377" target="_self">보건위생</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/pbhlthScheduleInfo.do?key=378&amp;hsptlNo=0" target="_self">야간진료의료기관</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=380" target="_self">의료기관</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=383" target="_self">약국</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=386" target="_self">친절공중위생업소</a></li>
+						<li><a href="https://msisul.cheongju.go.kr/localsf/main.jsp" title="새창" class="link" target="_blank">동네체육시설안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=229&amp;key=389" target="_self">체육행사안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7713" target="_self">안전상비의약품 현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/download/medical_6th.pdf" title="새창" class="link" target="_blank">지역보건의료계획</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=418" target="_self" class=""><span>환경</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=418" target="_self">분야별환경정보</a></li>
+						<li><a href="http://www.cheongju.go.kr/environment/contents.do?key=7816" title="새창" class="link" target="_blank">환경개선부담금</a></li>
+						<li><a href="http://www.cheongju.go.kr/environment/selectBbsNttList.do?bbsNo=662&amp;key=7830" title="새창" class="link" target="_blank">환경개선부담금연납신청</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7406" target="_self">미세먼지 바로알기</a></li>
+						<li><a href="http://www.cheongju.go.kr/fineDust/index.do" title="새창" class="link" target="_blank">미세먼지알리미(문자신청)</a></li>
+						<li><a href="http://here.cb21.net/home/sub.do?menu_key=3" title="새창" class="link" target="_blank">대기오염정보</a></li>
+						<li><a href="http://www.cjrecycling.co.kr/" title="새창" class="link" target="_blank">청주시재활용센터</a></li>
+						<li><a href="http://clean.cheongju.go.kr/" title="새창" class="link" target="_blank">대형폐기물배출신고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=427" target="_self">음식물쓰레기종량제</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=428" target="_self">생활쓰레기배출방법</a></li>
+						<li><a href="http://ebook.cheongju.go.kr/Viewer/6UJHLHHD5WC4" title="새창" class="link" target="_blank">생활쓰레기배출안내 책자</a></li>
+						<li><a href="http://www.cheongju.go.kr/DATA/download/www/garbage_foreign_lang.pdf" title="새창" class="link" target="_blank">생활쓰레기 배출 외국어 안내문</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7584" target="_self">무인악취측정정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20097" target="_self">하수도 정비기본계획</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20200" target="_self">탄소포인트제</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/ConstructionList.do?key=17132" target="_self" class=""><span>생활/안전</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/ConstructionList.do?key=17132" target="_self">공사현황</a></li>
+						<li><a href="https://www.safepeople.go.kr/api?apiKey=4360000XCM9T2P1N8SM46SJ4T09" title="새창" class="link" target="_blank">안전신문고</a></li>
+						<li><a href="http://www.cheongju.go.kr/safe/index.do" title="새창" class="link" target="_blank">재난안전대책본부</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=432" target="_self">생활정보</a></li>
+						<li><a href="http://www.cheongju.go.kr/safe/contents.do?key=1381" title="새창" class="link" target="_blank">재난시국민행동요령</a></li>
+						<li><a href="http://nanum.cheongju.go.kr/" title="새창" class="link" target="_blank">청주시자원봉사센터</a></li>
+						<li><a href="http://cctv.cheongju.go.kr/main.do" title="새창" class="link" target="_blank">CCTV통합관제센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/naturalRegistView.do?key=8239" target="_self">재난문자 SMS알림서비스신청</a></li>
+						<li><a href="http://icis.me.go.kr/rmp_notice/" title="새창" class="link" target="_blank">위해관리계획 주민고지시스템</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/selectInhAuthPgmList.do?key=442" target="_self"><span>교육/취업</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/selectInhAuthPgmList.do?key=442" target="_self">교육정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=447" target="_self">취업정보-일자리창출사업</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=451" target="_self">취업정보-취업지원교육</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=452" target="_self">취업정보-직업소개소현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=453" target="_self">여성정보방(여성취업지원)</a></li>
+						<li><a href="http://www.cjjob.net/" title="새창" class="link" target="_blank">청주시일자리종합지원센터</a></li>
+						<li><a href="http://www.cheongju.go.kr/safe/contents.do?key=1424" title="새창" class="link" target="_blank">민방위교육안내</a></li>
+						<li><a href="https://alba.cheongju.go.kr/" title="새창" class="link" target="_blank">학생근로활동(아르바이트)</a></li>
+						<li><a href="http://edu.cheongju.go.kr/" title="새창" class="link" target="_blank">청주시 정보화교육</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=312" target="_self"><span>복지</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=312" target="_self">사회복지</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=320" target="_self">여성정보방-인권</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=323" target="_self">여성정보방-여성주요정책</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=328" target="_self">여성정보방-여성친화도시</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7282" target="_self">여성정보방- 여성일자리</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=333" target="_self">아동</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=338" target="_self">보육</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=343" target="_self">청소년</a></li>
+						<li><a href="http://ebook.cheongju.go.kr/Viewer/5VXVJY7I3W4H" title="새창" class="link" target="_blank">청년</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17121" target="_self">어르신</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17129" target="_self">장애인</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3828" target="_self">건강가족</a></li>
+						<li><a href="http://online.bokjiro.go.kr/apl/aplMain.do" title="새창" class="link" target="_blank">복지서비스신청</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7304" target="_self"><span>경제/농정</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7304" target="_self">중소기업수출지원</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=626&amp;key=7602" target="_self">해외통상사무소(중국 우한시)</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=2002&amp;key=20006" target="_self">전통시장</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=56&amp;key=469" target="_self">지역물가정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7723" target="_self">투자환경</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=58&amp;key=474" target="_self">공장등록현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=476" target="_self">투자기업지원</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=478" target="_self">경영안정자금지원</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=629&amp;key=7634" target="_self">기업애로 접수창구</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7414" target="_self">기업관련 인증 인센티브</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectWebWhthrcEntrpsList.do?key=7373" target="_self">청주시 중소기업 홍보관</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=479" target="_self">첨단산업</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=482" target="_self">사회적기업홍보관</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=483" target="_self">청주테크노폴리스 산업단지 소개</a></li>
+						<li><a href="http://www.opinet.co.kr/user/main/mainView.do" title="새창" class="link" target="_blank">주유소유가정보(오피넷)</a></li>
+						<li><a href="http://www.g4b.go.kr/" title="새창" class="link" target="_blank">기업지원플러스</a></li>
+						<li><a href="http://ebizcb.chungbuk.go.kr/index.do" title="새창" class="link" target="_blank">기업사랑센터</a></li>
+						<li><a href="http://www.k-startup.go.kr/main.do" title="새창" class="link" target="_blank">창업지원정보</a></li>
+						<li><a href="http://www.cjsandan.net/" title="새창" class="link" target="_blank">청주산업단지</a></li>
+						<li><a href="http://www.cheongju.go.kr/market/index.do" title="새창" class="link" target="_blank">농수산물도매시장</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=700&amp;key=7975" target="_self">농촌일손돕기</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20123" target="_self">청주상권분석</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17053" target="_self"><span>도시/부동산</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17053" target="_self">도시계획</a></li>
+						<li><a href="http://map.cheongju.go.kr/" title="새창" class="link" target="_blank">공간정보 열람 - 지도모아</a></li>
+						<li><a href="http://one.cheongju.go.kr/" title="새창" class="link" target="_blank">원클릭도시정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=503" target="_self">주거환경개선및주택재건축</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=509" target="_self">건축공모</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=159&amp;key=512" target="_self">건축허가및착공현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=702&amp;key=7977" target="_self">건축,경관위원회</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=513" target="_self">부동산중개보수</a></li>
+						<li><a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" title="새창" class="link" target="_blank">부동산중개업조회</a></li>
+						<li><a href="http://gongsi.cheongju.go.kr:8080/" title="새창" class="link" target="_blank">공시지가</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=515" target="_self">공동주택</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=520" target="_self">전문건설업</a></li>
+						<li><a href="http://klis.cb21.net/" title="새창" class="link" target="_blank">부동산종합정보</a></li>
+						<li><a href="http://rtms.cheongju.go.kr/" title="새창" class="link" target="_blank">부동산거래신고</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7761" target="_self">부동산불법거래신고센터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=6902" target="_self">공유재산 정보공개방</a></li>
+						<li><a href="https://eais.cheongju.go.kr:7443/eais/" title="새창" class="link" target="_blank">건축행정시스템 세움터</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7847" target="_self">청주시 주택 수요,공급 기본계획</a></li>
+						<li><a href="http://www.cheongju.go.kr/dosi/contents.do?key=7941" title="새창" class="link" target="_blank">공원</a></li>
+						<li><a href="http://www.cheongju.go.kr/dosi/contents.do?key=7935" title="새창" class="link" target="_blank">녹지</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17119" target="_self">조상땅찾기</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20203" target="_self">지적재조사</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17459" target="_self"><span>도로/교통</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17459" target="_self">도로/교통정보 안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17462" target="_self">불법주정차CCTV설치현황</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="http://www.cheongju.go.kr/tour/index.do" title="새창" class="link" target="_blank"><span>문화관광</span></a>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=493" target="_self"><span>청원생명브랜드</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=493" target="_self">청원생명브랜드</a></li>
+						<li><a href="http://purushop.com/" title="새창" class="link" target="_blank">청원생명명품쇼핑몰</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=496" target="_self">대한민국 로하스인증획득</a></li>
+						</ul>
+					</div>
+				</li>
+				</ul>
+			</div>
+		</li>
+		<li class="depth1 rule06"><a href="https://www.cheongju.go.kr/www/contents.do?key=544" target="_self" class="tit">청주소개</a>
+			<div class="depth2">
+                <div class="title_box"><span>청주소개</span></div>
+				<ul class="clearfix">
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=544" target="_self"><span>일반현황</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=544" target="_self">역사와유래</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=546" target="_self">위치/기후</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=547" target="_self">청주시행정지도</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7680" target="_self">행정동, 법정동 현황</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectInhCnterInfo.do?key=548" target="_self">읍면동주민센터찾기</a></li>
+						<li><a href="http://www.cheongju.go.kr/stat/" title="새창" class="link" target="_blank">청주시통계정보</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=551" target="_self">충절지사</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17008" target="_self"><span>청주의상징</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17008" target="_self">CI</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17009" target="_self">시화 / 시목</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17010" target="_self">QR코드</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17013" target="_self">청주시민의 노래</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7422" target="_self">청주자랑 100가지</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=17012" target="_self"><span>시정목표 및 시정방침</span></a>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3851" target="_self"><span>사진으로 보는 역사기록집</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3851" target="_self">(구)청주시</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=3852" target="_self">(구)청원군</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=568" target="_self"><span>교류현황</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=568" target="_self">국외자매도시</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=5925" target="_self">국외우호도시</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7296" target="_self">국내자매우호도시</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20190" target="_self"><span>역대시장</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20190" target="_self">역대 청주시장</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20191" target="_self">역대 (구)청주시장</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=20192" target="_self">역대 (구)청원군수</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7431" target="_self"><span>시청안내</span></a>
+					<div class="depth3">
+						<ul class="clearfix">
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7431" target="_self">조직안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/selectEmpList.do?key=579&amp;deptCode=000100101" target="_self">직원/업무안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7468" target="_self">청사안내</a></li>
+						<li><a href="https://www.cheongju.go.kr/www/contents.do?key=581" target="_self">찾아오시는길</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.cheongju.go.kr/www/contents.do?key=7928" target="_self"><span>청주시지</span></a>
+				</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>
+
+            <button type="button" class="lnb_close"><span>주</span>메뉴 닫기</button>
+        </div>
+    </nav>
+    <!-- //lnb -->
+</header>
+<!-- //header -->
+
+<hr>
+
+<main id="container">
+
+<div class="tab_box">
+
+<div class="main_control">
+    <div class="wrap">
+        <button class="prev"><span>문화, 축제</span></button>
+        <button class="next"><span>민원, 소통</span></button>
+    </div>
+</div>
+
+<div class="inner_box inner_box01">
+    <button class="inner_tit on" title="뉴스/소식 콘텐츠 보기"><span>뉴스/소식</span></button>
+    <div class="inner_cont active">
+    <div class="wrap">
+
+<div class="inner_title">
+    <span class="title_box">
+        <span class="number">01</span>
+        <span class="title">으뜸경제 으뜸청주</span>
+        <strong class="cont">뉴스/소식</strong>
+    </span>
+</div>
+
+<div class="rowgroup clearfix">
+    <div class="colgroup">
+        <section>
+            <h2 class="skip">날씨, 일정 정보</h2>
+            <article class="weather">
+                <h3 class="skip">청주시 날씨 정보</h3>
+                <div class="detail_box">
+                    <img src="./청주시청_files/weather_03.gif" alt="구름 많음">
+                    <span>구름 많음</span>
+                </div>
+                <div class="weather_box">
+		<a href="http://web.kma.go.kr/aboutkma/intro/cheongju/index.jsp" target="_blank" title="새창">
+                    <strong>청주날씨</strong>
+                    <span>25.0<span>℃</span></span>
+                </a>
+                </div>
+                <div class="dust_box">
+		<a href="https://www.cheongju.go.kr/fineDust/index.do" target="_blank" title="새창">
+                    <strong>미세먼지</strong>
+                    <span class="row">좋음</span><!-- 클래스 변경(높을 경우 high, 낮을 경우 row, 보통일 경우 클래스 없음) -->
+                </a>
+		</div>
+            </article>
+            <article class="schedule">
+				
+				
+				
+				
+                <h3 class="skip">일정</h3>
+                <div class="year_box"><span>2018</span></div>
+                <div class="date_box">
+                    <div class="month_box"><span>9<span>월</span></span></div>
+                    <div class="day_box">06 <span>(목)</span></div>
+                    <a title="새창" onclick="window.open(this.href,&#39;sch&#39;,&#39;toolbars=no,scrollbars=yes,width=930px,height=800px&#39;); return false;" href="http://schedule.cheongju.go.kr/xwcms/userScheduleCalendar.do" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^일정^일정전체보기\&#39; ); }catch(_e){ }&#39;);">전체일정보기</a>
+                </div>
+            </article>
+        </section>
+    </div>
+    <!-- //colgroup1 -->
+    <div class="colgroup2">
+        <section class="visual">
+            <h2 class="skip">비주얼</h2>
+            <div class="contents_box">
+                <div class="visual_control">
+                    <div class="inner_box">
+                        <div class="count_box">
+                            <span class="current">2</span> /
+                            <span class="total">8</span>
+                        </div>
+                        <div class="control_box">
+                            <button class="prev slick-arrow" style="display: inline-block;">이전</button>
+                            <button class="auto pause">정지</button>
+                            <button class="next slick-arrow" style="display: inline-block;">다음</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide_box slick-initialized slick-slider">
+					
+						<div aria-live="polite" class="slick-list"><div class="slick-track" role="listbox" style="opacity: 1; width: 40000px; transform: translate3d(-1282px, 0px, 0px); transition: transform 1000ms ease 0s;"><div class="cont_box slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+							
+								<a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=53384&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180627035541723.jpg" alt="함께 웃는 청주
+전입신고하면 혜택듬뿍~
+살기좋은 청주에서 좋은이웃들이 기다립니다!
+자세히보기" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^함께 웃는 청주
+전입신고하면 혜택듬뿍~
+살기좋은 청주에서 좋은이웃들이 기다립니다!
+자세히보기\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00">
+							
+								<a href="https://www.cheongju.go.kr/sdhealth/selectBbsNttView.do?key=2043&amp;bbsNo=510&amp;nttNo=113875&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100148" title="새창" target="_blank" class="cont" tabindex="0">
+											<img src="./청주시청_files/20180905042754041.png" alt="2018 함께 걷는 청주
+2018.9.29.(토) 오전10시~, 무심천 체육공원(롤러스케이트장)
+참여방법 : 누구나 참여 가능(무료), 걷기 완주자 기념품 증정
+문의 : 보건정책과 보건기획팀 201-3102~4" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^2018 함께 걷는 청주
+2018.9.29.(토) 오전10시~, 무심천 체육공원(롤러스케이트장)
+참여방법 : 누구나 참여 가능(무료), 걷기 완주자 기념품 증정
+문의 : 보건정책과 보건기획팀 201-3102~4\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide01">
+							
+								<a href="https://www.cheongju.go.kr/safe/contents.do?key=7865" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180831045708828.png" alt="알아두면 좋은 지진 , 지진옥외대피소 및 지진국민행동요령 안내
+지진 발생 시 국민행동요령
+- 진동이 있을 때는 탁자아래로 들어가 몸을 보호하세요!
+-진동이 멈추면 전기, 가스를 차단하고 출구를 확보하세요!
+- 건물밖으로 나갈때는 반드시 계단을 이용하세요!
+자세히보기+" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^알아두면 좋은 지진 , 지진옥외대피소 및 지진국민행동요령 안내
+지진 발생 시 국민행동요령
+- 진동이 있을 때는 탁자아래로 들어가 몸을 보호하세요!
+-진동이 멈추면 전기, 가스를 차단하고 출구를 확보하세요!
+- 건물밖으로 나갈때는 반드시 계단을 이용하세요!
+자세히보기+\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02">
+							
+								<a href="http://www.culturecj.com/" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180821033011830.png" alt="2018 젓가락 페스티벌 2018.9.8.-9.16. 동부창고 일원
+개막식 : 2018.9.8(토)11:00 나눔의 문화를 만드는 개막식
+폐막식 : 2018.9.16.(일)17:00 젓가락 왕 선발대회 결승 및 시산 기부품 전달식 등" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^2018 젓가락 페스티벌 2018.9.8.-9.16. 동부창고 일원
+개막식 : 2018.9.8(토)11:00 나눔의 문화를 만드는 개막식
+폐막식 : 2018.9.16.(일)17:00 젓가락 왕 선발대회 결승 및 시산 기부품 전달식 등\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide03">
+							
+								<a href="http://www.cheongju.go.kr/www/popup/popup20180821.jpg" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180817045017662.jpg" alt="2018년 청주시 사회조사 실시
+/청주시에서는 시민을 대상으로 사회조사를 실시합니다.조사원 방문 시 시민 여러분의 적극적인 협조 부탁드립니다.
+/조사기간 : 8월 28일 ~ 9월 11일(15일간)
+/조사대상 : 관내 1,524가구(만 13세 이상 가구원)
+/조사내용
+- 시민 삶의 질과 관련된 사회적 관심사와 주관적 의식 조사
+- 시정 기초자료 및 정책개발 자료로 활용" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^2018년 청주시 사회조사 실시
+/청주시에서는 시민을 대상으로 사회조사를 실시합니다.조사원 방문 시 시민 여러분의 적극적인 협조 부탁드립니다.
+/조사기간 : 8월 28일 ~ 9월 11일(15일간)
+/조사대상 : 관내 1,524가구(만 13세 이상 가구원)
+/조사내용
+- 시민 삶의 질과 관련된 사회적 관심사와 주관적 의식 조사
+- 시정 기초자료 및 정책개발 자료로 활용\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide04">
+							
+								<a href="https://www.cheongju.go.kr/anjeon/selectBbsNttList.do?bbsNo=1000&amp;key=17001" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180808054934274.jpg" alt="제2회 전국 주민자치 프로그램 경연대회
+참가신청 : 2018. 8. 13.(월) ∼ 9. 7.(금) 24시 까지
+참가대상 : 전국 주민자치센터
+참가분야 : 무대공연이 가능한 동적(動的) 프로그램
+        ※ 전시, 요가, 명상 등 정적(靜的)프로그램 제외
+신청서류 : 참가신청서 및 프로그램 동영상(CD, USB) 접수
+예선 : 2018. 9. 13.(목) ~ 9. 14.(금)
+본선 : 2018. 10. 9.(화) 10:00 ~ 15:00" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^제2회 전국 주민자치 프로그램 경연대회
+참가신청 : 2018. 8. 13.(월) ∼ 9. 7.(금) 24시 까지
+참가대상 : 전국 주민자치센터
+참가분야 : 무대공연이 가능한 동적(動的) 프로그램
+        ※ 전시, 요가, 명상 등 정적(靜的)프로그램 제외
+신청서류 : 참가신청서 및 프로그램 동영상(CD, USB) 접수
+예선 : 2018. 9. 13.(목) ~ 9. 14.(금)
+본선 : 2018. 10. 9.(화) 10:00 ~ 15:00\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide05">
+							
+								<a href="http://www.cheongju.go.kr/www/popup/popup180823.jpg" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180823013525949.png" alt="2018 생명문화도시 시민실천 콘테스트 공모
+공모기간 : 2018년 10월 11일까지 서류접수, 10월20일까지 패널(2매)접수
+내 용 : 청주시민의 기후변화 대응, 저탄소 및 녹색생활 실천, 주민화합 및 도농상생, 주민복지, 공동체활성화, 사회공헌 활동 등 다양하고 창의적인 실천활동(최근2년 이내)" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^2018 생명문화도시 시민실천 콘테스트 공모
+공모기간 : 2018년 10월 11일까지 서류접수, 10월20일까지 패널(2매)접수
+내 용 : 청주시민의 기후변화 대응, 저탄소 및 녹색생활 실천, 주민화합 및 도농상생, 주민복지, 공동체활성화, 사회공헌 활동 등 다양하고 창의적인 실천활동(최근2년 이내)\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide06">
+							
+								<a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=110388&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180704040140399.png" alt="장롱 속의 기록을 찾습니다. 청주시 민간기록물 수집공모전
+수집기간 : 2018.7.10 - 9.10
+공모전 자세히보기" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^장롱 속의 기록을 찾습니다. 청주시 민간기록물 수집공모전
+수집기간 : 2018.7.10 - 9.10
+공모전 자세히보기\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide07">
+							
+								<a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=53384&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180627035541723.jpg" alt="함께 웃는 청주
+전입신고하면 혜택듬뿍~
+살기좋은 청주에서 좋은이웃들이 기다립니다!
+자세히보기" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^함께 웃는 청주
+전입신고하면 혜택듬뿍~
+살기좋은 청주에서 좋은이웃들이 기다립니다!
+자세히보기\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div><div class="cont_box slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" tabindex="-1">
+							
+								<a href="https://www.cheongju.go.kr/sdhealth/selectBbsNttView.do?key=2043&amp;bbsNo=510&amp;nttNo=113875&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100148" title="새창" target="_blank" class="cont" tabindex="-1">
+											<img src="./청주시청_files/20180905042754041.png" alt="2018 함께 걷는 청주
+2018.9.29.(토) 오전10시~, 무심천 체육공원(롤러스케이트장)
+참여방법 : 누구나 참여 가능(무료), 걷기 완주자 기념품 증정
+문의 : 보건정책과 보건기획팀 201-3102~4" onmousedown="eval(&#39;try{ _trk_clickTrace( \&#39;EVT\&#39;, \&#39;^비쥬얼팝업존^2018 함께 걷는 청주
+2018.9.29.(토) 오전10시~, 무심천 체육공원(롤러스케이트장)
+참여방법 : 누구나 참여 가능(무료), 걷기 완주자 기념품 증정
+문의 : 보건정책과 보건기획팀 201-3102~4\&#39; ); }catch(_e){ }&#39;);"></a>
+							
+							
+						 </div></div></div>
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup2 -->
+    <div class="colgroup3">
+        <!--<section class="clearfix">
+            <h2 class="skip">열린시장실&amp;청사안내</h2>
+            <article class="mayor">
+                <h3 class="skip">열린 시장실</h3>
+                <div class="title_box">
+                    <a href="/mayor/index.do" target="_blank" title="새창">
+		    <p><strong>사랑합니다.</strong> <br /><strong>시민</strong>과 <strong>소통</strong>하는 <br class="m_mayor" /> <span>청주시</span>입니다.</p>
+		    </a>
+                </div>
+                <div class="cont_box">
+                    <ul class="clearfix">
+                    <li><a href="/mayor/contents.do?key=7332" target="_blank" title="새창">공약실천</a></li>
+                    <li><a href="/mayor/selectBbsNttList.do?bbsNo=494&key=611" target="_blank" title="새창">시민의 소리</a></li>
+                    <li><a href="/mayor/selectBbsNttList.do?bbsNo=654&key=7828" target="_blank" title="새창">건의&amp;해결</a></li>
+                    </ul>
+                </div>
+            </article>-->
+	    <!--//2018-06-30//-->
+	    <section class="mayor">
+		<h2 class="skip">청주1번가&amp;청사안내</h2>
+		<div class="link">
+			<h3>
+				<a href="http://idea.cheongju.go.kr/main.do" target="_blank" title="새창">
+					<img src="./청주시청_files/mayor_tit_01.png" alt="청주1번가">
+				</a>
+			</h3>
+			<div class="list">
+				<ul class="clearfix">
+					<li><a href="http://idea.cheongju.go.kr/sub.do?key=20" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt01.png" alt="청주1번가소개"></a></li>
+					<li><a href="http://idea.cheongju.go.kr/sub.do?key=4" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt02.png" alt="시민생각이슈토크"></a></li>
+				</ul>
+				<ul class="clearfix">
+					<li><a href="http://idea.cheongju.go.kr/sub.do?key=1" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt03.png" alt="상상발전제안"></a></li>
+					<li><a href="http://idea.cheongju.go.kr/sub.do?key=61" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt08.png" alt="한범덕의공약상자"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="link">
+			<h3>
+				<a href="http://www.cheongju.go.kr/mayor/index.do" target="_blank" title="새창">
+					<img src="./청주시청_files/mayor_tit_02.png" alt="열린시장실">
+				</a>
+			</h3>
+			<div class="list">
+				<ul class="clearfix">
+					<!--<li><a href="http://www.cheongju.go.kr/mayor/contents.do?key=20184" target="_blank" title="새창"><img src="/site/www_2018/images/main/mayor_txt04.png" alt="인사말" /></a></li>-->
+					<li><a href="http://www.cheongju.go.kr/mayor/selectBbsNttView.do?key=20186&amp;bbsNo=2028&amp;nttNo=110817&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt04.png" alt="취임사"></a></li>
+					<li><a href="http://www.cheongju.go.kr/mayor/selectBbsNttList.do?bbsNo=494&amp;key=20195" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt05.png" alt="시민의소리"></a></li> 
+				</ul>
+				<ul class="clearfix">
+					<li><a href="http://www.cheongju.go.kr/mayor/contents.do?key=20189" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt06.png" alt="오늘의 일정"></a></li>
+					<li><a href="http://www.cheongju.go.kr/mayor/selectBbsNttList.do?bbsNo=2027&amp;key=20187" target="_blank" title="새창"><img src="./청주시청_files/mayor_txt07.png" alt="생생현장소식"></a></li>
+				</ul>
+			</div>
+		</div>
+        </section>
+	<section class="city">
+		<h2 class="skip">청사안내&amp;바로가기</h2>
+		<div class="cont_box">
+		    <ul class="clearfix">
+		    <li><a href="http://www.cheongju.go.kr/moadream/index.do" target="_blank" title="새창"><span class="cont"><span style="font-size:12px;letter-spacing:-0.1em;">임신·출산·육아 종합정보</span>청주모아드림-e</span></a></li>
+		    <li><a href="https://www.cheongju.go.kr/common/jsp/cyber/index.html" target="_blank" title="새창"><span class="cont"><span>통합청주시 소개</span> 사이버홍보관</span></a></li>
+		    </ul>
+		</div>
+		<div class="cont_box02">
+		    <ul class="clearfix">
+		    <li><a href="http://council.cheongju.go.kr/" target="_blank" title="새창">청주시의회</a></li>
+		    <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7468">청사안내</a></li>
+		    <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7431">행정조직도</a></li>
+		    <li><a href="https://www.cheongju.go.kr/www/selectEmpList.do?key=579&amp;deptCode=000100101">직원/업무안내</a></li>
+		    <!--<li><a href="/www/contents.do?key=581">오시는 길</a></li>-->
+		    </ul>
+		</div>
+	</section>
+    </div>
+    <!-- //colgroup3 -->
+
+</div>
+<!-- //rowgroup -->
+
+<div class="rowgroup2 clearfix">
+    <div class="colgroup">
+        <section class="board">
+            <h2 class="skip">주요소식</h2>
+            <ul class="clearfix">
+			
+            <li class="dep1 active"><a href="https://www.cheongju.go.kr/www/index.do#" class="tit">새소식</a>
+                <div class="tabcontent" style="display: block;">
+                    <ul><!-- 리스트 4개 -->
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=279&amp;bbsNo=40&amp;nttNo=113892">하반기 광역상수도 급수구역 확대 추진 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-05</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=279&amp;bbsNo=40&amp;nttNo=113891">서원대 앞 무심천 보도교 안전하게 확장 개선 들어가 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-05</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=279&amp;bbsNo=40&amp;nttNo=113890">회계관계 공무원 재정보증 가입 추진 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-05</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=279&amp;bbsNo=40&amp;nttNo=113887">직지코리아 천년대종 타종행사 참여시민 모집 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-05</span></li>
+					
+					
+					
+					
+					
+					
+					
+					
+                    </ul>
+                    <a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=40&amp;key=279" class="more">새소식 더보기</a>
+                </div>
+            </li>
+            <li class="dep1"><a href="https://www.cheongju.go.kr/www/index.do#" class="tit">공지사항</a>
+                <div class="tabcontent" style="display: none;">
+                    <ul><!-- 리스트 4개 -->
+                    
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=113942&amp;integrDeptCode=000100101">제18회 동물원 그림그리기대회 개최 알림 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-06</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=113932&amp;integrDeptCode=000100101">장기소액 연체자 재기 지원제도 연장 알림 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-06</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=113915&amp;integrDeptCode=000100101">2018년 하반기 영양플러스 소득판정기준표 변경안내 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-06</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=113888&amp;integrDeptCode=000100101">2018년 9월 6일 부여 예정 자가용 자동차 등록번호입니다 </a><img src="./청주시청_files/ico_new.png" alt="새글">
+						<span class="date">2018-09-05</span></li>
+					
+					
+					
+					
+					
+					
+					
+					
+                    </ul>
+                    <a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=510&amp;key=280&amp;integrDeptCode=000100101" class="more">공지사항 더보기</a>
+                </div>
+            </li>
+            <li class="dep1"><a href="https://www.cheongju.go.kr/www/index.do#" onclick="changeIframeUrl(&#39;latest3&#39;,&#39;loading3&#39;,&#39;https://eminwon.cheongju.go.kr/emwp/jsp/ofr/OfrNotAncmtLMiniSub.jsp?not_ancmt_se_code=03&amp;list_gubun=A&amp;key=134&#39;);" class="tit">입법예고</a>
+                <div class="tabcontent" style="display: none;">
+                    <span id="loading3" style="display:none">입법예고 페이지를 로딩중 입니다...</span>
+					<iframe id="latest3" style="overflow: hidden; width: 100%; height: 125px; display: block;" title="청주시 입법예고입니다." src="./청주시청_files/saved_resource.html"></iframe><!-- onload="iframeLoadEvent(this.id,'loading3');"-->
+                    <a href="https://www.cheongju.go.kr/www/contents.do?key=134" class="more">입법예고 더보기</a>
+                </div>
+            </li>
+            <li class="dep1"><a href="https://www.cheongju.go.kr/www/index.do#" onclick="changeIframeUrl(&#39;latest5&#39;,&#39;loading5&#39;,&#39;https://eminwon.cheongju.go.kr/emwp/jsp/ofr/OfrNotAncmtLMiniSub.jsp?not_ancmt_se_code=01,04&amp;list_gubun=A&amp;key=281&#39;);" class="tit">고시공고</a>
+                <div class="tabcontent" style="display: none;">
+                    <span id="loading5" style="display:none">고시공고 페이지를 로딩중 입니다...</span>
+					<iframe id="latest5" style="overflow: hidden; width: 100%; height: 125px; display: block;" title="청주시 고시공고입니다." src="./청주시청_files/saved_resource(1).html"></iframe>
+                    <a href="https://www.cheongju.go.kr/www/contents.do?key=281" class="more">고시공고 더보기</a>
+                </div>
+            </li>
+            <li class="dep1"><a href="https://www.cheongju.go.kr/www/index.do#" class="tit">문화행사</a>
+                <div class="tabcontent" style="display: none;">
+                    <ul><!-- 리스트 4개 -->
+                    
+					
+						
+						
+						
+						
+						<li><a href="http://www.cheongju.go.kr/tour/selectBbsNttView.do?key=789&amp;bbsNo=551&amp;nttNo=113346" target="_blank" title="새창">문예시설 주간일정(2018. 9. 3. ~ 9. 9.) </a>
+						<span class="date">2018-08-30</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="http://www.cheongju.go.kr/tour/selectBbsNttView.do?key=789&amp;bbsNo=551&amp;nttNo=113028" target="_blank" title="새창">문예시설 주간일정(2018. 8. 27. ~ 9. 2.) </a>
+						<span class="date">2018-08-25</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="http://www.cheongju.go.kr/tour/selectBbsNttView.do?key=789&amp;bbsNo=551&amp;nttNo=112807" target="_blank" title="새창">문예시설 주간일정(2018. 8. 20. ~ 8. 26.) </a>
+						<span class="date">2018-08-20</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="http://www.cheongju.go.kr/tour/selectBbsNttView.do?key=789&amp;bbsNo=551&amp;nttNo=112604" target="_blank" title="새창">문예시설 주간일정(2018. 8. 13. ~ 8. 19.) </a>
+						<span class="date">2018-08-13</span></li>
+					
+					
+					
+					
+					
+					
+					
+					
+                    </ul>
+                    <a href="http://www.cheongju.go.kr/tour/selectBbsNttList.do?bbsNo=551&amp;key=789" target="_blank" title="새창" class="more">문화행사 더보기</a>
+                </div>
+            </li>
+            <li class="dep1"><a href="https://www.cheongju.go.kr/www/index.do#" class="tit">언론보도해명</a>
+                <div class="tabcontent" style="display: none;">
+                    <ul><!-- 리스트 4개 -->
+                    
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=286&amp;bbsNo=46&amp;nttNo=110638">청주국제테니스장 조명타워 위치 관련 보도 해명 </a>
+						<span class="date">2018-06-28</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=286&amp;bbsNo=46&amp;nttNo=110021">직지코리아 국제페스티벌 입찰 “특정업체 밀어주기” 의혹 보도해명 </a>
+						<span class="date">2018-06-12</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=286&amp;bbsNo=46&amp;nttNo=61263">공무원만 아는 대피소 시민은 어디로 대피하나보도해명 </a>
+						<span class="date">2017-08-22</span></li>
+					
+					
+					
+						
+						
+						
+						
+						<li><a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=286&amp;bbsNo=46&amp;nttNo=57959">석연치 않은 청주시 입찰“수면 위로”보도관련 </a>
+						<span class="date">2017-07-11</span></li>
+					
+					
+					
+					
+					
+					
+					
+					
+                    </ul>
+                    <a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=46&amp;key=286" class="more">언론보도해명 더보기</a>
+                </div>
+            </li>
+            </ul>
+            <script>
+                //<![CDATA[
+                tabOn('.board',1,'text');
+                //]]>
+            </script><!-- tab메뉴 적용할 ('선택자','활성화 텝 순서번호','텝제목이 문자-text, 이미지-img')-->
+        </section>
+    </div>
+    <!-- //colgroup1 -->
+    <div class="colgroup2">
+        <section class="popup">
+            <h2>팝업존</h2>
+            <div class="control_box">
+                <button class="prev slick-arrow" style="display: inline-block;">이전</button>
+                <button class="auto pause">정지</button>
+                <button class="next slick-arrow" style="display: inline-block;">다음</button>
+		<!--<a href="http://www.cheongju.go.kr/www/selectPopupZoneItemList.do?key=590&amp;popupZoneNo=2&amp;searchShowSe=always" class="more">팝업모음 보기</a>-->
+            </div>
+            <div class="slide_box clearfix slick-initialized slick-slider">
+				
+					<div aria-live="polite" class="slick-list" style="padding: 0px 50px;"><div class="slick-track" role="listbox" style="opacity: 1; width: 120000px; transform: translate3d(-2910px, 0px, 0px);"><div class="cont_box slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
+					
+					
+						<!-- <a href="#n"><img src="/DATA/popup/20180323112306681.gif" style="width:220px;height:120px;" alt="2018&nbsp;직지코리아&nbsp;국제페스티벌
+10.1&nbsp;~&nbsp;10.21
+청주직지문화특구,&nbsp;예술의전당&nbsp;일원" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;직지코리아&nbsp;국제페스티벌
+10.1&nbsp;~&nbsp;10.21
+청주직지문화특구,&nbsp;예술의전당&nbsp;일원' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/index.do#n" tabindex="-1"><img src="./청주시청_files/20180323112306681.gif" style="width:220px;height:120px;" alt="2018 직지코리아 국제페스티벌
+10.1 ~ 10.21
+청주직지문화특구, 예술의전당 일원"></a>
+					
+					</div><div class="cont_box slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+					
+                        <!-- <a href="http://wfg2018.chungbuk.go.kr/"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20171108115152241.gif" style="width:220px;height:120px;" alt="제13회&nbsp;2018&nbsp;충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월)&nbsp;8일간
+충청북도&nbsp;충주시&nbsp;일원" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^제13회&nbsp;2018&nbsp;충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월)&nbsp;8일간
+충청북도&nbsp;충주시&nbsp;일원' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://wfg2018.chungbuk.go.kr/" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20171108115152241.gif" style="width:220px;height:120px;" alt="제13회 2018 충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월) 8일간
+충청북도 충주시 일원"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide10">
+					
+                        <!-- <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904_01.jpg"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180904040317636.jpg" style="width:220px;height:120px;" alt="9월은&nbsp;재산세&nbsp;납부의&nbsp;달입니다
+/납부기간&nbsp;2018년&nbsp;9월16일&nbsp;~&nbsp;10월&nbsp;1일" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^9월은&nbsp;재산세&nbsp;납부의&nbsp;달입니다
+/납부기간&nbsp;2018년&nbsp;9월16일&nbsp;~&nbsp;10월&nbsp;1일' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904_01.jpg" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180904040317636.jpg" style="width:220px;height:120px;" alt="9월은 재산세 납부의 달입니다
+/납부기간 2018년 9월16일 ~ 10월 1일"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide11">
+					
+                        <!-- <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904.jpg"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180904103209121.jpg" style="width:220px;height:120px;" alt="9월&nbsp;식중독&nbsp;주의&nbsp;정보&nbsp;알림
+/병원성대장균&nbsp;및&nbsp;살모넬라로&nbsp;인한&nbsp;식중독&nbsp;발생&nbsp;위험이&nbsp;높음
+/자세히&nbsp;보기&nbsp;+" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^9월&nbsp;식중독&nbsp;주의&nbsp;정보&nbsp;알림
+/병원성대장균&nbsp;및&nbsp;살모넬라로&nbsp;인한&nbsp;식중독&nbsp;발생&nbsp;위험이&nbsp;높음
+/자세히&nbsp;보기&nbsp;+' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904.jpg" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180904103209121.jpg" style="width:220px;height:120px;" alt="9월 식중독 주의 정보 알림
+/병원성대장균 및 살모넬라로 인한 식중독 발생 위험이 높음
+/자세히 보기 +"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide12">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/www/popup/popup20182809.pdf"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180829065438646.png" style="width:220px;height:120px;" alt="추석&nbsp;명절&nbsp;맞이&nbsp;전통시장주변&nbsp;주․정차&nbsp;일부&nbsp;허용
+■기간&nbsp;:&nbsp;2018년&nbsp;9월&nbsp;17일(월)&nbsp;~&nbsp;9월&nbsp;28일(금)&nbsp;&lt;12일간&gt;
+■대상&nbsp;:&nbsp;전통시장(5곳),&nbsp;농수산물시장(1곳)&nbsp;등&nbsp;
+※어린이보호구역과&nbsp;겹쳐진&nbsp;전통시장은&nbsp;추석연휴(9.22.~&nbsp;9.26.)에만&nbsp;허용" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^추석&nbsp;명절&nbsp;맞이&nbsp;전통시장주변&nbsp;주․정차&nbsp;일부&nbsp;허용
+■기간&nbsp;:&nbsp;2018년&nbsp;9월&nbsp;17일(월)&nbsp;~&nbsp;9월&nbsp;28일(금)&nbsp;&lt;12일간&gt;
+■대상&nbsp;:&nbsp;전통시장(5곳),&nbsp;농수산물시장(1곳)&nbsp;등&nbsp;
+※어린이보호구역과&nbsp;겹쳐진&nbsp;전통시장은&nbsp;추석연휴(9.22.~&nbsp;9.26.)에만&nbsp;허용' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/www/popup/popup20182809.pdf" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180829065438646.png" style="width:220px;height:120px;" alt="추석 명절 맞이 전통시장주변 주․정차 일부 허용
+■기간 : 2018년 9월 17일(월) ~ 9월 28일(금) &lt;12일간&gt;
+■대상 : 전통시장(5곳), 농수산물시장(1곳) 등 
+※어린이보호구역과 겹쳐진 전통시장은 추석연휴(9.22.~ 9.26.)에만 허용"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide13">
+					
+                        <!-- <a href="http://www.cmes.or.kr/cj"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180829102556542.jpg" style="width:220px;height:120px;" alt="민방위&nbsp;사이버교육
+교육대상&nbsp;:&nbsp;청주시&nbsp;소속&nbsp;민방위&nbsp;5년차&nbsp;이상
+교육기간&nbsp;:&nbsp;2018.09.01.(토)&nbsp;-&nbsp;10.31.(수)" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^민방위&nbsp;사이버교육
+교육대상&nbsp;:&nbsp;청주시&nbsp;소속&nbsp;민방위&nbsp;5년차&nbsp;이상
+교육기간&nbsp;:&nbsp;2018.09.01.(토)&nbsp;-&nbsp;10.31.(수)' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cmes.or.kr/cj" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180829102556542.jpg" style="width:220px;height:120px;" alt="민방위 사이버교육
+교육대상 : 청주시 소속 민방위 5년차 이상
+교육기간 : 2018.09.01.(토) - 10.31.(수)"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide14">
+					
+                        <!-- <a href="http://www.epeople.go.kr/jsp/user/pp/UGpProposNiceChoiceList.paid?pp_estimate_seq_n=11"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180827044623590.png" style="width:220px;height:120px;" alt="2018&nbsp;중앙우수제안&nbsp;국민평가
+올해의&nbsp;최고의&nbsp;제안!&nbsp;여러분이&nbsp;뽑아주세요.
+참여기간&nbsp;:&nbsp;2018.8.28.~9.11.
+자세히보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;중앙우수제안&nbsp;국민평가
+올해의&nbsp;최고의&nbsp;제안!&nbsp;여러분이&nbsp;뽑아주세요.
+참여기간&nbsp;:&nbsp;2018.8.28.~9.11.
+자세히보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.epeople.go.kr/jsp/user/pp/UGpProposNiceChoiceList.paid?pp_estimate_seq_n=11" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180827044623590.png" style="width:220px;height:120px;" alt="2018 중앙우수제안 국민평가
+올해의 최고의 제안! 여러분이 뽑아주세요.
+참여기간 : 2018.8.28.~9.11.
+자세히보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide15">
+					
+                        <!-- <a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=112870&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180821051839028.png" style="width:220px;height:120px;" alt="현도오토캠핑장&nbsp;정식&nbsp;개장
+2018.&nbsp;9.&nbsp;1.(토)&nbsp;~&nbsp;연중(유료)&nbsp;
+※&nbsp;단,&nbsp;9.&nbsp;6.&nbsp;~&nbsp;9.&nbsp;7.(2일간)은&nbsp;개장식&nbsp;준비로&nbsp;미운영" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^현도오토캠핑장&nbsp;정식&nbsp;개장
+2018.&nbsp;9.&nbsp;1.(토)&nbsp;~&nbsp;연중(유료)&nbsp;
+※&nbsp;단,&nbsp;9.&nbsp;6.&nbsp;~&nbsp;9.&nbsp;7.(2일간)은&nbsp;개장식&nbsp;준비로&nbsp;미운영' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=112870&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180821051839028.png" style="width:220px;height:120px;" alt="현도오토캠핑장 정식 개장
+2018. 9. 1.(토) ~ 연중(유료) 
+※ 단, 9. 6. ~ 9. 7.(2일간)은 개장식 준비로 미운영"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide16">
+					
+                        <!-- <a href="http://1398.acrc.go.kr/case/ISGAcase"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180821035009047.png" style="width:220px;height:120px;" alt="“모두가&nbsp;행복한&nbsp;청렴사회”&nbsp;청탁금지법&nbsp;준수로&nbsp;시작됩니다.
+청탁금지법&nbsp;통합검색&nbsp;바로가기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^“모두가&nbsp;행복한&nbsp;청렴사회”&nbsp;청탁금지법&nbsp;준수로&nbsp;시작됩니다.
+청탁금지법&nbsp;통합검색&nbsp;바로가기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://1398.acrc.go.kr/case/ISGAcase" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180821035009047.png" style="width:220px;height:120px;" alt="“모두가 행복한 청렴사회” 청탁금지법 준수로 시작됩니다.
+청탁금지법 통합검색 바로가기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide17">
+					
+                        <!-- <a href="https://www.chungbuk.re.kr:6038/?c=user&amp;mcd=chh010000"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180806060958683.png" style="width:220px;height:120px;" alt="제1회&nbsp;충청북도&nbsp;문화유산&nbsp;답사기&nbsp;공모전" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^제1회&nbsp;충청북도&nbsp;문화유산&nbsp;답사기&nbsp;공모전' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.chungbuk.re.kr:6038/?c=user&amp;mcd=chh010000" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180806060958683.png" style="width:220px;height:120px;" alt="제1회 충청북도 문화유산 답사기 공모전"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide18">
+					
+                        <!-- <a href="http://www.myhome.go.kr"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180806050300118.png" style="width:220px;height:120px;" alt="부양의무자가&nbsp;있어도&nbsp;주거급여&nbsp;신청하세요!
+*&nbsp;2018년&nbsp;10월부터&nbsp;주거급여&nbsp;부양의무자&nbsp;기준이&nbsp;폐지됩니다." onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^부양의무자가&nbsp;있어도&nbsp;주거급여&nbsp;신청하세요!
+*&nbsp;2018년&nbsp;10월부터&nbsp;주거급여&nbsp;부양의무자&nbsp;기준이&nbsp;폐지됩니다.' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.myhome.go.kr/" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180806050300118.png" style="width:220px;height:120px;" alt="부양의무자가 있어도 주거급여 신청하세요!
+* 2018년 10월부터 주거급여 부양의무자 기준이 폐지됩니다."></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="9" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide19">
+					
+                        <!-- <a href="http://www.mois.go.kr/frt/sub/a06/b11/disasterGuarantee/screen.do"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180720054626522.png" style="width:220px;height:120px;" alt="원인을&nbsp;알&nbsp;수&nbsp;없는&nbsp;화재사고까지&nbsp;재난배상책임보험으로&nbsp;대비하세요!
+재난배상책임보험이란&nbsp;화재,&nbsp;폭발,&nbsp;붕괴로&nbsp;인한&nbsp;타인의&nbsp;신체&nbsp;또는&nbsp;재상&nbsp;피해를&nbsp;보상하는&nbsp;의무보험입니다." onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^원인을&nbsp;알&nbsp;수&nbsp;없는&nbsp;화재사고까지&nbsp;재난배상책임보험으로&nbsp;대비하세요!
+재난배상책임보험이란&nbsp;화재,&nbsp;폭발,&nbsp;붕괴로&nbsp;인한&nbsp;타인의&nbsp;신체&nbsp;또는&nbsp;재상&nbsp;피해를&nbsp;보상하는&nbsp;의무보험입니다.' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.mois.go.kr/frt/sub/a06/b11/disasterGuarantee/screen.do" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180720054626522.png" style="width:220px;height:120px;" alt="원인을 알 수 없는 화재사고까지 재난배상책임보험으로 대비하세요!
+재난배상책임보험이란 화재, 폭발, 붕괴로 인한 타인의 신체 또는 재상 피해를 보상하는 의무보험입니다."></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="10" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide110">
+					
+					
+						<!-- <a href="#n"><img src="/DATA/popup/20180718054819800.jpg" style="width:220px;height:120px;" alt="2018년&nbsp;청원생명축제&nbsp;입장권&nbsp;판매
+판매처&nbsp;:&nbsp;NH농협은행&nbsp;각지점,&nbsp;읍면동주민센터&nbsp;등
+예매기간&nbsp;:&nbsp;2018.&nbsp;7.&nbsp;23.&nbsp;~&nbsp;10.&nbsp;4." onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018년&nbsp;청원생명축제&nbsp;입장권&nbsp;판매
+판매처&nbsp;:&nbsp;NH농협은행&nbsp;각지점,&nbsp;읍면동주민센터&nbsp;등
+예매기간&nbsp;:&nbsp;2018.&nbsp;7.&nbsp;23.&nbsp;~&nbsp;10.&nbsp;4.' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/index.do#n" tabindex="-1"><img src="./청주시청_files/20180718054819800.jpg" style="width:220px;height:120px;" alt="2018년 청원생명축제 입장권 판매
+판매처 : NH농협은행 각지점, 읍면동주민센터 등
+예매기간 : 2018. 7. 23. ~ 10. 4."></a>
+					
+					</div><div class="cont_box slick-slide slick-current slick-active slick-center" data-slick-index="11" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide111">
+					
+					
+						<!-- <a href="#n"><img src="/DATA/popup/20180622022626110.gif" style="width:220px;height:120px;" alt="여름철&nbsp;문&nbsp;열고&nbsp;냉방영업&nbsp;자제&nbsp;합동점검&nbsp;실시
+점검기간&nbsp;:&nbsp;2018.&nbsp;07&nbsp;~&nbsp;09
+대상&nbsp;:&nbsp;외기와&nbsp;출입문이&nbsp;접한&nbsp;점포,&nbsp;상가,&nbsp;건물" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^여름철&nbsp;문&nbsp;열고&nbsp;냉방영업&nbsp;자제&nbsp;합동점검&nbsp;실시
+점검기간&nbsp;:&nbsp;2018.&nbsp;07&nbsp;~&nbsp;09
+대상&nbsp;:&nbsp;외기와&nbsp;출입문이&nbsp;접한&nbsp;점포,&nbsp;상가,&nbsp;건물' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/index.do#n" tabindex="0"><img src="./청주시청_files/20180622022626110.gif" style="width:220px;height:120px;" alt="여름철 문 열고 냉방영업 자제 합동점검 실시
+점검기간 : 2018. 07 ~ 09
+대상 : 외기와 출입문이 접한 점포, 상가, 건물"></a>
+					
+					</div><div class="cont_box slick-slide" data-slick-index="12" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide112">
+					
+                        <!-- <a href="http://ihappy.or.kr/calculator/"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180618024105422.jpg" style="width:220px;height:120px;" alt="아동수당&nbsp;2018&nbsp;6월&nbsp;20일부터&nbsp;사전&nbsp;신청&nbsp;시작!
+자세히보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^아동수당&nbsp;2018&nbsp;6월&nbsp;20일부터&nbsp;사전&nbsp;신청&nbsp;시작!
+자세히보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://ihappy.or.kr/calculator/" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180618024105422.jpg" style="width:220px;height:120px;" alt="아동수당 2018 6월 20일부터 사전 신청 시작!
+자세히보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="13" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide113">
+					
+                        <!-- <a href="http://ebook.cheongju.go.kr/Viewer/5VXVJY7I3W4H"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180618020615589.jpg" style="width:220px;height:120px;" alt="2018&nbsp;한권으로&nbsp;통하는&nbsp;청년지원&nbsp;프로그램&nbsp;E-book&nbsp;바로보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;한권으로&nbsp;통하는&nbsp;청년지원&nbsp;프로그램&nbsp;E-book&nbsp;바로보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://ebook.cheongju.go.kr/Viewer/5VXVJY7I3W4H" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180618020615589.jpg" style="width:220px;height:120px;" alt="2018 한권으로 통하는 청년지원 프로그램 E-book 바로보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="14" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide114">
+					
+                        <!-- <a href="https://mplatform.seoul.go.kr"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180607105303204.jpg" style="width:220px;height:120px;" alt="2018&nbsp;서울시&nbsp;앱공모전
+/06.01.-09.30.
+/1등&nbsp;상금&nbsp;500만원" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;서울시&nbsp;앱공모전
+/06.01.-09.30.
+/1등&nbsp;상금&nbsp;500만원' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://mplatform.seoul.go.kr/" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180607105303204.jpg" style="width:220px;height:120px;" alt="2018 서울시 앱공모전
+/06.01.-09.30.
+/1등 상금 500만원"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="15" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide115">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/www/popup/2018_am_hi.png"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180518031818527.png" style="width:220px;height:120px;" alt="국가건강검진으로&nbsp;가족사랑&nbsp;실천하세요♥
+암검진&nbsp;미루지말고&nbsp;지금&nbsp;받으세요
+1577-1000" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^국가건강검진으로&nbsp;가족사랑&nbsp;실천하세요♥
+암검진&nbsp;미루지말고&nbsp;지금&nbsp;받으세요
+1577-1000' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/www/popup/2018_am_hi.png" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180518031818527.png" style="width:220px;height:120px;" alt="국가건강검진으로 가족사랑 실천하세요♥
+암검진 미루지말고 지금 받으세요
+1577-1000"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="16" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide116">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/safe/contents.do?key=7865"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180423041451474.jpg" style="width:220px;height:120px;" alt="알아두면&nbsp;좋은&nbsp;지진&nbsp;,&nbsp;지진옥외대피소&nbsp;및&nbsp;지진국민행동요령&nbsp;안내" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^알아두면&nbsp;좋은&nbsp;지진&nbsp;,&nbsp;지진옥외대피소&nbsp;및&nbsp;지진국민행동요령&nbsp;안내' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/safe/contents.do?key=7865" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180423041451474.jpg" style="width:220px;height:120px;" alt="알아두면 좋은 지진 , 지진옥외대피소 및 지진국민행동요령 안내"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="17" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide117">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=101817&amp;integrDeptCode=000100101"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180405102123641.jpg" style="width:220px;height:120px;" alt="차로이탈경보장치&nbsp;장착&nbsp;지원사업
+신청기간&nbsp;:&nbsp;2018.&nbsp;3월&nbsp;∼&nbsp;10월
+자세히보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^차로이탈경보장치&nbsp;장착&nbsp;지원사업
+신청기간&nbsp;:&nbsp;2018.&nbsp;3월&nbsp;∼&nbsp;10월
+자세히보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=101817&amp;integrDeptCode=000100101" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180405102123641.jpg" style="width:220px;height:120px;" alt="차로이탈경보장치 장착 지원사업
+신청기간 : 2018. 3월 ∼ 10월
+자세히보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="18" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide118">
+					
+                        <!-- <a href="https://1398.acrc.go.kr/hpg/req/hpgPssStep1.do"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180321050301180.jpg" style="width:220px;height:120px;" alt="든든한국가재정의&nbsp;새로운&nbsp;시작&nbsp;국민권익위원회
+복지&amp;middot;보조금&nbsp;부정&nbsp;신고센터
+자세히보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^든든한국가재정의&nbsp;새로운&nbsp;시작&nbsp;국민권익위원회
+복지&amp;middot;보조금&nbsp;부정&nbsp;신고센터
+자세히보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://1398.acrc.go.kr/hpg/req/hpgPssStep1.do" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180321050301180.jpg" style="width:220px;height:120px;" alt="든든한국가재정의 새로운 시작 국민권익위원회
+복지&amp;middot;보조금 부정 신고센터
+자세히보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="19" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide119">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=110812&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180102012411003.jpg" style="width:220px;height:120px;" alt="고인쇄박물관과&nbsp;함께하는&nbsp;문화가있는날&nbsp;자세히보기" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^고인쇄박물관과&nbsp;함께하는&nbsp;문화가있는날&nbsp;자세히보기' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/www/selectBbsNttView.do?key=280&amp;bbsNo=510&amp;nttNo=110812&amp;searchCtgry=&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;integrDeptCode=000100101" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180102012411003.jpg" style="width:220px;height:120px;" alt="고인쇄박물관과 함께하는 문화가있는날 자세히보기"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="20" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide120">
+					
+                        <!-- <a href="http://www.cheongju.go.kr/tour/contents.do?key=801"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180228024558369.png" style="width:220px;height:120px;" alt="청주시티투어&nbsp;운영
+-&nbsp;2018.&nbsp;3.&nbsp;10.&nbsp;~&nbsp;11.&nbsp;30.
+-&nbsp;정기투어&nbsp;:&nbsp;매주&nbsp;토~일
+-&nbsp;수시투어&nbsp;:&nbsp;매주&nbsp;화~일&nbsp;
+-&nbsp;2,000원(기타비용&nbsp;별도)" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^청주시티투어&nbsp;운영
+-&nbsp;2018.&nbsp;3.&nbsp;10.&nbsp;~&nbsp;11.&nbsp;30.
+-&nbsp;정기투어&nbsp;:&nbsp;매주&nbsp;토~일
+-&nbsp;수시투어&nbsp;:&nbsp;매주&nbsp;화~일&nbsp;
+-&nbsp;2,000원(기타비용&nbsp;별도)' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://www.cheongju.go.kr/tour/contents.do?key=801" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180228024558369.png" style="width:220px;height:120px;" alt="청주시티투어 운영
+- 2018. 3. 10. ~ 11. 30.
+- 정기투어 : 매주 토~일
+- 수시투어 : 매주 화~일 
+- 2,000원(기타비용 별도)"></a>
+					
+					
+					</div><div class="cont_box slick-slide" data-slick-index="21" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide121">
+					
+					
+						<!-- <a href="#n"><img src="/DATA/popup/20180221113026156.png" style="width:220px;height:120px;" alt="2018&nbsp;오송&nbsp;화장품뷰티산업엑스포
+10.23.(화)&nbsp;-&nbsp;10.27.(토)&nbsp;오송역(충북청주)" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;오송&nbsp;화장품뷰티산업엑스포
+10.23.(화)&nbsp;-&nbsp;10.27.(토)&nbsp;오송역(충북청주)' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/index.do#n" tabindex="-1"><img src="./청주시청_files/20180221113026156.png" style="width:220px;height:120px;" alt="2018 오송 화장품뷰티산업엑스포
+10.23.(화) - 10.27.(토) 오송역(충북청주)"></a>
+					
+					</div><div class="cont_box slick-slide" data-slick-index="22" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide122">
+					
+					
+						<!-- <a href="#n"><img src="/DATA/popup/20180323112306681.gif" style="width:220px;height:120px;" alt="2018&nbsp;직지코리아&nbsp;국제페스티벌
+10.1&nbsp;~&nbsp;10.21
+청주직지문화특구,&nbsp;예술의전당&nbsp;일원" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^2018&nbsp;직지코리아&nbsp;국제페스티벌
+10.1&nbsp;~&nbsp;10.21
+청주직지문화특구,&nbsp;예술의전당&nbsp;일원' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/index.do#n" tabindex="-1"><img src="./청주시청_files/20180323112306681.gif" style="width:220px;height:120px;" alt="2018 직지코리아 국제페스티벌
+10.1 ~ 10.21
+청주직지문화특구, 예술의전당 일원"></a>
+					
+					</div><div class="cont_box slick-slide" data-slick-index="23" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide123">
+					
+                        <!-- <a href="http://wfg2018.chungbuk.go.kr/"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20171108115152241.gif" style="width:220px;height:120px;" alt="제13회&nbsp;2018&nbsp;충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월)&nbsp;8일간
+충청북도&nbsp;충주시&nbsp;일원" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^제13회&nbsp;2018&nbsp;충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월)&nbsp;8일간
+충청북도&nbsp;충주시&nbsp;일원' ); }catch(_e){ }');" /></a> -->
+                        <a href="http://wfg2018.chungbuk.go.kr/" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20171108115152241.gif" style="width:220px;height:120px;" alt="제13회 2018 충주세계소방관경기대회
+2018.9.10.(월)~9.17.(월) 8일간
+충청북도 충주시 일원"></a>
+					
+					
+					</div><div class="cont_box slick-slide slick-cloned" data-slick-index="24" aria-hidden="true" tabindex="-1">
+					
+                        <!-- <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904_01.jpg"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180904040317636.jpg" style="width:220px;height:120px;" alt="9월은&nbsp;재산세&nbsp;납부의&nbsp;달입니다
+/납부기간&nbsp;2018년&nbsp;9월16일&nbsp;~&nbsp;10월&nbsp;1일" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^9월은&nbsp;재산세&nbsp;납부의&nbsp;달입니다
+/납부기간&nbsp;2018년&nbsp;9월16일&nbsp;~&nbsp;10월&nbsp;1일' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904_01.jpg" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180904040317636.jpg" style="width:220px;height:120px;" alt="9월은 재산세 납부의 달입니다
+/납부기간 2018년 9월16일 ~ 10월 1일"></a>
+					
+					
+					</div><div class="cont_box slick-slide slick-cloned" data-slick-index="25" aria-hidden="true" tabindex="-1">
+					
+                        <!-- <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904.jpg"
+                        title="새창"
+                        target="_blank"><img src="/DATA/popup/20180904103209121.jpg" style="width:220px;height:120px;" alt="9월&nbsp;식중독&nbsp;주의&nbsp;정보&nbsp;알림
+/병원성대장균&nbsp;및&nbsp;살모넬라로&nbsp;인한&nbsp;식중독&nbsp;발생&nbsp;위험이&nbsp;높음
+/자세히&nbsp;보기&nbsp;+" onmousedown="eval('try{ _trk_clickTrace( 'EVT', '^팝업존^9월&nbsp;식중독&nbsp;주의&nbsp;정보&nbsp;알림
+/병원성대장균&nbsp;및&nbsp;살모넬라로&nbsp;인한&nbsp;식중독&nbsp;발생&nbsp;위험이&nbsp;높음
+/자세히&nbsp;보기&nbsp;+' ); }catch(_e){ }');" /></a> -->
+                        <a href="https://www.cheongju.go.kr/www/popup/popup_2018_0904.jpg" title="새창" target="_blank" tabindex="-1"><img src="./청주시청_files/20180904103209121.jpg" style="width:220px;height:120px;" alt="9월 식중독 주의 정보 알림
+/병원성대장균 및 살모넬라로 인한 식중독 발생 위험이 높음
+/자세히 보기 +"></a>
+					
+					
+					</div></div></div>
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup2 -->
+    <div class="colgroup3">
+        <section class="related">
+            <h2 class="skip">청주 관련 사이트</h2>
+            <div class="cont_box type1">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=4131">전체사이트</a></li>
+                <li><a href="http://www.cheongju.go.kr/safe/contents.do?key=1425" target="_blank" title="새창">민방위교육</a></li>
+                <li><a href="http://clean.cheongju.go.kr/" target="_blank" title="새창">대형폐기물</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=273">청주시민신문</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=17249">세금공과금조회</a></li>
+                <li><a href="http://www.cheongju.go.kr/stat/index.do" target="_blank" title="새창">통계정보</a></li>
+                <li><a href="http://www.cheongju.go.kr/ticket/index.do" target="_blank" title="새창">통합예약시스템</a></li>
+                <li><a href="http://kras.chungbuk.go.kr/land_info/info/baseInfo/baseInfo.do" target="_blank" title="새창">부동산종합정보</a></li>
+                <li><a href="http://edu.cheongju.go.kr/edu/index.do" target="_blank" title="새창">정보화교육</a></li>
+                <li><a href="http://www.cjjob.net/" target="_blank" title="새창">일자리종합지원센터</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup3 -->
+</div>
+<!-- //rowgroup2 -->
+
+    </div>
+    </div>
+</div>
+<!-- //뉴스/소식 -->
+
+<div class="inner_box inner_box02">
+    <button class="inner_tit" title="민원/소통 콘텐츠 보기"><span>민원/소통</span></button>
+    <div class="inner_cont">
+    <div class="wrap">
+
+<div class="inner_title">
+    <span class="title_box">
+        <span class="number">02</span>
+        <span class="title">청주시와 함께</span>
+        <strong class="cont">민원/소통</strong>
+    </span>
+</div>
+
+<div class="rowgroup">
+    <div class="colgroup">
+        <section class="complaints">
+            <h2>민원서비스</h2>
+            <div class="cont_box">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7733">온라인민원신청</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=17249">세금공과금조회</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=693&amp;key=255">공직비리익명신고</a></li>
+                <li><a href="http://www.elis.go.kr/newlaib/laibLaws/h1126/laws.jsp?regionId=43990&amp;isfez=" target="_blank" title="새창">자치법규</a></li>
+                <li><a href="http://www.gov30.go.kr/" target="_blank" title="새창">정부서비스알리미</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=161">무인민원발급</a></li>
+                <li><a href="http://aml.cheongju.go.kr/">농업기계임대</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=170">여권업무</a></li>
+                </ul>
+            </div>
+            <div class="cont_box02">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7468">청사안내</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/sub.do?key=579">직원안내</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7431">행정조직도</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup1 -->
+    <div class="colgroup2">
+        <div class="dream">
+		<a href="http://idea.cheongju.go.kr/main.do" target="_blank" title="새창">
+			<span class="title"><img src="./청주시청_files/cj1st_logo.png" alt="청주1번가"></span>
+			<span class="slogan">상상을 현실로! 생각을 토크로!</span>
+			<span class="paragraph2"><img src="./청주시청_files/row2_col2_text.png" alt="맞춤형ㆍ개방혈ㆍ참여형 소통플랫폼"></span>
+		</a>
+		<a href="http://idea.cheongju.go.kr/sub.do?key=4" target="_blank" title="새창"><img src="./청주시청_files/row2_col2_btn.gif" alt="국민생각함"></a>
+        </div>
+    </div>
+    <!-- //colgroup2 -->
+    <div class="colgroup3">
+        <!--<section class="communication">
+            <h2 class="skip">소통 바로가기</h2>
+            <div class="cont_box">
+                <ul class="clearfix">
+                <li><a href="http://crm.cheongju.go.kr/main/view" target="_blank" title="새창">시민만족시스템</a></li>
+                <li><a href="http://jikjiworld.cheongju.go.kr/main/jikjiworld" target="_blank" title="새창">직지고인쇄박물관</a></li>
+                <li><a href="http://photo.cheongju.go.kr/front.do" target="_blank" title="새창">포토갤러리</a></li>
+                <li><a href="/jiksok/contents.do?key=7854" target="_blank" title="새창">TV시정소식</a></li>
+                <li><a href="/www/contents.do?key=273">청주시민신문</a></li>
+                <li><a href="http://schedule.cheongju.go.kr/xwcms/userScheduleCalendar.do" target="_blank" title="새창">전체일정보기</a></li>
+                <li><a href="/www/selectBbsNttList.do?bbsNo=45&key=285">주간행사</a></li>
+                </ul>
+            </div>
+        </section>-->
+		<section class="newsletter">
+            <h2>청주시민신문</h2>
+            <div class="content_box">
+				<a href="http://ebook.cheongju.go.kr/Viewer/newspaper" target="_blank" title="새창">
+				
+						<span class="img_area"><img src="./청주시청_files/DHF6EHK77EI5.jpg" alt="청주시민신문"></span>
+				
+				
+                <span class="text_area">
+                    <span class="title">함께 만들어 가는<strong>청주시 소식</strong></span>
+                   <!-- <span class="text">청주시민신문 <span><em>5월</em>호</span></span>-->
+                    <span class="btn">바로보기</span>
+                </span>
+                </a>
+            </div>        
+            <div class="more"><a href="https://www.cheongju.go.kr/www/contents.do?key=273">더보기</a></div>
+        </section>
+
+    </div>
+    <!-- //colgroup3 -->
+    <div class="colgroup4">
+        <section class="related type2">
+            <h2 class="skip">청주 관련 사이트</h2>
+            <div class="cont_box">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=4131">전체사이트</a></li>
+                <li><a href="http://www.cheongju.go.kr/safe/contents.do?key=1425" target="_blank" title="새창">민방위교육</a></li>
+                <li><a href="http://clean.cheongju.go.kr/" target="_blank" title="새창">대형폐기물</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=273">청주시민신문</a></li>
+                <li><a href="http://www.cheongju.go.kr/moadream/index.do" target="_blank" title="새창">청주모아드림-e</a></li>
+                <!--li><a href="/www/contents.do?key=17249">세금공과금조회</a></li-->
+                <li><a href="http://www.cheongju.go.kr/stat/index.do" target="_blank" title="새창">통계정보</a></li>
+                <li><a href="http://www.cheongju.go.kr/ticket/index.do" target="_blank" title="새창">통합예약시스템</a></li>
+                <li><a href="http://kras.chungbuk.go.kr/land_info/info/baseInfo/baseInfo.do" target="_blank" title="새창">부동산종합정보</a></li>
+                <li><a href="http://edu.cheongju.go.kr/edu/index.do" target="_blank" title="새창">정보화교육</a></li>
+                <li><a href="http://map.cheongju.go.kr/" target="_blank" title="새창">지도모아</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectInhAuthPgmList.do?key=442">주민자치프로그램</a></li>
+                <li><a href="http://cctv.cheongju.go.kr/safer.do" target="_blank" title="새창">안전지키미</a></li>
+                <li><a href="http://www.purushop.com/" target="_blank" title="새창">청원쇼핑몰</a></li>
+                <li><a href="http://www.cjjob.net/" target="_blank" title="새창">일자리종합지원센터</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup4 -->
+    <div class="colgroup5">
+        <section class="sns_box">
+            <div class="title_box">
+                <div class="box">
+                    <h2>SNS</h2>
+                    <p class="cont">청주시와 친구가 되어 <br class="m_sns">더 많은 소식을 <br>확인하세요!</p>
+                    <div class="sns_shortcut">
+                        <ul class="clearfix">
+                        <li><a href="http://www.facebook.com/cjcitynet" target="_blank" title="새창">청주시청 페이스북 바로가기</a></li>
+                        <li><a href="http://twitter.com/cjcitynet" target="_blank" title="새창">청주시청 트위터 바로가기</a></li>
+                        <li><a href="http://blog.naver.com/cjcityblog" target="_blank" title="새창">청주시청 블로그 바로가기</a></li>
+			<li><a href="https://story.kakao.com/ch/cjcity" target="_blank" title="새창">카카오스토리</a></li>
+                        <li><a href="https://www.instagram.com/cheongju.city/" target="_blank" title="새창">인스타그램</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+	    <div class="control_box">
+                <button class="prev slick-arrow" aria-disabled="false" style="display: inline-block;">이전</button>
+                <button class="next slick-arrow" aria-disabled="false" style="display: inline-block;">다음</button>
+                <button class="auto pause">정지</button>
+            </div>
+            <div class="contents_box">
+                <div class="slide_box slick-initialized slick-slider">
+                    <div aria-live="polite" class="slick-list"><div class="slick-track" role="listbox" style="opacity: 1; width: 1176px; transform: translate3d(-294px, 0px, 0px);"><div class="cont_box slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide20" style="width: 294px;">
+			
+				
+				<a href="https://www.facebook.com/cjcitynet/posts/2191065261149697" title="새창" target="_blank" tabindex="-1">
+					<span class="ico facebook">페이스북</span><!-- 클래스 및 내용 변경 (페이스북 facebook, 트위터 twitter, 블로그 blog, 시민신문 newspaper) -->
+					<span class="date"></span>
+					
+						
+						
+							<span class="img_box"><img src="./청주시청_files/sns_twitter.jpg" alt="청주시페이스북"></span>
+						
+						
+					<span class="cont">&lt;2018&nbsp;젓가락페스티벌&gt;&nbsp;에서&nbsp;뽐내는&nbsp;나만의&nbsp;라면&nbsp;#레시피!!&nbsp;스타셰프&nbsp;'유현수'와&nbsp;함께&nbsp;하는&nbsp;"라면요리경연대회"가&nbsp;&nbsp;오는&nbsp;9월9일(일),&nbsp;동부창고&nbsp;특설무대에서&nbsp;펼쳐집니다.&nbsp;멋진&nbsp;셰프님도&nbsp;보고,&nbsp;요리실력도&nbsp;발휘하고!!&nbsp;8월31일까지&nbsp;신청&nbsp;접수&nbsp;받아요~&nbsp;https://bit.ly/2wLvMay&nbsp;&nbsp;#라면레시피&nbsp;#후루룩짭짭&nbsp;#맛좋은라면&nbsp;#가루가루고춧가루&nbsp;#젓가락페스티벌</span>
+				</a>
+				
+			
+				
+			
+				
+			
+
+                    </div><div class="cont_box slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide21" style="width: 294px;">
+			
+				
+				<a href="https://twitter.com/cjcitynet" title="새창" target="_blank" tabindex="0">
+					<span class="ico twitter">트위터</span>
+					<span class="date"></span>
+					<span class="img_box"><img src="./청주시청_files/sns_twitter.jpg" alt="청주시 트위터"></span>
+					<span class="cont">내&nbsp;마음&nbsp;속&nbsp;#인도여행&nbsp;국립청주박물관에서&nbsp;펼쳐지는&nbsp;인도문화한마당!!&nbsp;오는&nbsp;9월9일&nbsp;오후3시,&nbsp;인도의&nbsp;전통무용&nbsp;오디시와&nbsp;함께&nbsp;이국적인&nbsp;분위기에&nbsp;흠뻑&nbsp;빠져보세요~&nbsp;https://t.co/aiz8RIUeMz&nbsp;https://t.co/vSjsGuGA0e</span>
+				</a>
+				
+			
+				
+			
+				
+			
+                    </div><div class="cont_box slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide22" style="width: 294px;">
+			
+				
+				<a href="https://blog.naver.com/cjcityblog/221353495359" title="새창" target="_blank" tabindex="0">
+					<span class="ico blog">블로그</span>
+					<span class="date">2018 청주공예페어 산업공예존: '색, 다름' 을 주제로 각양각색의 공방을 한 눈에!</span>
+					<span class="img_box"><img src="./청주시청_files/sns_blog.jpg" alt="청주시네이버블로그"></span>
+					<span class="cont">중부권 최대 규모의 2018청주공예페어가 이번 해에는 '색, 다름'을 주제로 개최되었습니다. ​청주시가 주최하고 청주공예비엔날레가 주관하는 공예페어는 옛 청주 연초제조창인 동부창고 6동과 37동, 야외광장에서 진행됩니다.그중 37동에서는 산업 공예존을 만나볼 수 있는데 각양각색의 공방을 한 눈에 볼 수 있는 공간입니다. 산업 공예존에는 공예작가, 공방, 갤러리, 기업, 공예소재 및 유통업체 등이 다양하게 참여하여 볼거리와 즐길 거리를 제공하고 있습니다.산업 공예존으로 들어가면 스탬프를 찍고 갈 수 있는 스탬프 존을 볼 수 있습니다. 청주 공예페어 행사장의 스탬프 투어를 통하여 5개를 다 찍으면 쵸콜렛 메달을 준다고 합니.......</span>
+				</a>
+				
+			
+				
+			
+				
+			
+                    </div><div class="cont_box slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide23" style="width: 294px;">
+			
+                    </div></div></div>
+                    
+                    
+		    
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup5 -->
+</div>
+<!-- //rowgroup -->
+
+    </div>
+    </div>
+</div>
+<!-- //민원/소통 -->
+
+<div class="inner_box inner_box03">
+    <button class="inner_tit" title="문화/축제 콘텐츠 보기"><span>문화/축제</span></button>
+    <div class="inner_cont">
+    <div class="wrap">
+
+<div class="inner_title">
+    <span class="title_box">
+        <span class="number">03</span>
+        <span class="title">날마다 즐겁고 활기찬</span>
+        <strong class="cont">문화/축제</strong>
+    </span>
+</div>
+
+<div class="rowgroup">
+    <div class="colgroup">
+        <section class="culture_shortcut">
+            <h2 class="skip">문화/축제 관련 바로가기</h2>
+            <ul class="clearfix">
+            <li><a href="https://www.cheongju.go.kr/tour/index.do" target="_blank" title="새창">문화관광<span> 가기</span></a></li>
+            <li><a href="http://ebook.cheongju.go.kr/Viewer/D3SE7TSJEPH9" target="_blank" title="새창">e-book 보기</a></li>
+            <li><a href="https://www.cheongju.go.kr/cheongju_vr/main/cj_tour_01.html" target="_blank" title="새창">VR 사이버투어<span> 가기</span></a></li>
+            </ul>
+        </section>
+    </div>
+    <!-- //colgroup1 -->
+    <div class="colgroup2">
+        <section class="boast">
+            <div class="title_box">
+                <h2>청주에 <span class="tit"><span>반</span>하다</span></h2>
+                <p>청주시 자랑 100가지</p>
+            </div>
+            <div class="contents_box">
+                <div class="slide_box clearfix slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: inline-block;">Previous</button>
+                    <div aria-live="polite" class="slick-list"><div class="slick-track" role="listbox" style="opacity: 1; width: 4400px;"><div class="cont_box slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide30" style="width: 400px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=796&amp;clturCntntsNo=142&amp;clturCntntsCode=11&amp;pageUnit=5&amp;pageIndex=3&amp;searchCnd=all" target="_blank" title="새창" tabindex="0">
+                            <img src="./청주시청_files/boast_img01.jpg" alt="고인쇄박물관">
+                            <strong class="title"><span>고인쇄박물관</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide31" style="width: 400px; position: relative; left: -400px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=796&amp;clturCntntsNo=189&amp;clturCntntsCode=11&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img02.jpg" alt="청남대">
+                            <strong class="title"><span>청남대</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide32" style="width: 400px; position: relative; left: -800px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=796&amp;clturCntntsNo=143&amp;clturCntntsCode=11&amp;pageUnit=5&amp;pageIndex=3&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img03.jpg" alt="상당산성">
+                            <strong class="title"><span>상당산성</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide33" style="width: 400px; position: relative; left: -1200px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=797&amp;clturCntntsNo=152&amp;clturCntntsCode=12&amp;pageUnit=5&amp;pageIndex=3&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img04.jpg" alt="수암골">
+                            <strong class="title"><span>수암골</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide34" style="width: 400px; position: relative; left: -1600px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=796&amp;clturCntntsNo=188&amp;clturCntntsCode=11&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img05.jpg" alt="문의문화재단지">
+                            <strong class="title"><span>문의문화재단지</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide35" style="width: 400px; position: relative; left: -2000px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=798&amp;clturCntntsNo=163&amp;clturCntntsCode=13&amp;pageUnit=5&amp;pageIndex=7&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img06.jpg" alt="가로수길">
+                            <strong class="title"><span>가로수길</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide36" style="width: 400px; position: relative; left: -2400px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=798&amp;clturCntntsNo=192&amp;clturCntntsCode=13&amp;pageUnit=5&amp;pageIndex=5&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img07.jpg" alt="대청댐">
+                            <strong class="title"><span>대청댐</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide37" style="width: 400px; position: relative; left: -2800px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=798&amp;clturCntntsNo=168&amp;clturCntntsCode=13&amp;pageUnit=5&amp;pageIndex=6&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img08.jpg" alt="무심천">
+                            <strong class="title"><span>무심천</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide38" style="width: 400px; position: relative; left: -3200px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=796&amp;clturCntntsNo=144&amp;clturCntntsCode=11&amp;pageUnit=5&amp;pageIndex=3&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img09.jpg" alt="국립청주박물관">
+                            <strong class="title"><span>국립청주박물관</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="9" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide39" style="width: 400px; position: relative; left: -3600px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=798&amp;clturCntntsNo=209&amp;clturCntntsCode=13&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img10.jpg" alt="옥화자연휴양림">
+                            <strong class="title"><span>옥화자연휴양림</span></strong>
+                        </a>
+                    </div><div class="cont_box slick-slide" data-slick-index="10" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide310" style="width: 400px; position: relative; left: -4000px; top: 0px; z-index: 998; opacity: 0;">
+                        <a href="https://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=798&amp;clturCntntsNo=165&amp;clturCntntsCode=13&amp;pageUnit=5&amp;pageIndex=7&amp;searchCnd=all" target="_blank" title="새창" tabindex="-1">
+                            <img src="./청주시청_files/boast_img11.jpg" alt="우암산">
+                            <strong class="title"><span>우암산</span></strong>
+                        </a>
+                    </div></div></div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: inline-block;">Next</button><ul class="slick-dots" role="tablist" style="display: block;"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation30" id="slick-slide30"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation31" id="slick-slide31"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation32" id="slick-slide32"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation33" id="slick-slide33"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation34" id="slick-slide34"><button type="button" data-role="none" role="button" tabindex="0">5</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation35" id="slick-slide35"><button type="button" data-role="none" role="button" tabindex="0">6</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation36" id="slick-slide36"><button type="button" data-role="none" role="button" tabindex="0">7</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation37" id="slick-slide37"><button type="button" data-role="none" role="button" tabindex="0">8</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation38" id="slick-slide38"><button type="button" data-role="none" role="button" tabindex="0">9</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation39" id="slick-slide39"><button type="button" data-role="none" role="button" tabindex="0">10</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation310" id="slick-slide310"><button type="button" data-role="none" role="button" tabindex="0">11</button></li></ul></div>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup2 -->
+    <div class="colgroup3">
+        <section class="culture_info">
+        <h2 class="skip">문화/축제 소개</h2>
+        <div class="slide_box clearfix slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+            
+		<div aria-live="polite" class="slick-list"><div class="slick-track" role="listbox" style="opacity: 1; width: 25000px; transform: translate3d(-1484px, 0px, 0px);"><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" tabindex="-1">
+			<a href="http://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=788&amp;clturCntntsNo=185&amp;clturCntntsCode=7&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180525035353360.jpg" alt="제16회 청원생명쌀 대청호마라톤대회 
+2018. 10. 7 (일) 08:00
+문의면 체육공원(청주시 상당구 대청호반 일원)">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1">
+			<a href="http://www.osongbeautyexpo.kr/" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413054740528.jpg" alt="화장품뷰티산업엑스포
+Cosmetics&amp;Beauty Expo Osong Korea 2018
+10.23(화)-10.27(토)
+청주 오송역 일원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
+			<a href="http://www.jikjikorea.com/" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413054344287.jpg" alt="2018 직지코리아 국제페스티벌
+2018 JIKJI KOREA INTERNATIONAL FESTIVAL
+2018.10.1.~2018.10.21.
+청주 직지문화특구 예술의전당 일원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+			<a href="https://www.cheongju.go.kr/ac/selectTnAhPblprfrListU3.do?key=16202" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413053950383.jpg" alt="청주예술의전당 공연일정 바로가기">
+			</a>
+		</div><div class="contents_box box03 slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide40">
+			<a href="http://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=788&amp;clturCntntsNo=183&amp;clturCntntsCode=7&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180612024315783.png" alt="청원생명축제
+10.5 ~ 10.14
+청주시 오창읍 미래지 농촌테마공원">
+			</a>
+		</div><div class="contents_box box03 slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide41">
+			<a href="http://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=788&amp;clturCntntsNo=185&amp;clturCntntsCode=7&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180525035353360.jpg" alt="제16회 청원생명쌀 대청호마라톤대회 
+2018. 10. 7 (일) 08:00
+문의면 체육공원(청주시 상당구 대청호반 일원)">
+			</a>
+		</div><div class="contents_box box03 slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide42">
+			<a href="http://www.osongbeautyexpo.kr/" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413054740528.jpg" alt="화장품뷰티산업엑스포
+Cosmetics&amp;Beauty Expo Osong Korea 2018
+10.23(화)-10.27(토)
+청주 오송역 일원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-current slick-active" data-slick-index="3" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide43">
+			<a href="http://www.jikjikorea.com/" target="_blank" title="새창" class="cont_box" tabindex="0">
+				<img src="./청주시청_files/20180413054344287.jpg" alt="2018 직지코리아 국제페스티벌
+2018 JIKJI KOREA INTERNATIONAL FESTIVAL
+2018.10.1.~2018.10.21.
+청주 직지문화특구 예술의전당 일원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide44">
+			<a href="https://www.cheongju.go.kr/ac/selectTnAhPblprfrListU3.do?key=16202" target="_blank" title="새창" class="cont_box" tabindex="0">
+				<img src="./청주시청_files/20180413053950383.jpg" alt="청주예술의전당 공연일정 바로가기">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned slick-active" data-slick-index="5" aria-hidden="false" tabindex="-1">
+			<a href="http://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=788&amp;clturCntntsNo=183&amp;clturCntntsCode=7&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" class="cont_box" tabindex="0">
+				<img src="./청주시청_files/20180612024315783.png" alt="청원생명축제
+10.5 ~ 10.14
+청주시 오창읍 미래지 농촌테마공원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned slick-active" data-slick-index="6" aria-hidden="false" tabindex="-1">
+			<a href="http://www.cheongju.go.kr/tour/selectClturCntntsView.do?key=788&amp;clturCntntsNo=185&amp;clturCntntsCode=7&amp;pageUnit=5&amp;pageIndex=1&amp;searchCnd=all" target="_blank" title="새창" class="cont_box" tabindex="0">
+				<img src="./청주시청_files/20180525035353360.jpg" alt="제16회 청원생명쌀 대청호마라톤대회 
+2018. 10. 7 (일) 08:00
+문의면 체육공원(청주시 상당구 대청호반 일원)">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" tabindex="-1">
+			<a href="http://www.osongbeautyexpo.kr/" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413054740528.jpg" alt="화장품뷰티산업엑스포
+Cosmetics&amp;Beauty Expo Osong Korea 2018
+10.23(화)-10.27(토)
+청주 오송역 일원">
+			</a>
+		</div><div class="contents_box box03 slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" tabindex="-1">
+			<a href="http://www.jikjikorea.com/" target="_blank" title="새창" class="cont_box" tabindex="-1">
+				<img src="./청주시청_files/20180413054344287.jpg" alt="2018 직지코리아 국제페스티벌
+2018 JIKJI KOREA INTERNATIONAL FESTIVAL
+2018.10.1.~2018.10.21.
+청주 직지문화특구 예술의전당 일원">
+			</a>
+		</div></div></div>
+	    
+		
+	    
+		
+	    
+		
+	    
+		
+	    
+        <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></div>
+    </section>
+    </div>
+    <!-- //colgroup3 -->
+    <div class="colgroup4">
+        <section class="related type3">
+            <h2 class="skip">청주 관련 사이트</h2>
+            <div class="cont_box">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=4131">전체사이트</a></li>
+                <li><a href="http://www.cjjob.net/" target="_blank" title="새창">일자리종합지원센터</a></li>
+                <li><a href="http://clean.cheongju.go.kr/" target="_blank" title="새창">대형폐기물</a></li>
+                <li><a href="http://www.cheongju.go.kr/ticket/index.do" target="_blank" title="새창">통합예약시스템</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=17249">세금공과금조회</a></li>
+                <li><a href="http://edu.cheongju.go.kr/edu/index.do" target="_blank" title="새창">정보화교육</a></li>
+                <li><a href="http://www.cheongju.go.kr/stat/index.do" target="_blank" title="새창">통계정보</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=273">청주시민신문</a></li>
+                <li><a href="http://kras.chungbuk.go.kr/land_info/info/baseInfo/baseInfo.do" target="_blank" title="새창">부동산종합정보</a></li>
+                <li><a href="http://www.cheongju.go.kr/safe/contents.do?key=1425" target="_blank" title="새창">민방위교육</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- //colgroup4 -->
+</div>
+<!-- //rowgroup -->
+
+    </div>
+    </div>
+</div>
+<!-- //문화/축제 -->
+
+</div>
+<!-- //tab_box -->
+
+<div class="sector_box">
+<div class="wrap">
+    <section class="sector">
+        <h2>
+            <span>실생활</span>
+            <strong>분야별정보</strong>
+        </h2>
+        <div class="contents_box">
+            <ul class="clearfix">
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=49&amp;key=3900">행정/민원</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=309">복지</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=377">보건/체육</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=418">환경</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=432">생활/안전</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/selectInhAuthPgmList.do?key=442">교육/취업</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=478">경제/농정</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=499">도시/부동산</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/tour/index.do" target="_blank" title="새창">문화관광</a></li>
+		<li class="cont_box"><a href="https://www.cheongju.go.kr/www/contents.do?key=534">도로교통</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+</div>
+<!-- //sector_box -->
+
+<div class="custom_box">
+<div class="wrap">
+    <section class="custom clearfix">
+        <h2 class="skip">맞춤 서비스</h2>
+        <div class="custom_list">
+            <div class="title_box"><h3><span>시민</span></h3></div>
+            <div class="contents_box">
+                <ul class="clearfix">
+                <li><a href="http://parking.cheongju.go.kr/" target="_blank" title="새창">자동차민원</a></li>
+                <li><a href="http://house.cheongju.go.kr/index.cj" target="_blank" title="새창">개별주택가격열람서비스</a></li>
+                <li><a href="http://gongsi.cheongju.go.kr:8080/project/main.php" target="_blank" title="새창">개별공시지가</a></li>
+                <li><a href="http://clean.cheongju.go.kr/" target="_blank" title="새창">대형폐기물배출신고</a></li>
+                <li><a href="http://cis.cheongju.go.kr:8282/" target="_blank" title="새창">소통팔달</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectInhAuthPgmList.do?key=442">주민자치프로그램</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectInhCnterInfo.do?key=548">읍면동주민센터찾기</a></li>
+                <li><a href="http://garo.cheongju.go.kr/index.cj" target="_blank" title="새창">가로등보안등고장접수</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=637&amp;key=7640">공동주택현황</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/naturalRegistView.do?key=8239">재난문자SMS신청</a></li>
+                <li><a href="http://parking.cheongju.go.kr/lost/main.do" target="_blank" title="새창">교통분실물신고센터</a></li>
+                <li><a href="http://dcbis.go.kr/w/index.jsp" target="_blank" title="새창">버스정보시스템</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="custom_list type2">
+            <div class="title_box"><h3><span>기업인</span></h3></div>
+            <div class="contents_box">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=132">계약/입찰정보</a></li>
+                <li><a href="https://www.cheongju.go.kr/tongsin/index.do" target="_blank" title="새창">통신민원정보</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=477">기업투자지원</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=478">경영안정자금지원</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectBbsNttList.do?bbsNo=629&amp;key=7634">기업애로 접수창구</a></li>
+                <li><a href="http://www.g4b.go.kr/svc/main.do" target="_blank" title="새창">기업지원플러스</a></li>
+                <li><a href="http://ebizcb.chungbuk.go.kr/index.do" target="_blank" title="새창">기업사랑센터</a></li>
+                <li><a href="http://www.k-startup.go.kr/main.do" target="_blank" title="새창">창업지원정보</a></li>
+                <li><a href="https://www.cheongju.go.kr/www/selectWebWhthrcEntrpsList.do?key=7373">청주시중소기업홍보관</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="custom_list type3">
+            <div class="title_box"><h3><span>관광객</span></h3></div>
+            <div class="contents_box">
+                <ul class="clearfix">
+                <li><a href="https://www.cheongju.go.kr/www/contents.do?key=7422">청주자랑100가지</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/contents.do?key=825" target="_blank" title="새창">청주의 맛집</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/contents.do?key=826" target="_blank" title="새창">교통안내</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/selectTurCntntsList.do?key=6974&amp;clturCntntsCode=10" target="_blank" title="새창">숙박안내</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/contents.do?key=809" target="_blank" title="새창">추천코스안내</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/selectTursmBkletList.do?key=820" target="_blank" title="새창">관광홍보책자신청</a></li>
+                <li><a href="https://www.cheongju.go.kr/tour/contents.do?key=801" target="_blank" title="새창">시티투어</a></li>
+                <li><a href="https://www.cheongju.go.kr/readygo/index.do" target="_blank" title="새창">레디고청주</a></li>
+                <li><a href="http://www.cheongju.go.kr/jikjiworld/index.do" target="_blank" title="새창">고인쇄박물관</a></li>
+                <li><a href="http://cmoa.cheongju.go.kr/" target="_blank" title="새창">미술관</a></li>
+                <li><a href="http://chnam.chungbuk.go.kr/" target="_blank" title="새창">청남대</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+<!-- //custom_box -->
+
+</main>
+<!-- //container -->
+
+<hr>
+
+<hr>
+
+<section class="banner">
+    <div class="wrap">
+        <h2 class="h0">배너모음</h2>
+        <div class="banner_control clearfix">
+            <button class="button_prev">이전 배너 보기</button>
+            <button class="button_ctrl pause">배너 롤링 정지</button>
+            <button class="button_next">다음 배너 보기</button>
+        </div>
+        <div class="banner_wrap">
+            <ul class="banner_list clearfix" style="left: 0px;">
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+			
+				
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+			
+				
+			
+			
+		
+            <li><a href="https://open.gdoc.go.kr/" title="새창" target="_blank"><img src="./청주시청_files/20180726044316162.png" style="width:130px;height:40px;" alt="온라인 공문제출 문서24로 제출하세요"></a></li><li><a href="https://www.consumer.go.kr/" title="새창" target="_blank"><img src="./청주시청_files/20180705060654787.jpg" style="width:130px;height:40px;" alt="행복드림 열린소비자 포털"></a></li><li><a href="http://uni.agrix.go.kr/webportal/apply/riceIncomeInfoLoginRB.do" title="새창" target="_blank"><img src="./청주시청_files/20180621091458294.jpg" style="width:130px;height:40px;" alt="2018년 쌀·밭·조건불리 직불제 정보열람"></a></li><li><a href="http://www.cheongju.go.kr/www/popup/2018_safe_sosang.pdf" title="새창" target="_blank"><img src="./청주시청_files/20180517063157480.jpg" style="width:130px;height:40px;" alt="소상공인 상가ㆍ공장 풍수해보험"></a></li><li><a href="http://www.cheongju.go.kr/www/popup/2018_safe.pdf" title="새창" target="_blank"><img src="./청주시청_files/20180511024624257.jpg" style="width:130px;height:40px;" alt="풍수해보험"></a></li><li><a href="http://www.safetv.go.kr/" title="새창" target="_blank"><img src="./청주시청_files/20180508023454827.jpg" style="width:130px;height:40px;" alt="국민안전방송 안전한-TV"></a></li><li><a href="http://www.koroad.or.kr/kp_web/safeDrvDrnk1.do" title="새창" target="_blank"><img src="./청주시청_files/20180504023735263.jpg" style="width:130px;height:40px;" alt="도로교통공단 충북지부"></a></li><li><a href="http://1398.acrc.go.kr/hpg/req/hpgPsmStep1.do" title="새창" target="_blank"><img src="./청주시청_files/20180314104135309.jpg" style="width:130px;height:40px;" alt="공공기관 채용비리 신고
+국민콜 110 또는 1398"></a></li><li><a href="http://www.safemap.go.kr/" title="새창" target="_blank"><img src="./청주시청_files/20180314103817426.jpg" style="width:130px;height:40px;" alt="8대분야 전국 서비스 오픈
+생활안전지도"></a></li><li><a href="https://www.hrdb.go.kr/OpenRecommend/index" title="새창" target="_blank"><img src="./청주시청_files/20180831115417629.jpg" style="width:130px;height:40px;" alt="국민추천제, 국가인재를 추천해주세요"></a></li><li><a href="https://www.laiis.go.kr/pegasusIndex.do?athena.pegasus.menuid=AHlbAAAAr3bzgQAg$$__system&amp;AgsSelPos=left&amp;AgsSelCont=AHlbAAAAyl1xPwAE$$__system&amp;AgsSelPosRoot=MiddleTopMenu_Lips&amp;dynamic=false&amp;fromtop=tru" title="새창" target="_blank"><img src="./청주시청_files/20180827045110809.jpg" style="width:130px;height:40px;" alt="중앙부처 법령 유권해석"></a></li><li><img src="./청주시청_files/20180820061333239.jpg" style="width:130px;height:40px;padding: 15px 0 0 0;" alt="제2161부대 전술훈련평가
+거동수사자 발견시 국번 없이 1338
+훈련기간 : 9. 3.(월)~7.(금)"></li><li><a href="http://www.nongsaro.go.kr/" title="새창" target="_blank"><img src="./청주시청_files/20180813050903325.jpg" style="width:130px;height:40px;" alt="농업기술포털-농사로"></a></li><li><a href="https://1398.acrc.go.kr/hpg/psm/hpgPsmStep1.do" title="새창" target="_blank"><img src="./청주시청_files/20180808060847020.jpg" style="width:130px;height:40px;" alt="평범한 우리가 세상을 바꾸는 방법, 공익신고"></a></li><li><a href="http://www.civicedu.go.kr/contest" title="새창" target="_blank"><img src="./청주시청_files/20180806021034600.jpg" style="width:130px;height:40px;" alt="2018 선거제도 및 선거사무 개선 아이디어 공모전"></a></li></ul>
+        </div>
+        <a href="http://www.cheongju.go.kr/www/selectBannerZoneItemList.do?key=591&amp;bannerZoneNo=7&amp;searchShowSe=always" class="more">배너모음 더보기</a>
+    </div>
+</section>
+<!-- //배너모음  -->
+
+<hr>
+
+<footer id="footer">
+    <div class="wrap">
+        <div class="footer_banner">
+            <h2 class="skip">관련기관 바로가기</h2>
+            <ul class="clearfix">
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">청주시부서/사업소</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/jiksok/index.do">직속부서</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gihoek/index.do">경제투자실</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/anjeon/index.do">행정지원국</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bokji/index.do">복지교육국</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/munwhayesul/index.do">문화체육관광국</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/nongjeong/index.do">농업정책국</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/dosi/index.do">안전도시주택국</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/geonseol/index.do">건설교통본부</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sdhealth/index.do">상당보건소</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/swhealth/index.do">서원보건소</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/hdhealth/index.do">흥덕보건소</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/cwhealth/index.do">청원보건소</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/nongup/index.do">농업기술센터</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sangsudo/index.do">상수도사업본부</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/ac/index.do">청주예술의전당</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/jikjiworld/index.do">고인쇄박물관</a></li>
+			<li><a title="새창" target="_blank" href="http://cle.cheongju.go.kr/">도서관평생학습본부</a></li>
+			<li><a title="새창" target="_blank" href="http://lll.cheongju.go.kr/">평생학습관</a></li>
+			<li><a title="새창" target="_blank" href="http://library.cheongju.go.kr/">청주시도서관</a></li>
+			<li><a title="새창" target="_blank" href="http://cmoa.cheongju.go.kr/">청주시립미술관</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/environment/index.do">환경관리본부</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/land/index.do">청주랜드관리사업소</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/car/index.do">차량등록사업소</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/safe/index.do">재난안전대책본부</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/citydevelop/index.do">도시개발사업단</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">상당구청/면동</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sangdang/index.do">상당구청</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/nangseong/index.do">낭성면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/miwon/index.do">미원면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gadeok/index.do">가덕면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/namil/index.do">남일면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/munui/index.do">문의면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/jungang/index.do">중앙동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/seong-an/index.do">성안동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/tap-daeseong/index.do">탑/대성동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/yeongun/index.do">영운동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/geumcheon/index.do">금천동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/yongdam/index.do">용담/명암/산성동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/yongam1/index.do">용암1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/yongam2/index.do">용암2동</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">서원구청/면동</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/seowon/index.do">서원구청</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/nami/index.do">남이면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/hyeondo/index.do">현도면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sajik1/index.do">사직1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sajik2/index.do">사직2동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sachang/index.do">사창동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/mochung/index.do">모충동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sugok1/index.do">수곡1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sugok2/index.do">수곡2동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/sannam/index.do">산남동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bunpyeong/index.do">분평동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/seonghwa/index.do">성화/개신/죽림동</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">흥덕구청/면동</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/heungdeok/index.do">흥덕구청</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/osong/index.do">오송읍</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gangnae/index.do">강내면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/oksan/index.do">옥산면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/uncheon/index.do">운천/신봉동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bokdae1/index.do">복대1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bokdae2/index.do">복대2동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gagyeong/index.do">가경동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bongmyeong1/index.do">봉명1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bongmyeong2/index.do">봉명2동/송정동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gangseo1/index.do">강서1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/gangseo2/index.do">강서2동</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">청원구청/면동</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/cheongwon/index.do">청원구청</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/naesu/index.do">내수읍</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/ochang/index.do">오창읍</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/bugi/index.do">북이면</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/uam/index.do">우암동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/naedeok1/index.do">내덕1동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/naedeok2/index.do">내덕2동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/yulyang/index.do">율량/사천동</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/ogeunjang/index.do">오근장동</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="contents_box">
+                <a href="https://www.cheongju.go.kr/www/index.do" class="tit">관련사이트</a>
+                <div class="cont_box">
+                    <ul class="clearfix">
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/market/index.do">농수산물도매시장</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/stat/index.do">통계정보</a></li>
+			<li><a title="새창" target="_blank" href="http://musimi.cheongju.go.kr/">무심워터월드</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/child/index.do">어린이홈페이지</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cjwf.net/main.php">청주복지재단</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/wonheungi/index.do">원흥이두꺼비생태공원</a></li>
+			<li><a title="새창" target="_blank" href="http://photo.cheongju.go.kr/">청주시포토갤러리</a></li>
+			<li><a title="새창" target="_blank" href="https://www.cheongju.go.kr/readygo/index.do">레디고청주</a></li>
+			<li><a title="새창" target="_blank" href="http://cheongju.grandculture.net/?local=cheongju">디지털청주문화대전</a></li>
+			<li><a title="새창" target="_blank" href="http://cjsisul.or.kr/">청주시시설관리공단</a></li>
+			<li><a title="새창" target="_blank" href="http://cjcity.evermbc.com/p12/site/Do.jsp?menuSeq=215">청주시사이버평생교육원</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/bio/index.do">청원생명축제</a></li>
+			<li><a title="새창" target="_blank" href="http://edu.cheongju.go.kr/">정보화교육</a></li>
+			<li><a title="새창" target="_blank" href="http://www.purushop.com/">청원생명쇼핑몰</a></li>
+			<li><a title="새창" target="_blank" href="http://race.cjsports.or.kr/">대청호마라톤</a></li>
+			<li><a title="새창" target="_blank" href="http://1388cw.or.kr/main.php">청소년상담복지센터</a></li>
+			<li><a title="새창" target="_blank" href="http://okhwa.cheongju.go.kr/">옥화자연휴양림</a></li>
+			<li><a title="새창" target="_blank" href="http://www.ochangcmc.or.kr/">오창과학산업단지</a></li>
+			<li><a title="새창" target="_blank" href="http://osong.mohw.go.kr/">오송생명과학단지</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cjmh.or.kr/">청주문화원</a></li>
+			<li><a title="새창" target="_blank" href="http://chnam.cb21.net/index.jsp">청남대</a></li>
+			<li><a title="새창" target="_blank" href="http://toy.cheongju.go.kr/">장난감대여</a></li>
+			<li><a title="새창" target="_blank" href="http://pd.invil.org/">평동전통떡정보화마을</a></li>
+			<li><a title="새창" target="_blank" href="http://godmee.cheongju.go.kr/">청원고드미마을</a></li>
+			<li><a title="새창" target="_blank" href="http://godmee.invil.org/">고드미정보화마을</a></li>
+			<li><a title="새창" target="_blank" href="http://greenfrog.invil.org/">청개구리쌀정보화마을</a></li>
+			<li><a title="새창" target="_blank" href="http://malmi.cheongju.go.kr/">말미장터마을</a></li>
+			<li><a title="새창" target="_blank" href="http://bulat.cheongju.go.kr/">문의벌랏한지마을</a></li>
+			<li><a title="새창" target="_blank" href="http://obaksa.co.kr/">오박사마을</a></li>
+			<li><a title="새창" target="_blank" href="http://lotus.cheongju.go.kr/">강내연꽃마을</a></li>
+			<li><a title="새창" target="_blank" href="http://junhaul.cheongju.go.kr/">전하울산촌생태마을</a></li>
+			<!--<li><a title="새창" target="_blank" href="http://ungyo.cheongju.go.kr">운교마을</a></li>-->
+			<li><a title="새창" target="_blank" href="http://eoam.cheongju.go.kr/">어암리산촌생태마을</a></li>
+			<li><a title="새창" target="_blank" href="http://garo.cheongju.go.kr/">가로등 보안등관리시스템</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cheongju.go.kr/sorori/index.do">청주소로리볍씨</a></li>
+			<li><a title="새창" target="_blank" href="http://cjhappycall.or.kr/">청주해피콜 이동지원센터</a></li>
+			<li><a title="새창" target="_blank" href="http://www.cjculture.org/home/main.php">청주시문화산업진흥재단</a></li>
+			<li><a title="새창" target="_blank" href="http://www.curs.or.kr/">청주시도시재생지원센터</a></li>
+			<li><a title="새창" target="_blank" href="http://aml.cheongju.go.kr/">농기계임대사업</a></li>
+			<li><a title="새창" target="_blank" href="http://www.xn--wv4b34f9qb83g.kr/">모범음식점</a></li>
+                        <li><a title="새창" target="_blank" href="http://eng.meditour.chungbuk.go.kr/">의료관광안내</a></li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+        </div>
+        <div class="footer_nav">
+            <ul class="clearfix">
+		<li><a href="https://www.cheongju.go.kr/www/contents.do?key=586">저작권보호정책</a></li>
+		<li><a href="https://www.cheongju.go.kr/www/contents.do?key=587" class="privacy">개인정보처리방침</a></li>
+		<li><a href="https://www.cheongju.go.kr/www/contents.do?key=593">뷰어다운로드</a></li>
+		<li><a title="파일 다운로드" target="_blank" href="https://www.cheongju.go.kr/www/download/cj_numbers.pdf">행정전화번호부</a></li>
+		<!--<li><a title="파일 다운로드" target="_blank" href="/www/download/cj_number_01.pdf">경제총조사상황실전화번호</a></li>-->
+		<li><a href="https://www.cheongju.go.kr/www/sub.do?key=589">사이트맵</a></li>
+		<li><a href="https://www.cheongju.go.kr/www/contents.do?key=581">찾아오시는길</a></li>
+		<li class="login_m"><a href="https://m.cheongju.go.kr/common/loginPage.do?mId=9710" target="_blank" title="새창">직원로그인</a></li>
+		<li class="schedule_m"><a href="http://schedule.cheongju.go.kr/xwcms/userScheduleCalendar.do" target="_blank" title="새창">전체일정보기</a></li>
+            </ul>
+        </div>
+        <div class="footer_info">
+            <div class="call_center">
+                <strong>201-0001</strong>
+                <span>365생활민원콜센터</span>
+            </div>
+            <div class="add">
+                <address>[28542] 충청북도 청주시 상당구 상당로 155 (북문로3가)</address>
+                <span class="call"><span>대표전화 : 043-201-0001</span></span>
+            </div>
+            <p class="copy">Copyright ⓒ 1998-2017 Cheongju City. All Rights Reserved.</p>
+            <p class="footer_warning">본 웹사이트에 게시된 이메일 주소가 자동수집되는 것을 거부하며, <br>위반시 "정보통신망법"에 의해 처벌됨을 유념하시기 바랍니다.</p>
+        </div>
+        <div class="footer_other">
+            <img src="./청주시청_files/wa.png" alt="웹접근성 품질인증마크">
+        </div>
+    </div>
+</footer>
+<!-- //footer -->
+
+<!-- 추천검색어 -->
+
+
+<script>
+	// 추천검색어
+	$(document).ready(function() {
+		var str = new Array("시티투어", "직지코리아", "청원생명축제");	
+
+		var str2 = "";
+		for( var i =0; i < str.length; i++ ) {
+			str2 += "<a href=\"http://search.cheongju.go.kr/search.jsp?collection=ALL&query=" + encodeURI(str[i]) + "\">" + str[i] + "</a>";
+		}
+
+		$(".popular").html(str2);
+	});
+</script>
+
+<script>/* CLICKZONE SCRIPT V.V.4 *//*X*//* COPYRIGHT 2002-2017 BIZSPRING INC. *//*X*//* DO NOT MODIFY THIS SCRIPT. *//*X*/var _CZN="1"; </script>
+<script defer="defer" src="./청주시청_files/InsightClickZone.js.다운로드"></script>
+<script src="./청주시청_files/8301_www.js.다운로드"></script><script src="https://27.101.139.168/InsightTrk/guuidSkeleton.do?guuid=1a88a424471a500d6303c7053c692da4_17061&amp;domain=www.cheongju.go.kr&amp;callback=insightTracker_callback_65780"></script>
+<script src="./청주시청_files/ric.js.다운로드"></script>
+
+
+
+
+</body></html>
