@@ -205,10 +205,14 @@ body{
 	-webkit-transition: .3s;
 	transition: .3s;
 	vertical-align: middle;
+	font-weight: 600;
+	font-family: 'Sunflower', sans-serif;
+
 }
 .nav li.active a{
-	background:pink;
-	border-radius: 50%;
+	background:rgb(255, 203, 212);
+	border-radius: 15px;
+	color: #fff;
 }
 #nav-icon1{
 	position: relative;
