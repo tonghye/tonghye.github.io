@@ -455,6 +455,9 @@ body{
 .page2 .slider .business a{
 	background: url(../images/business1.png) 50% 0% no-repeat #4d9cb7;
 }
+.page2 .slider .business1 a{
+	background: url(../images/business1-1.png) 50% 0% no-repeat #fff677;
+}
 .page2 .slider .sitem img{
 	position: absolute;
 	bottom: 15px;
