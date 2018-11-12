@@ -210,10 +210,21 @@ body{
 
 }
 .nav li.active a{
+	display: inline-block;
 	background:rgb(255, 203, 212);
 	border-radius: 15px;
 	color: #fff;
 }
+.nav .nav1 a{
+	background: url(../images/home.png) 50% 50%;
+	background-size: 30px;
+}
+.nav .nav1.active a{
+	background: url(../images/home1.png);
+} 
+.nav .nav2.active{} 
+.nav .nav3.active{} 
+.nav .nav4.active{} 
 #nav-icon1{
 	position: relative;
 	width: 40px;
@@ -831,6 +842,7 @@ body{
 		font-size: 13vw;
 		text-align: center;
 		background-position: 50% 50%;
+		top: 30px;
 	}
 	.page1 .info span{
 		font-size: 3.5vw;
