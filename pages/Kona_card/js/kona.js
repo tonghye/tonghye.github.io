@@ -1,14 +1,14 @@
 // memu tab
-// $('.menu').each(function(i, e){
-//     $(e).find('li').on('click', function(){
-//        var idx = $(this).index();
-//        $(e).find('li').eq(idx).addClass('menu_on').siblings().removeClass('menu_on');
-//        return false;
-//     });
-// });
-$('.menu').find('li').on('click',function(){
-    $('li').toggleClass('menu_on');
+$('.menu').each(function(i, e){
+    $(e).find('li').on('click', function(){
+       var idx = $(this).index();
+       $(e).find('li').eq(idx).addClass('menu_on').siblings().removeClass('menu_on');
+       return false;
+    });
 });
+/* $('.menu').find('li').on('click',function(){
+    $('li').toggleClass('menu_on');
+}); */
 
 // Q&A list
 $('.tblist').each(function(i, e){
@@ -18,7 +18,7 @@ $('.tblist').each(function(i, e){
        return true;
     });
     $(".tb_on").click(function(){ 
-        $("dd").toggle("slow"); 
+        $("dd").toggleClass("slow"); 
     }); 
 });
 
