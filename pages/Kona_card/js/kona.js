@@ -14,7 +14,7 @@ $('.menu').each(function(i, e){
 $('.tblist').each(function(i, e){
     $(e).find('dl').on('click', function(){
        var idx = $(this).index();
-       $(e).find('dl').eq(idx).addClass('tb_on').siblings().removeClass('tb_on');
+       $(e).find('dl').eq(idx).toggleClass('tb_on').siblings().removeClass('tb_on');
        return true;
     });
     $(".tb_on").click(function(){ 
