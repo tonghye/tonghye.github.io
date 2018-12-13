@@ -1,0 +1,99 @@
+body {
+  width: 100%;
+  height: auto;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+}
+.header .headerwrap {
+  width: 100%;
+  min-width: 770px;
+  margin: 0 auto;
+}
+.tophead {
+  width: 100%;
+  height: 30px;
+  background-color: #000;
+}
+.tophead a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 4.5px;
+}
+.tophead a span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.opts {
+  width: 60%;
+  height: 25px;
+  margin: 0 auto;
+}
+.logo {
+  width: 100%;
+}
+.logo h1 {
+  display: block;
+  height: 23px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.logo h1 img {
+  height: 23px;
+  margin-left: 20px;
+}
+.contents {
+  padding-top: 150px;
+}
+.contents div a img {
+  width: 100%;
+}
+.contents .box3 {
+  width: 73%;
+  margin: 0 auto;
+}
+.contents .box3 .imgs a {
+  width: 100%;
+}
+.contents .box3 .imgs a img {
+  display: block;
+  width: calc(33.33333333%);
+  float: left;
+}
+.contents .box3 .imgs a img::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.contents .box3 .titles a {
+  display: inline-block;
+  width: 100%;
+}
+.contents .box3 .titles a span {
+  display: inline-block;
+  width: calc(33.33333333%);
+  float: left;
+  padding: 10px 0 30px 0;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 14px;
+}
+.contents .box3 .titles a span::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.contents .box5 .bx-wrapper {
+  border: 0;
+  box-shadow: none!important;
+  -webkit-box-shadow: 0;
+}
